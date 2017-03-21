@@ -73,7 +73,7 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-		$class_names = ' class="' . esc_attr( $class_names ) . '"';
+		$class_names = ' class="nav-item ' . esc_attr( $class_names ) . '"';
 
 		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';

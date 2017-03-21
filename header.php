@@ -9,8 +9,8 @@
 
   <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> -->
 
-  <link rel="stylesheet" href="<?php echo $rootpath?>/wp-content/themes/wpbs4-1.0/bootstrap4/dist/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="<?php echo $rootpath?>/wp-content/themes/wpbs4-1.0/style.css">
+  <link rel="stylesheet" href="<?php echo $rootpath?>/wp-content/themes/lean-wpbs4/bootstrap4/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo $rootpath?>/wp-content/themes/lean-wpbs4/style.css">
 
   <script>
     var _hmt = _hmt || [];
@@ -31,7 +31,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"  ><?php bloginfo( 'name' ); ?></a>
+    <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <?php
