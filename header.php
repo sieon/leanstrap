@@ -24,7 +24,7 @@
 
   <?php wp_head(); ?>
 </head>
-<body body_class( $class ); >
+<body>
 
   <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary" id="primary-navbar" role="navigation">
 
@@ -41,7 +41,7 @@
                   'menu_class' => 'navbar-nav',
                   'fallback_cb' => '',
                               'menu_id' => 'main-menu',
-                              'walker' => new Lean_Walker_Nav_Menu());
+                              'walker' => new Upbootwp_Walker_Nav_Menu());
           wp_nav_menu($args);
       ?>
     </div>

@@ -128,9 +128,9 @@ var Collapse = function ($) {
         }
       }
 
-      var leanEvent = $.Event(Event.SHOW);
-      $(this._element).trigger(leanEvent);
-      if (leanEvent.isDefaultPrevented()) {
+      var startEvent = $.Event(Event.SHOW);
+      $(this._element).trigger(startEvent);
+      if (startEvent.isDefaultPrevented()) {
         return;
       }
 
@@ -188,9 +188,9 @@ var Collapse = function ($) {
         return;
       }
 
-      var leanEvent = $.Event(Event.HIDE);
-      $(this._element).trigger(leanEvent);
-      if (leanEvent.isDefaultPrevented()) {
+      var startEvent = $.Event(Event.HIDE);
+      $(this._element).trigger(startEvent);
+      if (startEvent.isDefaultPrevented()) {
         return;
       }
 

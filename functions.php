@@ -1,8 +1,8 @@
 <?php
 /**
- * lean functions and definitions
+ * start functions and definitions
  *
- * @package lean
+ * @package start
  */
 
 
@@ -10,7 +10,7 @@
   * WordPress 修改时间的显示格式为几天前
   * https://www.wpdaxue.com/time-ago.html
   */
- function Lean_filter_time(){
+ function Bing_filter_time(){
  	global $post ;
  	$to = time();
  	$from = get_the_time('U') ;
@@ -20,31 +20,31 @@
  		if ($mins <= 1) {
  			$mins = 1;
  		}
- 		$time = sprintf(_n('%s 分钟', '%s 分钟', $mins), $mins) . __( '前' , 'Lean' );
+ 		$time = sprintf(_n('%s 分钟', '%s 分钟', $mins), $mins) . __( '前' , 'Bing' );
  	}
  	else if (($diff <= 86400) && ($diff > 3600)) {
  		$hours = round($diff / 3600);
  		if ($hours <= 1) {
  			$hours = 1;
  		}
- 		$time = sprintf(_n('%s 小时', '%s 小时', $hours), $hours) . __( '前' , 'Lean' );
+ 		$time = sprintf(_n('%s 小时', '%s 小时', $hours), $hours) . __( '前' , 'Bing' );
  	}
  	elseif ($diff >= 86400) {
  		$days = round($diff / 86400);
  		if ($days <= 1) {
  			$days = 1;
- 			$time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Lean' );
+ 			$time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
  		}
  		elseif( $days > 29){
  			$time = get_the_time(get_option('date_format'));
  		}
  		else{
- 			$time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Lean' );
+ 			$time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
  		}
  	}
  	return $time;
  }
- add_filter('the_time','Lean_filter_time');
+ add_filter('the_time','Bing_filter_time');
 
 
  // add custom active class in menu items 多余的 active
@@ -102,7 +102,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( 'lean_setup' ) ) :
+if ( ! function_exists( 'start_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -110,16 +110,16 @@ if ( ! function_exists( 'lean_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function lean_setup() {
-	require 'inc/class-Lean_Walker_Nav_Menu.php';
+function start_setup() {
+	require 'inc/class-Upbootwp_Walker_Nav_Menu.php';
 	require 'inc/comment.php';
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on lean, use a find and replace
-	 * to change 'lean' to the name of your theme in all the template files
+	 * If you're building a theme based on start, use a find and replace
+	 * to change 'start' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'lean', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'start', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -141,7 +141,7 @@ function lean_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'lean' ),
+		'primary' => esc_html__( 'Primary Menu', 'start' ),
 	) );
 
 	/*
@@ -154,22 +154,22 @@ function lean_setup() {
 
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'lean_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'start_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 }
-endif; // lean_setup
-add_action( 'after_setup_theme', 'lean_setup' );
+endif; // start_setup
+add_action( 'after_setup_theme', 'start_setup' );
 
 /**
  * Register widget area.
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function lean_widgets_init() {
+function start_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'lean' ),
+		'name'          => esc_html__( 'Sidebar', 'start' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -178,25 +178,25 @@ function lean_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 }
-add_action( 'widgets_init', 'lean_widgets_init' );
+add_action( 'widgets_init', 'start_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function lean_scripts() {
-	wp_enqueue_style( 'lean-style', get_stylesheet_uri() );
+function start_scripts() {
+	wp_enqueue_style( 'start-style', get_stylesheet_uri() );
 
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
 
-	wp_enqueue_script( 'lean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'start-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
-	wp_enqueue_script( 'lean-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'start-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'lean_scripts' );
+add_action( 'wp_enqueue_scripts', 'start_scripts' );
 
 
 function lean_get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $args = null ) {

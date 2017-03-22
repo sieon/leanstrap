@@ -230,7 +230,7 @@ const Carousel = (($) => {
       }
 
       if (this._config.pause === 'hover' &&
-        !('ontouchlean' in document.documentElement)) {
+        !('ontouchstart' in document.documentElement)) {
         $(this._element)
           .on(Event.MOUSEENTER, (event) => this.pause(event))
           .on(Event.MOUSELEAVE, (event) => this.cycle(event))

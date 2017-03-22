@@ -78,7 +78,7 @@
 
 // Button for toggling the navbar when in its collapsed state
 .navbar-toggler {
-  align-self: flex-lean; // Prevent toggler from growing to full width when it's the only visible navbar child
+  align-self: flex-start; // Prevent toggler from growing to full width when it's the only visible navbar child
   padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
   font-size: $navbar-toggler-font-size;
   line-height: 1;

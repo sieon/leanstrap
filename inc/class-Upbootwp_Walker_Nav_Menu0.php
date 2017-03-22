@@ -44,7 +44,7 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
     function start_lvl( &$output, $depth ) {
 
 		$indent = str_repeat( "\t", $depth );
-		$output	   .= "\n$indent<div class=\"dropdown-menu\">\n";
+		$output	   .= "\n$indent<ul class=\"dropdown-menu\">\n";
 
 	}
 
@@ -73,12 +73,12 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-		$class_names = ' class="nav-item ' . esc_attr( $class_names ) . '"';
+		$class_names = ' class="' . esc_attr( $class_names ) . '"';
 
 		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
 
-		$output .= $indent . '<li' . /*$id .*/ $value . $class_names . $li_attributes . '>';
+		$output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
 
 		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
 		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';

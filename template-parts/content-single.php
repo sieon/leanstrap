@@ -1,6 +1,6 @@
 <?php
 /**
- * @package lean
+ * @package start
  */
 ?>
 
@@ -9,7 +9,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<div class="entry-meta">
-			<?php lean_posted_on(); ?>
+			<?php start_posted_on(); ?>
 		</div><!-- .entry-meta -->
 
 		<?php the_post_thumbnail(); ?>
@@ -19,13 +19,13 @@
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'lean' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'start' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php lean_entry_footer(); ?>
+		<?php start_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

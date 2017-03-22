@@ -1,23 +1,23 @@
 ---
 layout: docs
 title: Introduction
-description: Get leaned with Bootstrap using the Bootstrap CDN and a template leaner page.
-group: getting-leaned
-redirect_from: "/getting-leaned/"
+description: Get started with Bootstrap using the Bootstrap CDN and a template starter page.
+group: getting-started
+redirect_from: "/getting-started/"
 ---
 
-Bootstrap is the world's most popular framework for building responsive, mobile-first sites and applications. Inside you'll find high quality HTML, CSS, and JavaScript to make leaning any project easier than ever.
+Bootstrap is the world's most popular framework for building responsive, mobile-first sites and applications. Inside you'll find high quality HTML, CSS, and JavaScript to make starting any project easier than ever.
 
-Here's how to quickly get leaned with the Bootstrap CDN and a template leaner page.
+Here's how to quickly get started with the Bootstrap CDN and a template starter page.
 
 ## Contents
 
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-## Quick lean
+## Quick start
 
-Looking to quickly add Bootstrap to your project? Use the Bootstrap CDN, provided for free by the folks at MaxCDN. Using a package manager or need to download the source files? [Head to the downloads page.]({{ site.baseurl }}/getting-leaned/download/)
+Looking to quickly add Bootstrap to your project? Use the Bootstrap CDN, provided for free by the folks at MaxCDN. Using a package manager or need to download the source files? [Head to the downloads page.]({{ site.baseurl }}/getting-started/download/)
 
 Copy-paste the stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
 
@@ -61,7 +61,7 @@ Be sure to have your pages set up with the latest design and development standar
 </html>
 {% endhighlight %}
 
-That's all you need for overall page requirements. Visit the [Layout docs]({{ site.baseurl }}/layout/overview/) or [our official examples]({{ site.baseurl }}/examples/) to lean laying out your site's content and components.
+That's all you need for overall page requirements. Visit the [Layout docs]({{ site.baseurl }}/layout/overview/) or [our official examples]({{ site.baseurl }}/examples/) to start laying out your site's content and components.
 
 ## Important globals
 
@@ -86,7 +86,7 @@ Bootstrap is developed *mobile first*, a strategy in which we optimize code for 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 {% endhighlight %}
 
-You can see an example of this in action in the [leaner template](#leaner-template).
+You can see an example of this in action in the [starter template](#starter-template).
 
 ### Box-sizing
 

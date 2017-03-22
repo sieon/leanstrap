@@ -14,7 +14,7 @@ The navbar is a wrapper that positions branding, navigation, and other elements 
 
 ## How it works
 
-Here's what you need to know before getting leaned with the navbar:
+Here's what you need to know before getting started with the navbar:
 
 - Navbars require a wrapping `.navbar` with `.navbar-toggleable-*` for responsive collapsing and [color scheme](#color-schemes) classes.
 - Navbars and their contents are fluid by default. Use [optional containers](#containers) to limit their horizontal width.

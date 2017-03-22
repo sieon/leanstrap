@@ -737,7 +737,7 @@ var Carousel = function ($) {
         });
       }
 
-      if (this._config.pause === 'hover' && !('ontouchlean' in document.documentElement)) {
+      if (this._config.pause === 'hover' && !('ontouchstart' in document.documentElement)) {
         $(this._element).on(Event.MOUSEENTER, function (event) {
           return _this4.pause(event);
         }).on(Event.MOUSELEAVE, function (event) {
@@ -1124,9 +1124,9 @@ var Collapse = function ($) {
         }
       }
 
-      var leanEvent = $.Event(Event.SHOW);
-      $(this._element).trigger(leanEvent);
-      if (leanEvent.isDefaultPrevented()) {
+      var startEvent = $.Event(Event.SHOW);
+      $(this._element).trigger(startEvent);
+      if (startEvent.isDefaultPrevented()) {
         return;
       }
 
@@ -1184,9 +1184,9 @@ var Collapse = function ($) {
         return;
       }
 
-      var leanEvent = $.Event(Event.HIDE);
-      $(this._element).trigger(leanEvent);
-      if (leanEvent.isDefaultPrevented()) {
+      var startEvent = $.Event(Event.HIDE);
+      $(this._element).trigger(startEvent);
+      if (startEvent.isDefaultPrevented()) {
         return;
       }
 
@@ -1438,7 +1438,7 @@ var Dropdown = function ($) {
         return false;
       }
 
-      if ('ontouchlean' in document.documentElement && !$(parent).closest(Selector.NAVBAR_NAV).length) {
+      if ('ontouchstart' in document.documentElement && !$(parent).closest(Selector.NAVBAR_NAV).length) {
 
         // if mobile we use a backdrop because click events don't delegate
         var dropdown = document.createElement('div');

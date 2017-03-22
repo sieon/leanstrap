@@ -302,7 +302,7 @@ $(function () {
     $(sectionHTML).appendTo('#qunit-fixture')
 
     var negativeHeight = -10
-    var leanOfSectionTwo = 101
+    var startOfSectionTwo = 101
 
     var scrollspyHTML = '<div id="content" style="height: 200px; overflow-y: auto;">'
         + '<div id="one" style="height: 100px;"/>'
@@ -328,7 +328,7 @@ $(function () {
           })
           .scrollTop(negativeHeight)
       })
-      .scrollTop(leanOfSectionTwo)
+      .scrollTop(startOfSectionTwo)
   })
 
   QUnit.test('should correctly select navigation element on backward scrolling when each target section height is 100%', function (assert) {

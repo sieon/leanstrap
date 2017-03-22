@@ -2,7 +2,7 @@
 layout: docs
 title: Build tools
 description: Details on how to use Bootstrap's included build tools to compile source code, run tests, and more.
-group: getting-leaned
+group: getting-started
 ---
 
 Bootstrap uses [Grunt](http://gruntjs.com) for its CSS and JavaScript build system and Jekyll for the written documentation. Our Gruntfile includes convenient methods for working with the framework, including compiling code, running tests, and more.
@@ -47,7 +47,7 @@ We maintain the list of browsers supported through Autoprefixer in a separate fi
 
 ## Local documentation
 
-Running our documentation locally requires the use of Jekyll, a decently flexible static site generator that provides us: basic includes, Markdown-based files, templates, and more. Here's how to get it leaned:
+Running our documentation locally requires the use of Jekyll, a decently flexible static site generator that provides us: basic includes, Markdown-based files, templates, and more. Here's how to get it started:
 
 1. Run through the [tooling setup](#tooling-setup) above to install Jekyll (the site builder) and other Ruby dependencies with `bundle install`.
 2. From the root `/bootstrap` directory, run `bundle exec jekyll serve` in the command line.

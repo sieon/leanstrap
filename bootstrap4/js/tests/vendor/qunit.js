@@ -338,7 +338,7 @@ QUnit.version = "2.0.1";
 
 extend( QUnit, {
 
-	// Call on lean of module test to prepend name to all tests
+	// Call on start of module test to prepend name to all tests
 	module: function( name, testEnvironment, executeNow ) {
 		var module, moduleFns;
 		var currentModule = config.currentModule;
@@ -416,28 +416,28 @@ extend( QUnit, {
 
 	only: only,
 
-	lean: function( count ) {
+	start: function( count ) {
 		var globalStartAlreadyCalled = globalStartCalled;
 
 		if ( !config.current ) {
 			globalStartCalled = true;
 
 			if ( runStarted ) {
-				throw new Error( "Called lean() while test already leaned running" );
+				throw new Error( "Called start() while test already started running" );
 			} else if ( globalStartAlreadyCalled || count > 1 ) {
-				throw new Error( "Called lean() outside of a test context too many times" );
-			} else if ( config.autolean ) {
-				throw new Error( "Called lean() outside of a test context when " +
-					"QUnit.config.autolean was true" );
+				throw new Error( "Called start() outside of a test context too many times" );
+			} else if ( config.autostart ) {
+				throw new Error( "Called start() outside of a test context when " +
+					"QUnit.config.autostart was true" );
 			} else if ( !config.pageLoaded ) {
 
 				// The page isn't completely loaded yet, so bail out and let `QUnit.load` handle it
-				config.autolean = true;
+				config.autostart = true;
 				return;
 			}
 		} else {
 			throw new Error(
-				"QUnit.lean cannot be called inside a test context. This feature is removed in " +
+				"QUnit.start cannot be called inside a test context. This feature is removed in " +
 				"QUnit 2.0. For async tests, use QUnit.test() with assert.async() instead.\n" +
 				"Details in our upgrade guide at https://qunitjs.com/upgrade-guide-2.x/"
 			);
@@ -461,16 +461,16 @@ extend( QUnit, {
 		extend( config, {
 			stats: { all: 0, bad: 0 },
 			moduleStats: { all: 0, bad: 0 },
-			leaned: 0,
+			started: 0,
 			updateRate: 1000,
-			autolean: true,
+			autostart: true,
 			filter: ""
 		}, true );
 
 		if ( !runStarted ) {
 			config.blocking = false;
 
-			if ( config.autolean ) {
+			if ( config.autostart ) {
 				scheduleBegin();
 			}
 		}
@@ -503,10 +503,10 @@ function begin() {
 		modulesLog = [];
 
 	// If the test run hasn't officially begun yet
-	if ( !config.leaned ) {
+	if ( !config.started ) {
 
 		// Record the time of the test run's beginning
-		config.leaned = now();
+		config.started = now();
 
 		// Delete the loose unnamed module if unused.
 		if ( config.modules[ 0 ].name === "" && config.modules[ 0 ].tests.length === 0 ) {
@@ -536,12 +536,12 @@ function process( last ) {
 	function next() {
 		process( last );
 	}
-	var lean = now();
+	var start = now();
 	config.depth = ( config.depth || 0 ) + 1;
 
 	while ( config.queue.length && !config.blocking ) {
 		if ( !defined.setTimeout || config.updateRate <= 0 ||
-				( ( now() - lean ) < config.updateRate ) ) {
+				( ( now() - start ) < config.updateRate ) ) {
 			if ( config.current ) {
 
 				// Reset async tracking for each phase of the Test lifecycle
@@ -572,12 +572,12 @@ function done() {
 			failed: config.moduleStats.bad,
 			passed: config.moduleStats.all - config.moduleStats.bad,
 			total: config.moduleStats.all,
-			runtime: now() - config.moduleStats.leaned
+			runtime: now() - config.moduleStats.started
 		} );
 	}
 	delete config.previousModule;
 
-	runtime = now() - config.leaned;
+	runtime = now() - config.started;
 	passed = config.stats.all - config.stats.bad;
 
 	runLoggingCallbacks( "done", {
@@ -662,11 +662,11 @@ Test.prototype = {
 					failed: config.moduleStats.bad,
 					passed: config.moduleStats.all - config.moduleStats.bad,
 					total: config.moduleStats.all,
-					runtime: now() - config.moduleStats.leaned
+					runtime: now() - config.moduleStats.started
 				} );
 			}
 			config.previousModule = this.module;
-			config.moduleStats = { all: 0, bad: 0, leaned: now() };
+			config.moduleStats = { all: 0, bad: 0, started: now() };
 			runLoggingCallbacks( "moduleStart", {
 				name: this.module.name,
 				tests: this.module.tests
@@ -683,7 +683,7 @@ Test.prototype = {
 		}
 		this.testEnvironment = extend( {}, this.module.testEnvironment );
 
-		this.leaned = now();
+		this.started = now();
 		runLoggingCallbacks( "testStart", {
 			name: this.testName,
 			module: this.module.name,
@@ -716,7 +716,7 @@ Test.prototype = {
 			// Else next test will carry the responsibility
 			saveGlobal();
 
-			// Relean the tests if they're blocking
+			// Restart the tests if they're blocking
 			if ( config.blocking ) {
 				internalRecover( this );
 			}
@@ -805,7 +805,7 @@ Test.prototype = {
 			skipped = !!this.skip,
 			bad = 0;
 
-		this.runtime = now() - this.leaned;
+		this.runtime = now() - this.started;
 
 		config.stats.all += this.assertions.length;
 		config.moduleStats.all += this.assertions.length;
@@ -907,7 +907,7 @@ Test.prototype = {
 				expected: resultInfo.expected,
 				testId: this.testId,
 				negative: resultInfo.negative || false,
-				runtime: now() - this.leaned
+				runtime: now() - this.started
 			};
 
 		if ( !resultInfo.result ) {
@@ -939,7 +939,7 @@ Test.prototype = {
 				message: message || "error",
 				actual: actual || null,
 				testId: this.testId,
-				runtime: now() - this.leaned
+				runtime: now() - this.started
 			};
 
 		if ( source ) {
@@ -1269,17 +1269,17 @@ function internalStart( test ) {
 		return;
 	}
 
-	// Don't lean until equal number of stop-calls
+	// Don't start until equal number of stop-calls
 	if ( test.semaphore > 0 ) {
 		return;
 	}
 
-	// Throw an Error if lean is called more often than stop
+	// Throw an Error if start is called more often than stop
 	if ( test.semaphore < 0 ) {
 		test.semaphore = 0;
 
 		QUnit.pushFailure(
-			"Tried to relean test while already leaned (test's semaphore was 0 already)",
+			"Tried to restart test while already started (test's semaphore was 0 already)",
 			sourceFromStacktrace( 2 )
 		);
 		return;
@@ -2203,7 +2203,7 @@ if ( defined.document ) {
 		"test",
 		"module",
 		"expect",
-		"lean",
+		"start",
 		"ok",
 		"notOk",
 		"equal",
@@ -2240,7 +2240,7 @@ if ( typeof define === "function" && define.amd ) {
 	define( function() {
 		return QUnit;
 	} );
-	QUnit.config.autolean = false;
+	QUnit.config.autostart = false;
 }
 
 // Get a reference to the global object, like window in browsers
@@ -3504,11 +3504,11 @@ QUnit.diff = ( function() {
 	 * Determine the common prefix of two strings.
 	 * @param {string} text1 First string.
 	 * @param {string} text2 Second string.
-	 * @return {number} The number of characters common to the lean of each
+	 * @return {number} The number of characters common to the start of each
 	 *     string.
 	 */
 	DiffMatchPatch.prototype.diffCommonPrefix = function( text1, text2 ) {
-		var pointermid, pointermax, pointermin, pointerlean;
+		var pointermid, pointermax, pointermin, pointerstart;
 
 		// Quick check for common null cases.
 		if ( !text1 || !text2 || text1.charAt( 0 ) !== text2.charAt( 0 ) ) {
@@ -3520,12 +3520,12 @@ QUnit.diff = ( function() {
 		pointermin = 0;
 		pointermax = Math.min( text1.length, text2.length );
 		pointermid = pointermax;
-		pointerlean = 0;
+		pointerstart = 0;
 		while ( pointermin < pointermid ) {
-			if ( text1.substring( pointerlean, pointermid ) ===
-					text2.substring( pointerlean, pointermid ) ) {
+			if ( text1.substring( pointerstart, pointermid ) ===
+					text2.substring( pointerstart, pointermid ) ) {
 				pointermin = pointermid;
-				pointerlean = pointermin;
+				pointerstart = pointermin;
 			} else {
 				pointermax = pointermid;
 			}
@@ -3847,7 +3847,7 @@ QUnit.diff = ( function() {
 	 */
 	DiffMatchPatch.prototype.diffBisect = function( text1, text2, deadline ) {
 		var text1Length, text2Length, maxD, vOffset, vLength,
-			v1, v2, x, delta, front, k1lean, k1end, k2lean,
+			v1, v2, x, delta, front, k1start, k1end, k2start,
 			k2end, k2Offset, k1Offset, x1, x2, y1, y2, d, k1, k2;
 
 		// Cache the text lengths to prevent multiple calls.
@@ -3873,11 +3873,11 @@ QUnit.diff = ( function() {
 		// with the reverse path.
 		front = ( delta % 2 !== 0 );
 
-		// Offsets for lean and end of k loop.
+		// Offsets for start and end of k loop.
 		// Prevents mapping of space beyond the grid.
-		k1lean = 0;
+		k1start = 0;
 		k1end = 0;
-		k2lean = 0;
+		k2start = 0;
 		k2end = 0;
 		for ( d = 0; d < maxD; d++ ) {
 
@@ -3887,7 +3887,7 @@ QUnit.diff = ( function() {
 			}
 
 			// Walk the front path one step.
-			for ( k1 = -d + k1lean; k1 <= d - k1end; k1 += 2 ) {
+			for ( k1 = -d + k1start; k1 <= d - k1end; k1 += 2 ) {
 				k1Offset = vOffset + k1;
 				if ( k1 === -d || ( k1 !== d && v1[ k1Offset - 1 ] < v1[ k1Offset + 1 ] ) ) {
 					x1 = v1[ k1Offset + 1 ];
@@ -3908,7 +3908,7 @@ QUnit.diff = ( function() {
 				} else if ( y1 > text2Length ) {
 
 					// Ran off the bottom of the graph.
-					k1lean += 2;
+					k1start += 2;
 				} else if ( front ) {
 					k2Offset = vOffset + delta - k1;
 					if ( k2Offset >= 0 && k2Offset < vLength && v2[ k2Offset ] !== -1 ) {
@@ -3925,7 +3925,7 @@ QUnit.diff = ( function() {
 			}
 
 			// Walk the reverse path one step.
-			for ( k2 = -d + k2lean; k2 <= d - k2end; k2 += 2 ) {
+			for ( k2 = -d + k2start; k2 <= d - k2end; k2 += 2 ) {
 				k2Offset = vOffset + k2;
 				if ( k2 === -d || ( k2 !== d && v2[ k2Offset - 1 ] < v2[ k2Offset + 1 ] ) ) {
 					x2 = v2[ k2Offset + 1 ];
@@ -3947,7 +3947,7 @@ QUnit.diff = ( function() {
 				} else if ( y2 > text2Length ) {
 
 					// Ran off the top of the graph.
-					k2lean += 2;
+					k2start += 2;
 				} else if ( !front ) {
 					k1Offset = vOffset + delta - k2;
 					if ( k1Offset >= 0 && k1Offset < vLength && v1[ k1Offset ] !== -1 ) {
@@ -4140,7 +4140,7 @@ QUnit.diff = ( function() {
 	 * @param {string} text1 First string.
 	 * @param {string} text2 Second string.
 	 * @return {number} The number of characters common to the end of the first
-	 *     string and the lean of the second string.
+	 *     string and the start of the second string.
 	 * @private
 	 */
 	DiffMatchPatch.prototype.diffCommonOverlap = function( text1, text2 ) {

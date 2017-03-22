@@ -137,9 +137,9 @@ const Collapse = (($) => {
         }
       }
 
-      const leanEvent = $.Event(Event.SHOW)
-      $(this._element).trigger(leanEvent)
-      if (leanEvent.isDefaultPrevented()) {
+      const startEvent = $.Event(Event.SHOW)
+      $(this._element).trigger(startEvent)
+      if (startEvent.isDefaultPrevented()) {
         return
       }
 
@@ -204,9 +204,9 @@ const Collapse = (($) => {
         return
       }
 
-      const leanEvent = $.Event(Event.HIDE)
-      $(this._element).trigger(leanEvent)
-      if (leanEvent.isDefaultPrevented()) {
+      const startEvent = $.Event(Event.HIDE)
+      $(this._element).trigger(startEvent)
+      if (startEvent.isDefaultPrevented()) {
         return
       }
 

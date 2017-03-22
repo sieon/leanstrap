@@ -7,7 +7,7 @@
     <div class="container">
       <div class="by">
         <?php the_title( '<h1 class="p-a">', '</h1>' ); ?>
-        <!-- <p><?php //lean_posted_on(); ?></p> -->
+        <!-- <p><?php //start_posted_on(); ?></p> -->
       </div>
     </div>
   </div>

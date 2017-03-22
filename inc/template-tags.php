@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package lean
+ * @package start
  */
 
 
@@ -86,22 +86,22 @@
    }
    $pages_to_show = 7;
    $pages_to_show_minus_1 = $pages_to_show-1;
-   $half_page_lean = floor($pages_to_show_minus_1/2);
+   $half_page_start = floor($pages_to_show_minus_1/2);
    $half_page_end = ceil($pages_to_show_minus_1/2);
-   $lean_page = $paged - $half_page_lean;
-   if($lean_page <= 0) {
-     $lean_page = 1;
+   $start_page = $paged - $half_page_start;
+   if($start_page <= 0) {
+     $start_page = 1;
    }
    $end_page = $paged + $half_page_end;
-   if(($end_page - $lean_page) != $pages_to_show_minus_1) {
-     $end_page = $lean_page + $pages_to_show_minus_1;
+   if(($end_page - $start_page) != $pages_to_show_minus_1) {
+     $end_page = $start_page + $pages_to_show_minus_1;
    }
    if($end_page > $max_page) {
-     $lean_page = $max_page - $pages_to_show_minus_1;
+     $start_page = $max_page - $pages_to_show_minus_1;
      $end_page = $max_page;
    }
-   if($lean_page <= 0) {
-     $lean_page = 1;
+   if($start_page <= 0) {
+     $start_page = 1;
    }
    echo $before.'<nav><ul class="pagination">'."";
    if ($paged > 1) {
@@ -113,7 +113,7 @@
    if($prevposts) { echo '<li class="page-item">' . $prevposts  . '</li>'; }
    else { echo '<li class="page-item disabled"><a href="#" class="page-link">' . __('上一页','wpbootstrap') . '</a></li>'; }
 
-   for($i = $lean_page; $i  <= $end_page; $i++) {
+   for($i = $start_page; $i  <= $end_page; $i++) {
      if($i == $paged) {
        echo '<li class="page-item active"><a href="#" class="page-link">'.$i.'</a></li>';
      } else {
@@ -134,11 +134,11 @@
  /**
   * Posts pagination
   */
-	if (!function_exists( 'lean_content_nav')):
+	if (!function_exists( 'upbootwp_content_nav')):
 	/**
 	 * Display navigation to next/previous pages when applicable
 	 */
-	function lean_content_nav($nav_id) {
+	function upbootwp_content_nav($nav_id) {
 		global $wp_query, $post;
 
 		// Don't print empty markup on single pages if there's nowhere to navigate.
@@ -158,16 +158,16 @@
 
 		?>
 		<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
-			<h4 class="screen-reader-text"><?php _e( 'Post navigation', 'lean' ); ?></h4>
+			<h4 class="screen-reader-text"><?php _e( 'Post navigation', 'upbootwp' ); ?></h4>
 
 		<?php if ( is_single() ) : // navigation links for single posts ?>
 
 			<div class="row">
 				<div class="col-md-4">
-					<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'lean' ) . '</span> %title' ); ?>
+					<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'upbootwp' ) . '</span> %title' ); ?>
 				</div><!-- .col-md-4 -->
 				<div class="col-md-4 col-nav-next">
-					<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'lean' ) . '</span>' ); ?>
+					<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'upbootwp' ) . '</span>' ); ?>
 				</div><!-- .col-md-4 -->
 			</div><!-- .row -->
 
@@ -176,14 +176,14 @@
 				<div class="col-md-4">
 
 					<?php if (get_next_posts_link()) : ?>
-					<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'lean' ) ); ?></div>
+					<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'upbootwp' ) ); ?></div>
 					<?php endif; ?>
 
 				</div><!-- .col-md-4 -->
 				<div class="col-md-4 col-nav-next">
 
 					<?php if (get_previous_posts_link()) : ?>
-					<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'lean' ) ); ?></div>
+					<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'upbootwp' ) ); ?></div>
 					<?php endif; ?>
 
 				</div><!-- .col-md-4 -->
@@ -194,16 +194,16 @@
 		</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
 		<?php
 	}
-	endif; // lean_content_nav
+	endif; // upbootwp_content_nav
 
 
-if ( ! function_exists( 'lean_the_posts_navigation' ) ) :
+if ( ! function_exists( 'start_the_posts_navigation' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
  * @todo Remove this function when WordPress 4.3 is released.
  */
-function lean_the_posts_navigation() {
+function start_the_posts_navigation() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
@@ -212,11 +212,11 @@ function lean_the_posts_navigation() {
 	<nav>
 		<ul class="pager">
 		<?php if ( get_next_posts_link() ) : ?>
-			<li><?php next_posts_link( esc_html__( '下一页', 'lean' ) ); ?></li>
+			<li><?php next_posts_link( esc_html__( '下一页', 'start' ) ); ?></li>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<li><?php previous_posts_link( esc_html__( '上一页', 'lean' ) ); ?></li>
+			<li><?php previous_posts_link( esc_html__( '上一页', 'start' ) ); ?></li>
 			<?php endif; ?>
 		</ul>
 	</nav><!-- .navigation -->
@@ -224,13 +224,13 @@ function lean_the_posts_navigation() {
 }
 endif;
 
-if ( ! function_exists( 'lean_the_post_navigation' ) ) :
+if ( ! function_exists( 'start_the_post_navigation' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
  *
  * @todo Remove this function when WordPress 4.3 is released.
  */
-function lean_the_post_navigation() {
+function start_the_post_navigation() {
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
@@ -240,7 +240,7 @@ function lean_the_post_navigation() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'lean' ); ?></h2>
+		<h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'start' ); ?></h2>
 		<div class="nav-links">
 			<?php
 				previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
@@ -252,11 +252,11 @@ function lean_the_post_navigation() {
 }
 endif;
 
-if ( ! function_exists( 'lean_posted_on' ) ) :
+if ( ! function_exists( 'start_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function lean_posted_on() {
+function start_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -270,12 +270,12 @@ function lean_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		esc_html_x( '发表于 %s', 'post date', 'lean' ),
+		esc_html_x( '发表于 %s', 'post date', 'start' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		esc_html_x( '%s', 'post author', 'lean' ),
+		esc_html_x( '%s', 'post author', 'start' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -284,39 +284,39 @@ function lean_posted_on() {
 }
 endif;
 
-if ( ! function_exists( 'lean_entry_footer' ) ) :
+if ( ! function_exists( 'start_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function lean_entry_footer() {
+function start_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'lean' ) );
-		if ( $categories_list && lean_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( '发表在 %1$s', 'lean' ) . '</span>', $categories_list );
+		$categories_list = get_the_category_list( esc_html__( ', ', 'start' ) );
+		if ( $categories_list && start_categorized_blog() ) {
+			printf( '<span class="cat-links">' . esc_html__( '发表在 %1$s', 'start' ) . '</span>', $categories_list );
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'lean' ) );
+		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'start' ) );
 		if ( $tags_list ) {
-			printf( '&nbsp;<span class="tags-links">' . esc_html__( '标签： %1$s', 'lean' ) . '</span>', $tags_list );
+			printf( '&nbsp;<span class="tags-links">' . esc_html__( '标签： %1$s', 'start' ) . '</span>', $tags_list );
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '&nbsp;<span class="comments-link">';
-		comments_popup_link( esc_html__( '去评论', 'lean' ), esc_html__( '1 条评论', 'lean' ), esc_html__( '% 条评论', 'lean' ) );
+		comments_popup_link( esc_html__( '去评论', 'start' ), esc_html__( '1 条评论', 'start' ), esc_html__( '% 条评论', 'start' ) );
 		echo '</span>';
 	}
 
-	edit_post_link( esc_html__( '编辑', 'lean' ), '<span class="edit-link">', '</span>' );
+	edit_post_link( esc_html__( '编辑', 'start' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
-if ( ! function_exists( 'lean_the_archive_title' ) ) :
+if ( ! function_exists( 'start_the_archive_title' ) ) :
 /**
- * Shim for `lean_the_archive_title()`.
+ * Shim for `start_the_archive_title()`.
  *
  * Display the archive title based on the queried object.
  *
@@ -325,47 +325,47 @@ if ( ! function_exists( 'lean_the_archive_title' ) ) :
  * @param string $before Optional. Content to prepend to the title. Default empty.
  * @param string $after  Optional. Content to append to the title. Default empty.
  */
-function lean_the_archive_title( $before = '', $after = '' ) {
+function start_the_archive_title( $before = '', $after = '' ) {
 	if ( is_category() ) {
-		$title = sprintf( esc_html__( '%s', 'lean' ), single_cat_title( '', false ) );
+		$title = sprintf( esc_html__( '%s', 'start' ), single_cat_title( '', false ) );
 	} elseif ( is_tag() ) {
-		$title = sprintf( esc_html__( '标签: %s', 'lean' ), single_tag_title( '', false ) );
+		$title = sprintf( esc_html__( '标签: %s', 'start' ), single_tag_title( '', false ) );
 	} elseif ( is_author() ) {
-		$title = sprintf( esc_html__( '作者: %s', 'lean' ), '<span class="vcard">' . get_the_author() . '</span>' );
+		$title = sprintf( esc_html__( '作者: %s', 'start' ), '<span class="vcard">' . get_the_author() . '</span>' );
 	} elseif ( is_year() ) {
-		$title = sprintf( esc_html__( '年: %s', 'lean' ), get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'lean' ) ) );
+		$title = sprintf( esc_html__( '年: %s', 'start' ), get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'start' ) ) );
 	} elseif ( is_month() ) {
-		$title = sprintf( esc_html__( '月: %s', 'lean' ), get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'lean' ) ) );
+		$title = sprintf( esc_html__( '月: %s', 'start' ), get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'start' ) ) );
 	} elseif ( is_day() ) {
-		$title = sprintf( esc_html__( '日: %s', 'lean' ), get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', 'lean' ) ) );
+		$title = sprintf( esc_html__( '日: %s', 'start' ), get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', 'start' ) ) );
 	} elseif ( is_tax( 'post_format' ) ) {
 		if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-			$title = esc_html_x( 'Asides', 'post format archive title', 'lean' );
+			$title = esc_html_x( 'Asides', 'post format archive title', 'start' );
 		} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-			$title = esc_html_x( 'Galleries', 'post format archive title', 'lean' );
+			$title = esc_html_x( 'Galleries', 'post format archive title', 'start' );
 		} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-			$title = esc_html_x( 'Images', 'post format archive title', 'lean' );
+			$title = esc_html_x( 'Images', 'post format archive title', 'start' );
 		} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-			$title = esc_html_x( 'Videos', 'post format archive title', 'lean' );
+			$title = esc_html_x( 'Videos', 'post format archive title', 'start' );
 		} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-			$title = esc_html_x( 'Quotes', 'post format archive title', 'lean' );
+			$title = esc_html_x( 'Quotes', 'post format archive title', 'start' );
 		} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-			$title = esc_html_x( 'Links', 'post format archive title', 'lean' );
+			$title = esc_html_x( 'Links', 'post format archive title', 'start' );
 		} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-			$title = esc_html_x( 'Statuses', 'post format archive title', 'lean' );
+			$title = esc_html_x( 'Statuses', 'post format archive title', 'start' );
 		} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-			$title = esc_html_x( 'Audio', 'post format archive title', 'lean' );
+			$title = esc_html_x( 'Audio', 'post format archive title', 'start' );
 		} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-			$title = esc_html_x( 'Chats', 'post format archive title', 'lean' );
+			$title = esc_html_x( 'Chats', 'post format archive title', 'start' );
 		}
 	} elseif ( is_post_type_archive() ) {
-		$title = sprintf( esc_html__( 'Archives: %s', 'lean' ), post_type_archive_title( '', false ) );
+		$title = sprintf( esc_html__( 'Archives: %s', 'start' ), post_type_archive_title( '', false ) );
 	} elseif ( is_tax() ) {
 		$tax = get_taxonomy( get_queried_object()->taxonomy );
 		/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
-		$title = sprintf( esc_html__( '%1$s: %2$s', 'lean' ), $tax->labels->singular_name, single_term_title( '', false ) );
+		$title = sprintf( esc_html__( '%1$s: %2$s', 'start' ), $tax->labels->singular_name, single_term_title( '', false ) );
 	} else {
-		$title = esc_html__( 'Archives', 'lean' );
+		$title = esc_html__( 'Archives', 'start' );
 	}
 
 	/**
@@ -381,9 +381,9 @@ function lean_the_archive_title( $before = '', $after = '' ) {
 }
 endif;
 
-if ( ! function_exists( 'lean_the_archive_description' ) ) :
+if ( ! function_exists( 'start_the_archive_description' ) ) :
 /**
- * Shim for `lean_the_archive_description()`.
+ * Shim for `start_the_archive_description()`.
  *
  * Display category, tag, or term description.
  *
@@ -392,7 +392,7 @@ if ( ! function_exists( 'lean_the_archive_description' ) ) :
  * @param string $before Optional. Content to prepend to the description. Default empty.
  * @param string $after  Optional. Content to append to the description. Default empty.
  */
-function lean_the_archive_description( $before = '', $after = '' ) {
+function start_the_archive_description( $before = '', $after = '' ) {
 	$description = apply_filters( 'get_the_archive_description', term_description() );
 
 	if ( ! empty( $description ) ) {
@@ -413,8 +413,8 @@ endif;
  *
  * @return bool
  */
-function lean_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'lean_categories' ) ) ) {
+function start_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'start_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -427,27 +427,27 @@ function lean_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'lean_categories', $all_the_cool_cats );
+		set_transient( 'start_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so lean_categorized_blog should return true.
+		// This blog has more than 1 category so start_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so lean_categorized_blog should return false.
+		// This blog has only 1 category so start_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in lean_categorized_blog.
+ * Flush out the transients used in start_categorized_blog.
  */
-function lean_category_transient_flusher() {
+function start_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// Like, beat it. Dig?
-	delete_transient( 'lean_categories' );
+	delete_transient( 'start_categories' );
 }
-add_action( 'edit_category', 'lean_category_transient_flusher' );
-add_action( 'save_post',     'lean_category_transient_flusher' );
+add_action( 'edit_category', 'start_category_transient_flusher' );
+add_action( 'save_post',     'start_category_transient_flusher' );

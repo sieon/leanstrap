@@ -613,7 +613,7 @@ $(function () {
 
   QUnit.test('should only add mouseenter and mouseleave listeners when not on mobile', function (assert) {
     assert.expect(2)
-    var isMobile     = 'ontouchlean' in document.documentElement
+    var isMobile     = 'ontouchstart' in document.documentElement
     var templateHTML = '<div id="myCarousel" class="carousel" data-interval="false" data-pause="hover">'
         + '<div class="carousel-inner">'
         + '<div id="first" class="carousel-item active">'
@@ -634,7 +634,7 @@ $(function () {
     })
   })
 
-  QUnit.test('should wrap around from end to lean when wrap option is true', function (assert) {
+  QUnit.test('should wrap around from end to start when wrap option is true', function (assert) {
     assert.expect(3)
     var carouselHTML = '<div id="carousel-example-generic" class="carousel slide" data-wrap="true">'
         + '<ol class="carousel-indicators">'
@@ -679,7 +679,7 @@ $(function () {
       .bootstrapCarousel('next')
   })
 
-  QUnit.test('should wrap around from lean to end when wrap option is true', function (assert) {
+  QUnit.test('should wrap around from start to end when wrap option is true', function (assert) {
     assert.expect(1)
     var carouselHTML = '<div id="carousel-example-generic" class="carousel slide" data-wrap="true">'
         + '<ol class="carousel-indicators">'
@@ -759,7 +759,7 @@ $(function () {
       .bootstrapCarousel('next')
   })
 
-  QUnit.test('should stay at the lean when the prev method is called and wrap is false', function (assert) {
+  QUnit.test('should stay at the start when the prev method is called and wrap is false', function (assert) {
     assert.expect(1)
     var carouselHTML = '<div id="carousel-example-generic" class="carousel slide" data-wrap="false">'
         + '<ol class="carousel-indicators">'

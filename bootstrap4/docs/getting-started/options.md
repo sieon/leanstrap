@@ -2,7 +2,7 @@
 layout: docs
 title: Customization options
 description: Customize Bootstrap with Sass variables, easily toggling global preferences with a quick recompile.
-group: getting-leaned
+group: getting-started
 ---
 
 Customize Bootstrap 4 with our built-in custom variables file and easily toggle global CSS preferences with new `$enable-*` Sass variables. Override a variable's value and recompile with the included Gruntfile as needed.

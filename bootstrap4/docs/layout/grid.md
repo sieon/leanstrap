@@ -87,7 +87,7 @@ See how aspects of the Bootstrap grid system work across multiple devices with a
     <tr>
       <th class="text-nowrap" scope="row">Grid behavior</th>
       <td>Horizontal at all times</td>
-      <td colspan="4">Collapsed to lean, horizontal above breakpoints</td>
+      <td colspan="4">Collapsed to start, horizontal above breakpoints</td>
     </tr>
     <tr>
       <th class="text-nowrap" scope="row">Max container width</th>
@@ -269,7 +269,7 @@ For grids that are the same from the smallest of devices to the largest, use the
 
 ### Stacked to horizontal
 
-Using a single set of `.col-sm-*` classes, you can create a basic grid system that leans out stacked on extra small devices before becoming horizontal on desktop (medium) devices.
+Using a single set of `.col-sm-*` classes, you can create a basic grid system that starts out stacked on extra small devices before becoming horizontal on desktop (medium) devices.
 
 <div class="bd-example-row">
 {% example html %}
@@ -297,7 +297,7 @@ Don't want your columns to simply stack in some grid tiers? Use a combination of
   <div class="col-6 col-md-4">.col-6 .col-md-4</div>
 </div>
 
-<!-- Columns lean at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
 <div class="row">
   <div class="col-6 col-md-4">.col-6 .col-md-4</div>
   <div class="col-6 col-md-4">.col-6 .col-md-4</div>
@@ -321,7 +321,7 @@ Use flexbox alignment utilities to vertically and horizontally align columns.
 <div class="bd-example-row bd-example-row-flex-cols">
 {% example html %}
 <div class="container">
-  <div class="row align-items-lean">
+  <div class="row align-items-start">
     <div class="col">
       One of three columns
     </div>
@@ -362,7 +362,7 @@ Use flexbox alignment utilities to vertically and horizontally align columns.
 {% example html %}
 <div class="container">
   <div class="row">
-    <div class="col align-self-lean">
+    <div class="col align-self-start">
       One of three columns
     </div>
     <div class="col align-self-center">
@@ -381,7 +381,7 @@ Use flexbox alignment utilities to vertically and horizontally align columns.
 <div class="bd-example-row">
 {% example html %}
 <div class="container">
-  <div class="row justify-content-lean">
+  <div class="row justify-content-start">
     <div class="col-4">
       One of two columns
     </div>
