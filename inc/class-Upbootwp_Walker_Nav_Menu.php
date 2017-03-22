@@ -1,12 +1,12 @@
 <?php
 /**
- * Upbootwp_Walker_Nav_Menu class.
+ * Lean_Walker_Nav_Menu class.
  *
  * @extends Walker_Nav_Menu
  * @author Matthias Thom | http://upplex.de
  * @package upBootWP 0.1
  */
-class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
+class Lean_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 	/**
 	 * __construct function.
@@ -35,15 +35,15 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
 	}
 
     /**
-     * start_lvl function.
+     * lean_lvl function.
      *
      * @access public
      * @param mixed &$output
      * @param mixed $depth
      * @return void
      */
-    function start_lvl( &$output, $depth ) {
 
+    function lean_lvl( &$output, $depth ) {
 
 		$indent = str_repeat( "\t", $depth );
 		$output	   .= "\n$indent<div class=\"dropdown-menu\">\n";
@@ -51,7 +51,7 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
 	}
 
 	/**
-	 * start_el function.
+	 * lean_el function.
 	 *
 	 * @access public
 	 * @param mixed &$output
@@ -61,7 +61,7 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 * @param int $id (default: 0)
 	 * @return void
 	 */
-	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+	function lean_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
@@ -94,7 +94,7 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$item_output .= ($args->has_children) ? '</a>' : '</a>';
 		$item_output .= $args->after;
 
-		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		$output .= apply_filters( 'walker_nav_menu_lean_el', $item_output, $item, $depth, $args );
 	}
 
 	/**
@@ -121,7 +121,7 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
 		else if ( is_object( $args[0] ) )
 			$args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
 		$cb_args = array_merge( array(&$output, $element, $depth), $args);
-		call_user_func_array(array(&$this, 'start_el'), $cb_args);
+		call_user_func_array(array(&$this, 'lean_el'), $cb_args);
 
 		$id = $element->$id_field;
 
@@ -132,7 +132,7 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
 				if ( !isset($newlevel) ) {
 					$newlevel = true;
 					$cb_args = array_merge( array(&$output, $depth), $args);
-					call_user_func_array(array(&$this, 'start_lvl'), $cb_args);
+					call_user_func_array(array(&$this, 'lean_lvl'), $cb_args);
 				}
 				$this->display_element( $child, $children_elements, $max_depth, $depth + 1, $args, $output );
 			}
