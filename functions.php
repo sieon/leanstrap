@@ -172,7 +172,7 @@ function lean_widgets_init() {
 		'name'          => esc_html__( '边栏', 'lean' ),
 		'id'            => 'sidebar-1',
 		'description'   => '这是默认的边栏。',
-		'before_widget' => '<aside id="%1$s" class="card card-block widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="card card-block widget %2$s clearfix">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="card-title widget-title">',
 		'after_title'   => '</h3>',
@@ -186,7 +186,7 @@ add_action( 'widgets_init', 'lean_widgets_init' );
 function start_scripts() {
 	wp_enqueue_style( 'start-style', get_stylesheet_uri() );
 
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
+	//wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
 
 	wp_enqueue_script( 'start-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 

@@ -52,13 +52,13 @@ body {
     margin-bottom: 30px;
     font-size: 20px;
     color: #fff;
-    background-color: #999999;
+    background-color: #999;
     background-image: -webkit-linear-gradient(top, #216a94, #3097D1);
     background-image: linear-gradient(to bottom, #216a94, #3097D1);
 }
 
 a {
-  color: #333333;
+  color: #333;
 }
 
 /*--------------------------------------------------------------
@@ -77,7 +77,6 @@ a {
 .widget_search .search-submit {
 	display: none;
 }
-
 
 /*--------------------------------------------------------------
 # Accessibility
