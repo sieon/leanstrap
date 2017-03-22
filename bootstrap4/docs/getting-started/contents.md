@@ -2,7 +2,7 @@
 layout: docs
 title: Contents
 description: Learn about what's included in Bootstrap's precompiled and source code directories.
-group: getting-started
+group: getting-leaned
 ---
 
 Bootstrap can come in one of two forms, as precompiled or source code. Learn more about each flavor's contents and structure below. Remember, no matter the implementation flavor, **Bootstrap's JavaScript plugins require jQuery**.

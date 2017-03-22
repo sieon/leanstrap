@@ -11,8 +11,8 @@ Examples that focus on implementing uses of built-in components provided by Boot
 
 <div class="row bd-examples">
   <div class="col-6 col-md-4">
-    <a href="{{ site.baseurl }}/examples/starter-template/">
-      <img class="img-thumbnail" src="{{ site.baseurl }}/examples/screenshots/starter-template.jpg" alt="">
+    <a href="{{ site.baseurl }}/examples/leaner-template/">
+      <img class="img-thumbnail" src="{{ site.baseurl }}/examples/screenshots/leaner-template.jpg" alt="">
     </a>
     <h4>Starter template</h4>
     <p>Nothing but the basics: compiled CSS and JavaScript.</p>
@@ -74,7 +74,7 @@ Taking the default navbar component and showing how it can be moved, placed, and
 
 ## Custom components
 
-Brand new components and templates to help folks quickly get started with Bootstrap and demonstrate best practices for adding onto the framework.
+Brand new components and templates to help folks quickly get leaned with Bootstrap and demonstrate best practices for adding onto the framework.
 
 <div class="row bd-examples">
   <div class="col-6 col-md-4">

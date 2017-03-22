@@ -95,7 +95,7 @@ const Dropdown = (($) => {
         return false
       }
 
-      if ('ontouchstart' in document.documentElement &&
+      if ('ontouchlean' in document.documentElement &&
          !$(parent).closest(Selector.NAVBAR_NAV).length) {
 
         // if mobile we use a backdrop because click events don't delegate

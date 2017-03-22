@@ -1,8 +1,8 @@
 <?php
 /**
- * start Theme Customizer
+ * lean Theme Customizer
  *
- * @package start
+ * @package lean
  */
 
 /**
@@ -10,7 +10,7 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function start_customize_register( $wp_customize ) {
+function lean_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
@@ -28,7 +28,7 @@ function start_customize_register( $wp_customize ) {
 				'priority' 			=> 30,
 				'capability' 		=> 'edit_theme_options',
 				'theme_supports'	=> '',
-				'title' 			=> __( 'Layouts', 'start' ),
+				'title' 			=> __( 'Layouts', 'lean' ),
 			)
 	);
 
@@ -42,7 +42,7 @@ function start_customize_register( $wp_customize ) {
 		'anaya_Layouts_siteLayout_section',
 		// $args
 		array(
-			'title'			=> __( 'Layout', 'start' ),
+			'title'			=> __( 'Layout', 'lean' ),
 			'panel'			=> 'anaya_panelLayouts'
 		)
 	);
@@ -54,38 +54,38 @@ function start_customize_register( $wp_customize ) {
 		'default'			=> 'full-width',
 		'type'				=> 'theme_mod',
 		'capability'		=> 'edit_theme_options',
-		'sanitize_callback'	=> 'start_sanitize_select'
+		'sanitize_callback'	=> 'lean_sanitize_select'
 	) );
 	
 	//Control: Site Layout
 	$wp_customize->add_control( 'anaya_siteLayout_siteLayout', array(
-		'label'			=>		__('Site Layout', 'start'),
+		'label'			=>		__('Site Layout', 'lean'),
 		//checkbox, dropdown-pages, radio, select, text, textarea, email, number, phone (req: input_attrs), url
 		'type'			=>		'radio', 
 		'section'		=>		'anaya_Layouts_siteLayout_section',
 		'choices'		=> array(
-				'full-width' => __( 'Full Width', 'start' ),
-				'boxed' => __( 'Boxed', 'start' )
+				'full-width' => __( 'Full Width', 'lean' ),
+				'boxed' => __( 'Boxed', 'lean' )
 			)	
 	) );
 		
 
 
 }
-add_action( 'customize_register', 'start_customize_register' );
+add_action( 'customize_register', 'lean_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function start_customize_preview_js() {
-	wp_enqueue_script( 'start_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+function lean_customize_preview_js() {
+	wp_enqueue_script( 'lean_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
 }
-add_action( 'customize_preview_init', 'start_customize_preview_js' );
+add_action( 'customize_preview_init', 'lean_customize_preview_js' );
 
 /**
  * Sanitication Callbacks
  */
-function start_sanitize_select( $input, $setting ) {
+function lean_sanitize_select( $input, $setting ) {
 	
 	// Ensure input is a slug.
 	$input = sanitize_key( $input );

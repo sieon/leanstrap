@@ -12,8 +12,8 @@
       <div class="card bg-faded">
         <div class="card-block">
           <?php
-            start_the_archive_title( '<h1 class="card-title">', '</h1>' );
-            start_the_archive_description( '<p class="card-subtitle">', '</p>' );
+            lean_the_archive_title( '<h1 class="card-title">', '</h1>' );
+            lean_the_archive_description( '<p class="card-subtitle">', '</p>' );
           ?>
         </div>
       </div><!-- .page-header -->

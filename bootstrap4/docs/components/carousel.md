@@ -170,7 +170,7 @@ Add captions to your slides easily with the `.carousel-caption` element within a
 
 Use data attributes to easily control the position of the carousel. `data-slide` accepts the keywords `prev` or `next`, which alters the slide position relative to its current position. Alternatively, use `data-slide-to` to pass a raw slide index to the carousel `data-slide-to="2"`, which shifts the slide position to a particular index beginning with `0`.
 
-The `data-ride="carousel"` attribute is used to mark a carousel as animating starting at page load. **It cannot be used in combination with (redundant and unnecessary) explicit JavaScript initialization of the same carousel.**
+The `data-ride="carousel"` attribute is used to mark a carousel as animating leaning at page load. **It cannot be used in combination with (redundant and unnecessary) explicit JavaScript initialization of the same carousel.**
 
 ### Via JavaScript
 
@@ -231,7 +231,7 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
 
 #### `.carousel(options)`
 
-Initializes the carousel with an optional options `object` and starts cycling through items.
+Initializes the carousel with an optional options `object` and leans cycling through items.
 
 {% highlight js %}
 $('.carousel').carousel({

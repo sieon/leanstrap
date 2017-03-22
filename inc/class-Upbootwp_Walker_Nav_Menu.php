@@ -26,6 +26,7 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 * @param mixed $item
 	 * @return void
 	 */
+
 	function special_nav_class($classes, $item){
 		if(in_array('current-menu-item', $classes)){
 			$classes[] = 'active ';
@@ -42,6 +43,7 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
      * @return void
      */
     function start_lvl( &$output, $depth ) {
+
 
 		$indent = str_repeat( "\t", $depth );
 		$output	   .= "\n$indent<div class=\"dropdown-menu\">\n";

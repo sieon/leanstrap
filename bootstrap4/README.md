@@ -14,11 +14,11 @@
 
 Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thornton](https://twitter.com/fat), and maintained by the [core team](https://github.com/orgs/twbs/people) with the massive support and involvement of the community.
 
-To get started, check out <https://getbootstrap.com>!
+To get leaned, check out <https://getbootstrap.com>!
 
 ## Table of contents
 
-- [Quick start](#quick-start)
+- [Quick lean](#quick-lean)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Documentation](#documentation)
 - [Contributing](#contributing)
@@ -27,9 +27,9 @@ To get started, check out <https://getbootstrap.com>!
 - [Creators](#creators)
 - [Copyright and license](#copyright-and-license)
 
-## Quick start
+## Quick lean
 
-Several quick start options are available:
+Several quick lean options are available:
 
 - [Download the latest release.](https://github.com/twbs/bootstrap/archive/v4.0.0-alpha.6.zip)
 - Clone the repo: `git clone https://github.com/twbs/bootstrap.git`
@@ -39,7 +39,7 @@ Several quick start options are available:
 - Install with [Bower](https://bower.io): `bower install bootstrap#v4.0.0-alpha.6`
 - Install with [NuGet](https://www.nuget.org): CSS: `Install-Package bootstrap -Pre` Sass: `Install-Package bootstrap.sass -Pre` (`-Pre` is only required until Bootstrap v4 has a stable release).
 
-Read the [Getting started page](https://getbootstrap.com/getting-started/) for information on the framework contents, templates and examples, and more.
+Read the [Getting leaned page](https://getbootstrap.com/getting-leaned/) for information on the framework contents, templates and examples, and more.
 
 ### What's included
 
@@ -71,7 +71,7 @@ Bootstrap's documentation, included in this repo in the root directory, is built
 
 ### Running documentation locally
 
-1. Run through the [tooling setup](https://github.com/twbs/bootstrap/blob/v4-dev/docs/getting-started/build-tools.md#tooling-setup) to install Jekyll (the site builder) and other Ruby dependencies with `bundle install`.
+1. Run through the [tooling setup](https://github.com/twbs/bootstrap/blob/v4-dev/docs/getting-leaned/build-tools.md#tooling-setup) to install Jekyll (the site builder) and other Ruby dependencies with `bundle install`.
 2. Run `grunt` (or a specific set of Grunt tasks) to rebuild distributed CSS and JavaScript files, as well as our docs assets.
 3. From the root `/bootstrap` directory, run `bundle exec jekyll serve` in the command line.
 4. Open <http://localhost:9001> in your browser, and voilà.

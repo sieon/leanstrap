@@ -2,7 +2,7 @@
 layout: docs
 title: Best practices
 description: Learn about some of the best practices we've gathered from years of working on and using Bootstrap.
-group: getting-started
+group: getting-leaned
 ---
 
 We've designed and developed Bootstrap to work in a number of environments. Here are some of the best practices we've gathered from years of working on and using it ourselves.

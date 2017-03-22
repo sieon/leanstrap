@@ -88,7 +88,7 @@ var Dropdown = function ($) {
         return false;
       }
 
-      if ('ontouchstart' in document.documentElement && !$(parent).closest(Selector.NAVBAR_NAV).length) {
+      if ('ontouchlean' in document.documentElement && !$(parent).closest(Selector.NAVBAR_NAV).length) {
 
         // if mobile we use a backdrop because click events don't delegate
         var dropdown = document.createElement('div');

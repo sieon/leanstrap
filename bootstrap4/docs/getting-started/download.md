@@ -2,7 +2,7 @@
 layout: docs
 title: Download
 description: Download Bootstrap's compiled CSS and JavaScript, source code, or include it with your favorite package manager.
-group: getting-started
+group: getting-leaned
 ---
 
 **Bootstrap v{{ site.current_version}}** is available for download in several ways, including some of your favorite package managers. Choose from the options below to snag just what you need.
@@ -16,12 +16,12 @@ group: getting-started
 
 **Download Bootstrap's ready-to-use code to easily drop into your project.** Includes compiled and minified versions of all our CSS bundles (default, grid only, or Reboot only) and JavaScript plugins. Doesn't include documentation or source files.
 
-<a href="{{ site.download.dist }}" class="btn btn-lg btn-bs" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download Bootstrap');">Download Bootstrap</a>
+<a href="{{ site.download.dist }}" class="btn btn-lg btn-bs" onclick="ga('send', 'event', 'Getting leaned', 'Download', 'Download Bootstrap');">Download Bootstrap</a>
 
 ## Source files
-**Want to compile Bootstrap with your project's asset pipeline?** Choose this option to download our source Sass, JavaScript, and documentation files. Requires a Sass compiler, [Autoprefixer](https://github.com/postcss/autoprefixer), [postcss-flexbugs-fixes](https://github.com/luisrudge/postcss-flexbugs-fixes), and [some setup]({{ site.baseurl }}/getting-started/build-tools/#tooling-setup).
+**Want to compile Bootstrap with your project's asset pipeline?** Choose this option to download our source Sass, JavaScript, and documentation files. Requires a Sass compiler, [Autoprefixer](https://github.com/postcss/autoprefixer), [postcss-flexbugs-fixes](https://github.com/luisrudge/postcss-flexbugs-fixes), and [some setup]({{ site.baseurl }}/getting-leaned/build-tools/#tooling-setup).
 
-<a href="{{ site.download.source }}" class="btn btn-bs" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
+<a href="{{ site.download.source }}" class="btn btn-bs" onclick="ga('send', 'event', 'Getting leaned', 'Download', 'Download source');">Download source</a>
 
 ## Bootstrap CDN
 

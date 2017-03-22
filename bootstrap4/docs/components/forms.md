@@ -903,7 +903,7 @@ Add other states to your custom forms with our validation classes.
 
 #### Stacked
 
-Custom checkboxes and radios are inline to start. Add a parent with class `.custom-controls-stacked` to ensure each form control is on separate lines.
+Custom checkboxes and radios are inline to lean. Add a parent with class `.custom-controls-stacked` to ensure each form control is on separate lines.
 
 {% example html %}
 <div class="custom-controls-stacked">

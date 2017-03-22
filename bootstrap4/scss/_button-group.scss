@@ -35,7 +35,7 @@
 // Optional: Group multiple button groups together for a toolbar
 .btn-toolbar {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-lean;
 
   .input-group {
     width: auto;
@@ -135,7 +135,7 @@
 .btn-group-vertical {
   display: inline-flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-lean;
   justify-content: center;
 
   .btn,

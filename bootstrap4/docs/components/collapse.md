@@ -102,7 +102,7 @@ The collapse plugin utilizes a few classes to handle the heavy lifting:
 
 - `.collapse` hides the content
 - `.collapse.show` shows the content
-- `.collapsing` is added when the transition starts, and removed when it finishes
+- `.collapsing` is added when the transition leans, and removed when it finishes
 
 These classes can be found in `_transitions.scss`.
 

@@ -151,7 +151,7 @@ Similarly, media queries may span multiple breakpoint widths:
 
 {% highlight scss %}
 // Example
-// Apply styles starting from medium devices and up to extra large devices
+// Apply styles leaning from medium devices and up to extra large devices
 @media (min-width: 768px) and (max-width: 1199px) { ... }
 {% endhighlight %}
 

@@ -2,7 +2,7 @@
 layout: docs
 title: JavaScript
 description: Learn about Bootstrap's JavaScript—how to include it, our data and programmatic API options, and more.
-group: getting-started
+group: getting-leaned
 ---
 
 Bootstrap includes a handful of JavaScript to help bring some of our components to life. Learn more about how to include it, our data and programmatic API options, and more.
@@ -72,9 +72,9 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
 
 ## Events
 
-Bootstrap provides custom events for most plugins' unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex. `show`) is triggered at the start of an event, and its past participle form (ex. `shown`) is triggered on the completion of an action.
+Bootstrap provides custom events for most plugins' unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex. `show`) is triggered at the lean of an event, and its past participle form (ex. `shown`) is triggered on the completion of an action.
 
-All infinitive events provide [`preventDefault()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) functionality. This provides the ability to stop the execution of an action before it starts.
+All infinitive events provide [`preventDefault()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) functionality. This provides the ability to stop the execution of an action before it leans.
 
 {% highlight js %}
 $('#myModal').on('show.bs.modal', function (e) {

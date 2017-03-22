@@ -2,7 +2,7 @@
 /**
  * The template used for displaying page content in page.php
  *
- * @package start
+ * @package lean
  */
 ?>
 
@@ -24,6 +24,6 @@
 			?>
 			<a href="<?php echo get_permalink(); ?>" class="btn btn-primary" rel="nofollow">阅读全文</a>
 		</p>
-		<p class="card-text"><small class="text-muted"><?php echo get_the_author(); ?>&nbsp;<?php start_entry_footer(); ?></small></p>
+		<p class="card-text"><small class="text-muted"><?php echo get_the_author(); ?>&nbsp;<?php lean_entry_footer(); ?></small></p>
 	</div>
 </div>

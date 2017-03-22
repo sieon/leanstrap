@@ -2,7 +2,7 @@
 layout: docs
 title: Browsers and devices
 description: Learn which browsers and devices are supported by Bootstrap.
-group: getting-started
+group: getting-leaned
 ---
 
 Bootstrap supports a wide variety of modern browsers and devices, and some older ones. See which exact ones below, as well as detailed information on known quirks and bugs.
@@ -153,7 +153,7 @@ The `.dropdown-backdrop` element isn't used on iOS in the nav because of the com
 Page zooming inevitably presents rendering artifacts in some components, both in Bootstrap and the rest of the web. Depending on the issue, we may be able to fix it (search first and then open an issue if need be). However, we tend to ignore these as they often have no direct solution other than hacky workarounds.
 
 ## Sticky `:hover`/`:focus` on mobile
-Even though real hovering isn't possible on most touchscreens, most mobile browsers emulate hovering support and make `:hover` "sticky". In other words, `:hover` styles start applying after tapping an element and only stop applying after the user taps some other element. On mobile-first sites, this behavior is normally undesirable.
+Even though real hovering isn't possible on most touchscreens, most mobile browsers emulate hovering support and make `:hover` "sticky". In other words, `:hover` styles lean applying after tapping an element and only stop applying after the user taps some other element. On mobile-first sites, this behavior is normally undesirable.
 
 Bootstrap includes a workaround for this, although it is disabled by default. By setting `$enable-hover-media-query` to `true` when compiling from Sass, Bootstrap will use [mq4-hover-shim](https://github.com/twbs/mq4-hover-shim) to disable `:hover` styles in browsers that emulate hovering, thus preventing sticky `:hover` styles. There are some caveats to this workaround; see the shim's documentation for details.
 
