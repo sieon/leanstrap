@@ -24,7 +24,7 @@
 
   <?php wp_head(); ?>
 </head>
-<body body_class( $class ); >
+<body <?php body_class( $class ); ?> >
 
   <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary" id="primary-navbar" role="navigation">
 

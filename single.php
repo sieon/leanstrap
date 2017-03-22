@@ -14,8 +14,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-8">
-      
+    <div class="col-xl-8 col-lg-8">
+<!-- .col-  .col-sm-	.col-md-	.col-lg-	.col-xl--->
       <?php
   			// Post thumbnail.
   			lean_post_thumbnail();
@@ -31,17 +31,12 @@
           comments_template();
         endif;
       ?>
-
-
         <?php endwhile; // end of the loop. ?>
 
-
     </div>
-    <div class="col-lg-4">
+    <div class="col-xl-4 col-lg-4">
       <?php get_sidebar();?>
     </div>
-  </div>
-
-
-</div>
+  </div><!-- /.row -->
+</div><!-- /.container -->
 <?php get_footer();?>
