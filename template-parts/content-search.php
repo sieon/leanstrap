@@ -8,22 +8,21 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class('media clearfix'); ?>>
+	<div class="media-body">
+		<?php the_title( sprintf( '<h3 class="mt-0 mb-2"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php start_posted_on(); ?>
+		<div class="mb-2">
+			<small><?php echo the_time(); ?></small>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
-	</header><!-- .entry-header -->
 
-	<div class="entry-summary">
 		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
 
-	<footer class="entry-footer">
-		<?php start_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+		<footer class="entry-footer">
+			<small class="text-muted"><?php echo get_the_author(); ?>&nbsp;<?php start_entry_footer(); ?></small>
+		</footer><!-- .entry-footer -->
+	</div>
+	<hr>
 </article><!-- #post-## -->

@@ -20,11 +20,8 @@
   			// Post thumbnail.
   			lean_post_thumbnail();
   		?>
-
       <?php the_content(); ?>
-
       <hr>
-
       <?php
         // If comments are open or we have at least one comment, load up the comment template
         if ( comments_open() || get_comments_number() ) :
@@ -32,7 +29,6 @@
         endif;
       ?>
         <?php endwhile; // end of the loop. ?>
-
     </div>
     <div class="col-xl-4 col-lg-4">
       <?php get_sidebar();?>
