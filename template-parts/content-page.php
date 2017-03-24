@@ -5,7 +5,7 @@
  */
 ?>
 <div id="post-<?php the_ID(); ?>"  class="card card-block">
-	<?php the_title( sprintf( '<h1 class="card-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+	<?php the_title( sprintf( '<h1 class="card-title">', esc_url( get_permalink() ) ), '</h1>' ); ?>
 	<p class="card-text">
 		<?php
 			/* translators: %s: Name of current post */
