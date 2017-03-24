@@ -45,21 +45,38 @@ body {
     column-count: 5;
   }
 }
+/*--------------------------------------------------------------
+# Entry
+--------------------------------------------------------------*/
 
-.bw {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    margin-bottom: 30px;
-    font-size: 20px;
-    color: #fff;
-    background-color: #999;
-    background-image: -webkit-linear-gradient(top, #216a94, #3097D1);
-    background-image: linear-gradient(to bottom, #216a94, #3097D1);
-}
-
-a {
+.entry-header a {
   color: #333;
 }
+
+.entry-header h3 {
+  font-size: 22px;
+}
+
+.entry-content {
+  color: #666;
+}
+
+.entry-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.entry-content h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.entry-content h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+
 
 /*--------------------------------------------------------------
 # Widgets
@@ -76,6 +93,12 @@ a {
 /* Search widget. */
 .widget_search .search-submit {
 	display: none;
+}
+
+.widget ul li {
+  list-style: none;
+  padding: 0;
+  margin-left: -30px;
 }
 
 /*--------------------------------------------------------------

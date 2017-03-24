@@ -75,7 +75,7 @@
  	if ( is_singular() ) :
  	?>
 
- 	<div class="post-thumbnail mb-4 float-left mr-5">
+ 	<div class="post-thumbnail mb-4">
     <?php
       // Post thumbnail.
       the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid']);

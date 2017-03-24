@@ -6,7 +6,7 @@
  */
 ?>
 
-<div id="post-<?php the_ID(); ?>"  class="card">
+<article id="post-<?php the_ID(); ?>"  class="card">
 
 	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
 		<?php
@@ -14,16 +14,18 @@
 			lean_post_thumbnail();
 		?>
 	</a>
-	<div class=" card-block">
-		<?php the_title( sprintf( '<h4 class="card-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
-		<small><?php echo the_time(); ?></small>
-		<p class="card-text">
+	<div class="card-block">
+		<div class="entry-header">
+			<?php the_title( sprintf( '<h3 class="card-title mb-1"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+			<small class="text-muted"><?php echo the_time(); ?></small>
+		</div>
+		<div class="card-text entry-content">
 			<?php
 				/* translators: %s: Name of current post */
 				the_excerpt();
 			?>
-			<a href="<?php echo get_permalink(); ?>" class="btn btn-primary" rel="nofollow">阅读全文</a>
-		</p>
-		<p class="card-text"><small class="text-muted"><?php echo get_the_author(); ?>&nbsp;<?php start_entry_footer(); ?></small></p>
+			<a href="<?php echo get_permalink(); ?>" class="" rel="nofollow">阅读全文</a>
+		</div>
+		<p class="card-text entry-footer"><small class="text-muted"><?php echo get_the_author(); ?>&nbsp;<?php start_entry_footer(); ?></small></p>
 	</div>
-</div>
+</article>

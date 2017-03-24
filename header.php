@@ -24,26 +24,27 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class( $class ); ?> >
+  <header class="header">
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary" id="primary-navbar" role="navigation">
 
-  <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary" id="primary-navbar" role="navigation">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <?php
+            $args = array('theme_location' => 'primary',
+                    'container' => '',
+                    //'container_class' => 'collapse navbar-collapse',
+                    'menu_class' => 'navbar-nav',
+                    'fallback_cb' => '',
+                                'menu_id' => 'main-menu',
+                                'walker' => new Upbootwp_Walker_Nav_Menu());
+            wp_nav_menu($args);
+        ?>
+      </div>
+    </nav>
+  </header><!-- ./header -->
 
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-      <?php
-          $args = array('theme_location' => 'primary',
-                  'container' => '',
-                  //'container_class' => 'collapse navbar-collapse',
-                  'menu_class' => 'navbar-nav',
-                  'fallback_cb' => '',
-                              'menu_id' => 'main-menu',
-                              'walker' => new Upbootwp_Walker_Nav_Menu());
-          wp_nav_menu($args);
-      ?>
-    </div>
-  </nav>
-
+  <main class="site-content pt-2">
   <!-- 上面是复用的头部 -->
