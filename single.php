@@ -7,17 +7,18 @@
 
         <?php while ( have_posts() ) : the_post(); ?>
 
-        <div class="page-header pb-2">
+        <div class="entry-header pb-2">
           <?php the_title( '<h1 class="mb-2">', '</h1>' ); ?>
           <p class="text-muted"><?php echo the_time(); ?></p>
         </div>
 
-
-        <?php
-    			// Post thumbnail.
-    			lean_post_thumbnail();
-    		?>
-        <?php the_content(); ?>
+        <div class="entry-content">
+          <?php
+      			// Post thumbnail.
+      			lean_post_thumbnail();
+      		?>
+          <?php the_content(); ?>
+        </div>
         <hr>
         <?php
           // If comments are open or we have at least one comment, load up the comment template

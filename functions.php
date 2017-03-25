@@ -339,23 +339,20 @@ function oxy_comment_callback($comment, $args, $depth)
 {
     $GLOBALS['comment'] = $comment;
     $tag = $depth === 1 ? 'li' : 'div'; ?>
-    <<?php echo $tag ?> <?php comment_class('media media-comment mt-3'); ?>>
+    <<?php echo $tag ?> <?php comment_class('media media-comment mb-4'); ?>>
 
         <?php echo lean_get_avatar($comment, 48); ?>
-
         <div id="comment-<?php comment_ID(); ?>" class="media-body">
                     <h4 class="mt-0">
                         <strong>
-                            <?php comment_author_link(); ?>
+                            <?php comment_author_link(); ?> - <?php comment_date(); ?>
                         </strong>
-												<small class="text-muted">
-                        &nbsp;<?php comment_date(); ?>
-												</small>
-                        <strong class="comment-reply pull-right">
+                        <p class="comment-reply float-right">
                             <?php comment_reply_link(array_merge($args, array('reply_text' => __('回复', 'lambda-td'), 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
-                        </strong>
+                        </p>
                     </h4>
                     <?php comment_text(); ?>
+                    <hr>
     <?php
 }
 
@@ -363,6 +360,7 @@ function oxy_comment_end_callback($comment, $args, $depth)
 {
     // we need to add 1 to the depth to get this to work
     $tag = $depth + 1 === 1 ? 'li' : 'div'; ?>
+
         </div>
     </<?php echo $tag ?>>
     <?php
