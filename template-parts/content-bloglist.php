@@ -8,8 +8,19 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('entry media mb-4 clearfix'); ?>>
-	<div class="media-body">
+<article id="post-<?php the_ID(); ?>" <?php post_class('entry media mb-4 border-b row'); ?>>
+
+
+	<div class="col-xl-3">
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+			<?php
+				// Post thumbnail.
+				lean_post_thumbnail();
+			?>
+		</a>
+	</div>
+
+	<div class="media-body col-xl-9">
 		<header class="entry-header">
 			<?php the_title( sprintf( '<h3 class="mt-0 mb-2"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 
