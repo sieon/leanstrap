@@ -38,7 +38,7 @@
 		</div>
 
 		<footer class="entry-footer">
-			<small class="text-muted"><?php echo get_the_author(); ?>&nbsp;<?php start_entry_footer(); ?></small>
+			<small class="text-muted"><?php echo get_the_author(); ?>&nbsp;<?php lean_entry_footer(); ?></small>
 		</footer><!-- .entry-footer -->
 	</div>
 	<hr>

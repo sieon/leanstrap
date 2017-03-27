@@ -88,20 +88,20 @@
    $pages_to_show_minus_1 = $pages_to_show-1;
    $half_page_start = floor($pages_to_show_minus_1/2);
    $half_page_end = ceil($pages_to_show_minus_1/2);
-   $start_page = $paged - $half_page_start;
-   if($start_page <= 0) {
-     $start_page = 1;
+   $lean_page = $paged - $half_page_start;
+   if($lean_page <= 0) {
+     $lean_page = 1;
    }
    $end_page = $paged + $half_page_end;
-   if(($end_page - $start_page) != $pages_to_show_minus_1) {
-     $end_page = $start_page + $pages_to_show_minus_1;
+   if(($end_page - $lean_page) != $pages_to_show_minus_1) {
+     $end_page = $lean_page + $pages_to_show_minus_1;
    }
    if($end_page > $max_page) {
-     $start_page = $max_page - $pages_to_show_minus_1;
+     $lean_page = $max_page - $pages_to_show_minus_1;
      $end_page = $max_page;
    }
-   if($start_page <= 0) {
-     $start_page = 1;
+   if($lean_page <= 0) {
+     $lean_page = 1;
    }
    echo $before.'<nav><ul class="pagination">'."";
    if ($paged > 1) {
@@ -113,7 +113,7 @@
    if($prevposts) { echo '<li class="page-item">' . $prevposts  . '</li>'; }
    else { echo '<li class="page-item disabled"><a href="#" class="page-link">' . __('上一页','wpbootstrap') . '</a></li>'; }
 
-   for($i = $start_page; $i  <= $end_page; $i++) {
+   for($i = $lean_page; $i  <= $end_page; $i++) {
      if($i == $paged) {
        echo '<li class="page-item active"><a href="#" class="page-link">'.$i.'</a></li>';
      } else {
@@ -197,13 +197,13 @@
 	endif; // upbootwp_content_nav
 
 
-if ( ! function_exists( 'start_the_posts_navigation' ) ) :
+if ( ! function_exists( 'lean_the_posts_navigation' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
  * @todo Remove this function when WordPress 4.3 is released.
  */
-function start_the_posts_navigation() {
+function lean_the_posts_navigation() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
@@ -224,13 +224,13 @@ function start_the_posts_navigation() {
 }
 endif;
 
-if ( ! function_exists( 'start_the_post_navigation' ) ) :
+if ( ! function_exists( 'lean_the_post_navigation' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
  *
  * @todo Remove this function when WordPress 4.3 is released.
  */
-function start_the_post_navigation() {
+function lean_the_post_navigation() {
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
@@ -252,11 +252,11 @@ function start_the_post_navigation() {
 }
 endif;
 
-if ( ! function_exists( 'start_posted_on' ) ) :
+if ( ! function_exists( 'lean_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function start_posted_on() {
+function lean_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -284,16 +284,16 @@ function start_posted_on() {
 }
 endif;
 
-if ( ! function_exists( 'start_entry_footer' ) ) :
+if ( ! function_exists( 'lean_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function start_entry_footer() {
+function lean_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'start' ) );
-		if ( $categories_list && start_categorized_blog() ) {
+		if ( $categories_list && lean_categorized_blog() ) {
 			printf( '<span class="cat-links">' . esc_html__( '发表在 %1$s', 'start' ) . '</span>', $categories_list );
 		}
 
@@ -314,9 +314,9 @@ function start_entry_footer() {
 }
 endif;
 
-if ( ! function_exists( 'start_the_archive_title' ) ) :
+if ( ! function_exists( 'lean_the_archive_title' ) ) :
 /**
- * Shim for `start_the_archive_title()`.
+ * Shim for `lean_the_archive_title()`.
  *
  * Display the archive title based on the queried object.
  *
@@ -325,7 +325,7 @@ if ( ! function_exists( 'start_the_archive_title' ) ) :
  * @param string $before Optional. Content to prepend to the title. Default empty.
  * @param string $after  Optional. Content to append to the title. Default empty.
  */
-function start_the_archive_title( $before = '', $after = '' ) {
+function lean_the_archive_title( $before = '', $after = '' ) {
 	if ( is_category() ) {
 		$title = sprintf( esc_html__( '%s', 'start' ), single_cat_title( '', false ) );
 	} elseif ( is_tag() ) {
@@ -381,9 +381,9 @@ function start_the_archive_title( $before = '', $after = '' ) {
 }
 endif;
 
-if ( ! function_exists( 'start_the_archive_description' ) ) :
+if ( ! function_exists( 'lean_the_archive_description' ) ) :
 /**
- * Shim for `start_the_archive_description()`.
+ * Shim for `lean_the_archive_description()`.
  *
  * Display category, tag, or term description.
  *
@@ -392,7 +392,7 @@ if ( ! function_exists( 'start_the_archive_description' ) ) :
  * @param string $before Optional. Content to prepend to the description. Default empty.
  * @param string $after  Optional. Content to append to the description. Default empty.
  */
-function start_the_archive_description( $before = '', $after = '' ) {
+function lean_the_archive_description( $before = '', $after = '' ) {
 	$description = apply_filters( 'get_the_archive_description', term_description() );
 
 	if ( ! empty( $description ) ) {
@@ -413,8 +413,8 @@ endif;
  *
  * @return bool
  */
-function start_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'start_categories' ) ) ) {
+function lean_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'lean_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -427,27 +427,27 @@ function start_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'start_categories', $all_the_cool_cats );
+		set_transient( 'lean_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so start_categorized_blog should return true.
+		// This blog has more than 1 category so lean_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so start_categorized_blog should return false.
+		// This blog has only 1 category so lean_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in start_categorized_blog.
+ * Flush out the transients used in lean_categorized_blog.
  */
-function start_category_transient_flusher() {
+function lean_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// Like, beat it. Dig?
-	delete_transient( 'start_categories' );
+	delete_transient( 'lean_categories' );
 }
-add_action( 'edit_category', 'start_category_transient_flusher' );
-add_action( 'save_post',     'start_category_transient_flusher' );
+add_action( 'edit_category', 'lean_category_transient_flusher' );
+add_action( 'save_post',     'lean_category_transient_flusher' );

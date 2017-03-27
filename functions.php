@@ -2,7 +2,7 @@
 /**
  * start functions and definitions
  *
- * @package start 
+ * @package start
  */
 
 
@@ -140,7 +140,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( 'start_setup' ) ) :
+if ( ! function_exists( 'lean_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -148,7 +148,7 @@ if ( ! function_exists( 'start_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function start_setup() {
+function lean_setup() {
 	require 'inc/class-Upbootwp_Walker_Nav_Menu.php';
 	require 'inc/comment.php';
 	/*
@@ -192,13 +192,13 @@ function start_setup() {
 
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'start_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'lean_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 }
-endif; // start_setup
-add_action( 'after_setup_theme', 'start_setup' );
+endif; // lean_setup
+add_action( 'after_setup_theme', 'lean_setup' );
 
 /**
  * Register widget area.
@@ -221,7 +221,7 @@ add_action( 'widgets_init', 'lean_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function start_scripts() {
+function lean_scripts() {
 	wp_enqueue_style( 'start-style', get_stylesheet_uri() );
 
 	//wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
@@ -236,7 +236,7 @@ function start_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'start_scripts' );
+add_action( 'wp_enqueue_scripts', 'lean_scripts' );
 
 
 function lean_get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $args = null ) {

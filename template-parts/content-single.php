@@ -9,7 +9,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<div class="entry-meta">
-			<?php start_posted_on(); ?>
+			<?php lean_posted_on(); ?>
 		</div><!-- .entry-meta -->
 
 		<?php the_post_thumbnail(); ?>
@@ -26,6 +26,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php start_entry_footer(); ?>
+		<?php lean_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

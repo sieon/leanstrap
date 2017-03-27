@@ -12,5 +12,5 @@
 			the_content();
 		?>
 	</p>
-	<p class="card-text"><small class="text-muted"><?php start_entry_footer(); ?></small></p>
+	<p class="card-text"><small class="text-muted"><?php lean_entry_footer(); ?></small></p>
 </div>

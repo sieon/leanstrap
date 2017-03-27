@@ -26,6 +26,6 @@
 			?>
 			<a href="<?php echo get_permalink(); ?>" class="" rel="nofollow">阅读全文</a>
 		</div>
-		<p class="card-text entry-footer"><small class="text-muted"><?php echo get_the_author(); ?>&nbsp;<?php start_entry_footer(); ?></small></p>
+		<p class="card-text entry-footer"><small class="text-muted"><?php echo get_the_author(); ?>&nbsp;<?php lean_entry_footer(); ?></small></p>
 	</div>
 </article>
