@@ -2,8 +2,11 @@
 /**
  * start functions and definitions
  *
- * @package start
+ * @package start 
  */
+
+
+
 
 
  /**
@@ -94,6 +97,41 @@
  }
  endif;
 
+ if ( ! function_exists( 'lean_carousel_post_thumbnail' ) ) :
+ /**
+  * Display an optional post thumbnail.
+  *
+  * Wraps the post thumbnail in an anchor element on index views, or a div
+  * element when on single views.
+  *
+  * @since Twenty Fifteen 1.0
+  */
+ function lean_carousel_post_thumbnail() {
+ 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+ 		return;
+ 	}
+
+ 	if ( is_singular() ) :
+ 	?>
+
+ 	<div class="post-thumbnail mb-4">
+    <?php
+      // Post thumbnail.
+      the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid']);
+ 		?>
+ 	</div><!-- .post-thumbnail -->
+
+ 	<?php else : ?>
+
+ 	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+ 		<?php
+      // Post thumbnail.
+      the_post_thumbnail('post-thumbnail', ['class' => 'd-block img-fluid']);
+ 		?>
+  </a>
+ 	<?php endif; // End is_singular()
+ }
+ endif;
 
 /**
  * Set the content width based on the theme's design and stylesheet.

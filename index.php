@@ -1,44 +1,58 @@
-<?php get_header(); ?>
+<?php get_header('2'); ?>
 
-  <!--
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">WordPress Bootstrap4 Theme Framework</h1>
-      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+<div class="row">
+  <div class="col-lg-12">
+    <?php
+    $args = array(
+      'post_type' => 'post' ,
+      'tag' => 'slide',
+      'posts_per_page' => '1'
+      //'post__in' => get_option( 'sticky_posts' )
+    );
+    $myPosts = new WP_Query($args);
+    while ( $myPosts->have_posts() ) : $myPosts->the_post();
+    ?>
+    <section class="jumbotron text-center">
+      <?php the_title( '<h1 class="jumbotron-heading">', '</h1>' ); ?>
+      <p class="lead text-muted"><?php the_excerpt();?></p>
       <p>
-        <a href="#" class="btn btn-primary">Download</a>
-        <a href="#" class="btn btn-secondary">Secondary action</a>
+        <a href="#" class="btn btn-primary">下载</a>
+        <a href="#" class="btn btn-secondary">了解更多</a>
       </p>
-    </div>
-  </section> -->
+    </section>
+    <?php endwhile;
+    // Reset Post Data
+    wp_reset_postdata();
+    ?>
+  </div>
 
-
-
-  <div class="container p-a" id="site-content">
+  <div class="col-lg-12">
     <div class="card-columns">
       <?php if ( have_posts() ) : ?>
 
-  			<?php /* Start the Loop */ ?>
-  			<?php while ( have_posts() ) : the_post(); ?>
+    		<?php /* Start the Loop */ ?>
+    		<?php while ( have_posts() ) : the_post(); ?>
 
-  				<?php
-  					/* Include the Post-Format-specific template for the content.
-  					 * If you want to override this in a child theme, then include a file
-  					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-  					 */
-  					get_template_part( 'template-parts/content', get_post_format() );
-  				?>
+    			<?php
+    				/* Include the Post-Format-specific template for the content.
+    				 * If you want to override this in a child theme, then include a file
+    				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+    				 */
+    				get_template_part( 'template-parts/content', get_post_format() );
+    			?>
         <?php endwhile; ?>
     </div>
-  </div>
-  <div class="container">
+  </div><!--／正文 -->
+  <div class="col-lg-12">
   <?php lean_bootstrap_page_navi(''); ?>
 
   <?php else : ?>
 
-    <?php get_template_part( 'template-parts/content', 'none' ); ?>
+  <?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-  <?php endif; ?>
+  <?php endif;     // Reset Post Data
+    wp_reset_postdata();?>
   </div>
+</div><!--/.row-->
 
 <?php get_footer(); ?>
