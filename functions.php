@@ -386,3 +386,28 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+
+/**
+ *   customizer-library   https://github.com/devinsays/customizer-library
+ *   demo   https://github.com/devinsays/customizer-library-demo
+ */
+
+// Helper library for the theme customizer.
+require get_template_directory() . '/inc/customizer-library/customizer-library.php';
+
+// Define options for the theme customizer.
+require get_template_directory() . '/inc/customizer-options.php';
+
+// Output inline styles based on theme customizer selections.
+require get_template_directory() . '/inc/styles.php';
+
+// Additional filters and actions based on theme customizer selections.
+require get_template_directory() . '/inc/mods.php';
+
+
+/**
+ *   下一段代码
+ *
+ */

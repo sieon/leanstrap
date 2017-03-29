@@ -24,7 +24,19 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="container">
-        <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+
+        <h1 class="primary">
+      		<?php if ( get_theme_mod( 'logo', false ) ) { ?>
+            <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+              <?php echo '<img src="' . esc_url( get_theme_mod( 'logo' ) ) . '">';?>
+            </a>
+      		<?php } else { ?>
+            <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+              <?php bloginfo( 'name' ); ?>
+            </a>
+      		<?php } ?>
+      	</h1>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <?php
               $args = array('theme_location' => 'primary',
