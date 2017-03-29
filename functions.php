@@ -191,6 +191,10 @@ function lean_setup() {
 	) );
 
 
+  add_theme_support( 'post-formats', array(
+  'aside', 'image', 'video', 'audio', 'quote', 'link', 'gallery',
+  ) );
+
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'lean_custom_background_args', array(
 		'default-color' => 'ffffff',

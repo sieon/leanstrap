@@ -8,9 +8,9 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('entry media mb-4 border-b row'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('entry mb-4 row'); ?>>
 
-	<?php if ( lean_post_thumbnail() ) { ?>
+	<?php if(has_post_thumbnail()) : ?>
 	<div class="col-lg-3">
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
 			<?php
@@ -19,10 +19,11 @@
 			?>
 		</a>
 	</div>
-	<div class="media-body col-lg-9">
-	<?php } else { ?>
-		<div class="media-body col-lg-12">
-	<?php }?>
+	<div class="col-lg-9">
+	<?php else : ?>
+	<div class="col-lg-12">
+	<?php endif; ?>
+
 		<header class="entry-header">
 			<?php the_title( sprintf( '<h3 class="mt-0 mb-2"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 
@@ -37,9 +38,8 @@
 			<?php the_excerpt(); ?>
 		</div>
 
-		<footer class="entry-footer">
+		<footer class="entry-footer pb-2">
 			<small class="text-muted"><?php echo get_the_author(); ?>&nbsp;<?php lean_entry_footer(); ?></small>
 		</footer><!-- .entry-footer -->
 	</div>
-	<hr>
 </article><!-- #post-## -->

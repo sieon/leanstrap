@@ -5,8 +5,6 @@
 
     <?php if ( have_posts() ) : ?>
 
-
-
     <div class="card-columns">
 
       <div class="card bg-faded">

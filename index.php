@@ -2,31 +2,6 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <?php
-    $args = array(
-      'post_type' => 'post' ,
-      'tag' => 'slide',
-      'posts_per_page' => '1'
-      //'post__in' => get_option( 'sticky_posts' )
-    );
-    $myPosts = new WP_Query($args);
-    while ( $myPosts->have_posts() ) : $myPosts->the_post();
-    ?>
-    <section class="jumbotron text-center">
-      <?php the_title( '<h1 class="jumbotron-heading">', '</h1>' ); ?>
-      <p class="lead text-muted"><?php the_excerpt();?></p>
-      <p>
-        <a href="#" class="btn btn-primary">下载</a>
-        <a href="#" class="btn btn-secondary">了解更多</a>
-      </p>
-    </section>
-    <?php endwhile;
-    // Reset Post Data
-    wp_reset_postdata();
-    ?>
-  </div>
-
-  <div class="col-lg-12">
     <div class="card-columns">
       <?php if ( have_posts() ) : ?>
 
