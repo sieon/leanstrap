@@ -253,7 +253,7 @@ function lean_get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $a
  </div> -->
  */
 
-/*************** COMMENTS ***************************/
+/*************** COMMENTS  评论   为了符合bootstrap media ***************************/
 function oxy_comment_callback($comment, $args, $depth)
 {
     $GLOBALS['comment'] = $comment;
