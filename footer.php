@@ -8,10 +8,6 @@
     </div>
   </footer>
 
-  <!-- jQuery first, then Tether, then Bootstrap JS. -->
-  <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.slim.min.js"></script>
-  <script src="https://cdn.bootcss.com/tether/1.4.0/js/tether.min.js"></script>
-  <script src="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
   <?php wp_footer(); ?>
 </body>
 </html>

@@ -451,3 +451,127 @@ function lean_category_transient_flusher() {
 }
 add_action( 'edit_category', 'lean_category_transient_flusher' );
 add_action( 'save_post',     'lean_category_transient_flusher' );
+
+/**
+ * WordPress 修改时间的显示格式为几天前
+ * https://www.wpdaxue.com/time-ago.html
+ */
+function Bing_filter_time(){
+ global $post ;
+ $to = time();
+ $from = get_the_time('U') ;
+ $diff = (int) abs($to - $from);
+ if ($diff <= 3600) {
+   $mins = round($diff / 60);
+   if ($mins <= 1) {
+     $mins = 1;
+   }
+   $time = sprintf(_n('%s 分钟', '%s 分钟', $mins), $mins) . __( '前' , 'Bing' );
+ }
+ else if (($diff <= 86400) && ($diff > 3600)) {
+   $hours = round($diff / 3600);
+   if ($hours <= 1) {
+     $hours = 1;
+   }
+   $time = sprintf(_n('%s 小时', '%s 小时', $hours), $hours) . __( '前' , 'Bing' );
+ }
+ elseif ($diff >= 86400) {
+   $days = round($diff / 86400);
+   if ($days <= 1) {
+     $days = 1;
+     $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
+   }
+   elseif( $days > 29){
+     $time = get_the_time(get_option('date_format'));
+   }
+   else{
+     $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
+   }
+ }
+ return $time;
+}
+add_filter('the_time','Bing_filter_time');
+
+
+// add custom active class in menu items 多余的 active
+/** function oxy_custom_active_item_class($classes = array(), $menu_item = false)
+{
+    if (in_array('current-menu-item', $menu_item->classes)) {
+        $classes[] = 'active';
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'oxy_custom_active_item_class', 10, 2);**/
+
+
+if ( ! function_exists( 'lean_post_thumbnail' ) ) :
+/**
+ * Display an optional post thumbnail.
+ *
+ * Wraps the post thumbnail in an anchor element on index views, or a div
+ * element when on single views.
+ *
+ * @since Twenty Fifteen 1.0
+ */
+function lean_post_thumbnail() {
+ if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+   return;
+ }
+
+ if ( is_singular() ) :
+ ?>
+
+ <div class="post-thumbnail mb-4">
+   <?php
+     // Post thumbnail.
+     the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid']);
+   ?>
+ </div><!-- .post-thumbnail -->
+
+ <?php else : ?>
+
+ <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+   <?php
+     // Post thumbnail.
+     the_post_thumbnail('post-thumbnail', ['class' => 'card-img-top img-fluid']);
+   ?>
+ </a>
+ <?php endif; // End is_singular()
+}
+endif;
+
+if ( ! function_exists( 'lean_carousel_post_thumbnail' ) ) :
+/**
+ * Display an optional post thumbnail.
+ *
+ * Wraps the post thumbnail in an anchor element on index views, or a div
+ * element when on single views.
+ *
+ * @since Twenty Fifteen 1.0
+ */
+function lean_carousel_post_thumbnail() {
+ if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+   return;
+ }
+
+ if ( is_singular() ) :
+ ?>
+
+ <div class="post-thumbnail mb-4">
+   <?php
+     // Post thumbnail.
+     the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid']);
+   ?>
+ </div><!-- .post-thumbnail -->
+
+ <?php else : ?>
+
+ <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+   <?php
+     // Post thumbnail.
+     the_post_thumbnail('post-thumbnail', ['class' => 'd-block img-fluid']);
+   ?>
+ </a>
+ <?php endif; // End is_singular()
+}
+endif;

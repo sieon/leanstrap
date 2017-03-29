@@ -2,136 +2,8 @@
 /**
  * start functions and definitions
  *
- * @package start
+ * @package lean
  */
-
-
-
-
-
- /**
-  * WordPress 修改时间的显示格式为几天前
-  * https://www.wpdaxue.com/time-ago.html
-  */
- function Bing_filter_time(){
- 	global $post ;
- 	$to = time();
- 	$from = get_the_time('U') ;
- 	$diff = (int) abs($to - $from);
- 	if ($diff <= 3600) {
- 		$mins = round($diff / 60);
- 		if ($mins <= 1) {
- 			$mins = 1;
- 		}
- 		$time = sprintf(_n('%s 分钟', '%s 分钟', $mins), $mins) . __( '前' , 'Bing' );
- 	}
- 	else if (($diff <= 86400) && ($diff > 3600)) {
- 		$hours = round($diff / 3600);
- 		if ($hours <= 1) {
- 			$hours = 1;
- 		}
- 		$time = sprintf(_n('%s 小时', '%s 小时', $hours), $hours) . __( '前' , 'Bing' );
- 	}
- 	elseif ($diff >= 86400) {
- 		$days = round($diff / 86400);
- 		if ($days <= 1) {
- 			$days = 1;
- 			$time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
- 		}
- 		elseif( $days > 29){
- 			$time = get_the_time(get_option('date_format'));
- 		}
- 		else{
- 			$time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
- 		}
- 	}
- 	return $time;
- }
- add_filter('the_time','Bing_filter_time');
-
-
- // add custom active class in menu items 多余的 active
- /** function oxy_custom_active_item_class($classes = array(), $menu_item = false)
- {
-     if (in_array('current-menu-item', $menu_item->classes)) {
-         $classes[] = 'active';
-     }
-     return $classes;
- }
- add_filter('nav_menu_css_class', 'oxy_custom_active_item_class', 10, 2);**/
-
-
- if ( ! function_exists( 'lean_post_thumbnail' ) ) :
- /**
-  * Display an optional post thumbnail.
-  *
-  * Wraps the post thumbnail in an anchor element on index views, or a div
-  * element when on single views.
-  *
-  * @since Twenty Fifteen 1.0
-  */
- function lean_post_thumbnail() {
- 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
- 		return;
- 	}
-
- 	if ( is_singular() ) :
- 	?>
-
- 	<div class="post-thumbnail mb-4">
-    <?php
-      // Post thumbnail.
-      the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid']);
- 		?>
- 	</div><!-- .post-thumbnail -->
-
- 	<?php else : ?>
-
- 	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
- 		<?php
-      // Post thumbnail.
-      the_post_thumbnail('post-thumbnail', ['class' => 'card-img-top img-fluid']);
- 		?>
- 	</a>
- 	<?php endif; // End is_singular()
- }
- endif;
-
- if ( ! function_exists( 'lean_carousel_post_thumbnail' ) ) :
- /**
-  * Display an optional post thumbnail.
-  *
-  * Wraps the post thumbnail in an anchor element on index views, or a div
-  * element when on single views.
-  *
-  * @since Twenty Fifteen 1.0
-  */
- function lean_carousel_post_thumbnail() {
- 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
- 		return;
- 	}
-
- 	if ( is_singular() ) :
- 	?>
-
- 	<div class="post-thumbnail mb-4">
-    <?php
-      // Post thumbnail.
-      the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid']);
- 		?>
- 	</div><!-- .post-thumbnail -->
-
- 	<?php else : ?>
-
- 	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
- 		<?php
-      // Post thumbnail.
-      the_post_thumbnail('post-thumbnail', ['class' => 'd-block img-fluid']);
- 		?>
-  </a>
- 	<?php endif; // End is_singular()
- }
- endif;
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -226,15 +98,18 @@ add_action( 'widgets_init', 'lean_widgets_init' );
  * Enqueue scripts and styles.
  */
 function lean_scripts() {
-	wp_enqueue_style( 'start-style', get_stylesheet_uri() );
 
-	//wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
-
-	wp_enqueue_script( 'start-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
+  wp_enqueue_style( 'lean-bootstrap', get_template_directory_uri() . '/assets/bootstrap4/dist/css/bootstrap.css');
+	wp_enqueue_style( 'lean-style', get_stylesheet_uri() );
+  //jQuery first, then Tether, then Bootstrap JS.
+	wp_enqueue_script( 'lean-jquery', 'https://cdn.bootcss.com/jquery/3.1.1/jquery.slim.min.js', array(), '20130115', true );
+	wp_enqueue_script( 'lean-tether', 'https://cdn.bootcss.com/tether/1.4.0/js/tether.min.js', array(), '20130115', true );
+	wp_enqueue_script( 'lean-bootstrap', 'https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array(), '20130115', true );
+	wp_enqueue_script( 'lean-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'holder', '//cdn.bootcss.com/holder/2.9.4/holder.min.js', array(), '20120206', true );
 
-	wp_enqueue_script( 'start-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'lean-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
