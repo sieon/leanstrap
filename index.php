@@ -1,32 +1,36 @@
 <?php get_header('2'); ?>
 
 <div class="row">
-  <div class="col-lg-12">
-    <div class="card-columns">
-      <?php if ( have_posts() ) : ?>
+  <div class="col-lg-8">
+    <div class="main-content">
+      <div class="hidden">
+        <?php
+        if ( have_posts() ) :
+           while ( have_posts() ) : the_post(); ?>
 
-    		<?php /* Start the Loop */ ?>
-    		<?php while ( have_posts() ) : the_post(); ?>
-
-    			<?php
-    				/* Include the Post-Format-specific template for the content.
-    				 * If you want to override this in a child theme, then include a file
-    				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-    				 */
-    				get_template_part( 'template-parts/content', get_post_format() );
-    			?>
+            <?php
+            /**
+             * 显示内容
+             */
+            get_template_part( 'template-parts/content', 'bloglist' );
+            ?>
         <?php endwhile; ?>
+        <?php //lean_bootstrap_page_navi(''); ?>
+      </div>
+      <div class="more-list">数据加载中，请稍后...</div>
+      <div class="load-more text-center"><a href="javascript:;" onClick="lean.loadMore();" class="btn btn-primary">浏览更多</a></div>
+
+
     </div>
-  </div><!--／正文 -->
-  <div class="col-lg-12">
-  <?php lean_bootstrap_page_navi(''); ?>
 
-  <?php else : ?>
+      <?php else : ?>
+      <?php get_template_part( 'template-parts/content', 'none' ); ?>
+      <?php endif;     // Reset Post Data
+        wp_reset_postdata();?>
+  </div>
 
-  <?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-  <?php endif;     // Reset Post Data
-    wp_reset_postdata();?>
+  <div class="col-xl-4 col-lg-4">
+    <?php get_sidebar();?>
   </div>
 </div><!--/.row-->
 
