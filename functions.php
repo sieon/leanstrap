@@ -101,6 +101,9 @@ function lean_scripts() {
 
   wp_enqueue_style( 'lean-bootstrap', get_template_directory_uri() . '/assets/bootstrap4/dist/css/bootstrap.css');
 	wp_enqueue_style( 'lean-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'lean-font-awesome', '//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
   //jQuery first, then Tether, then Bootstrap JS.
 	wp_enqueue_script( 'lean-jquery', 'https://cdn.bootcss.com/jquery/3.1.1/jquery.slim.min.js', array(), '20130115', true );
 	wp_enqueue_script( 'lean-tether', 'https://cdn.bootcss.com/tether/1.4.0/js/tether.min.js', array(), '20130115', true );

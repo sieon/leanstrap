@@ -294,20 +294,20 @@ function lean_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'start' ) );
 		if ( $categories_list && lean_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( '发表在 %1$s', 'start' ) . '</span>', $categories_list );
+			printf( '<span class="cat-links"><i class="fa fa-book fa-fw" aria-hidden="true"></i> ' . esc_html__( '%1$s', 'start' ) . '</span>', $categories_list );
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'start' ) );
 		if ( $tags_list ) {
-			printf( '&nbsp;<span class="tags-links">' . esc_html__( '标签： %1$s', 'start' ) . '</span>', $tags_list );
+			printf( '&nbsp;<span class="tags-links"><i class="fa fa-tags" aria-hidden="true"></i>' . esc_html__('&nbsp;%1$s', 'start' ) . '</span>', $tags_list );
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '&nbsp;<span class="comments-link">';
-		comments_popup_link( esc_html__( '去评论', 'start' ), esc_html__( '1 条评论', 'start' ), esc_html__( '% 条评论', 'start' ) );
-		echo '</span>';
+		echo '&nbsp;<span class="comments-link"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;';
+		comments_popup_link( esc_html__( '0 条评论', 'start' ), esc_html__( '1 条评论', 'start' ), esc_html__( '% 条评论', 'start' ) );
+		echo '</span> ';
 	}
 
 	edit_post_link( esc_html__( '编辑', 'start' ), '<span class="edit-link">', '</span>' );

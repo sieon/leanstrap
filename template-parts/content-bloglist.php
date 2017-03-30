@@ -24,22 +24,20 @@
 	<div class="col-lg-12">
 	<?php endif; ?>
 
-		<header class="entry-header">
+		<header class="entry-header mb-3">
 			<?php the_title( sprintf( '<h3 class="mt-0 mb-2"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
-
-			<?php if ( 'post' == get_post_type() ) : ?>
-			<div class="mb-2">
-				<small><?php echo the_time(); ?></small>
-			</div><!-- .entry-meta -->
-			<?php endif; ?>
 		</header>
 
-		<div class="entry-content">
+		<div class="entry-excerpt">
 			<?php the_excerpt(); ?>
 		</div>
 
 		<footer class="entry-footer pb-2">
-			<small class="text-muted"><?php echo get_the_author(); ?>&nbsp;<?php lean_entry_footer(); ?></small>
+				<small>
+					<i class="fa fa-user" aria-hidden="true"></i> <?php echo get_the_author(); ?>
+					<?php echo the_time(); ?>
+					<?php lean_entry_footer(); ?>
+				</small>
 		</footer><!-- .entry-footer -->
 	</div>
 </article><!-- #post-## -->

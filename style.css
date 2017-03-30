@@ -53,10 +53,6 @@ body {
 # Entry
 --------------------------------------------------------------*/
 
-.entry-footer {
-  border-bottom: 1px solid #f0f0f0;
-}
-
 .entry-header a {
   color: #333;
 }
@@ -64,6 +60,7 @@ body {
 .entry-header h3 {
   font-size: 18px;
   color: #000;
+  font-weight: bold;
 }
 
 .entry-header h1 {
@@ -105,8 +102,17 @@ body {
   line-height: 1.8em;
 }
 
-.home .entry-content p{
+.entry-excerpt {
   color: #666;
+}
+
+.entry {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.entry-footer,
+.entry-footer a {
+  color: #87a6bc;
 }
 /*--------------------------------------------------------------
 # Widgets
