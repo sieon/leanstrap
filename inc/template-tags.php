@@ -494,14 +494,14 @@ add_filter('the_time','Bing_filter_time');
 
 
 // add custom active class in menu items 多余的 active
-/** function oxy_custom_active_item_class($classes = array(), $menu_item = false)
+/** function lean_custom_active_item_class($classes = array(), $menu_item = false)
 {
     if (in_array('current-menu-item', $menu_item->classes)) {
         $classes[] = 'active';
     }
     return $classes;
 }
-add_filter('nav_menu_css_class', 'oxy_custom_active_item_class', 10, 2);**/
+add_filter('nav_menu_css_class', 'lean_custom_active_item_class', 10, 2);**/
 
 
 if ( ! function_exists( 'lean_post_thumbnail' ) ) :

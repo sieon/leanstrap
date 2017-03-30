@@ -3,8 +3,8 @@
 /**
  * 评论列表的显示
  */
-if ( ! function_exists( 'bootstrapwp_comment' ) ) :
-function bootstrapwp_comment( $comment, $args, $depth ) {
+if ( ! function_exists( 'lean_comment' ) ) :
+function lean_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
@@ -12,7 +12,7 @@ function bootstrapwp_comment( $comment, $args, $depth ) {
 	  // 用不同于其它评论的方式显示 trackbacks 。
 	?>
 	<div <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-		<p><?php _e( 'Pingback:', 'bootstrapwp' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'bootstrapwp' ), '<span class="edit-link">', '</span>' ); ?>
+		<p><?php _e( 'Pingback:', 'lean' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'lean' ), '<span class="edit-link">', '</span>' ); ?>
 		</p>
 	<?php
 		break;
@@ -30,16 +30,16 @@ function bootstrapwp_comment( $comment, $args, $depth ) {
 			<?php // 未审核的评论显示一行提示文字
 			  if ( '0' == $comment->comment_approved ) : ?>
   			<p class="comment-awaiting-moderation">
-  			  <?php _e( '你的评论正在审核。', 'bootstrapwp' ); ?>
+  			  <?php _e( '你的评论正在审核。', 'lean' ); ?>
   			</p>
 			<?php endif; ?>
 			<div class="media-body">
-				<h5 class="mt-0">
+				<h5 class="mt-3">
   				<?php // 显示评论作者名称
   				    printf( '%1$s %2$s',
   						get_comment_author_link(),
   						// 如果当前文章的作者也是这个评论的作者，那么会出现一个标签提示。
-  						( $comment->user_id === $post->post_author ) ? '<span class="label label-info"> ' . __( '博主', 'bootstrapwp' ) . '</span>' : ''
+  						( $comment->user_id === $post->post_author ) ? '<span class="label label-info"> ' . __( '博主', 'lean' ) . '</span>' : ''
   					);
   				?>
   		    <small>

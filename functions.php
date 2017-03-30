@@ -254,28 +254,25 @@ function lean_get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $a
  */
 
 /*************** COMMENTS  评论   为了符合bootstrap media ***************************/
-function oxy_comment_callback($comment, $args, $depth)
+function lean_comment_callback($comment, $args, $depth)
 {
     $GLOBALS['comment'] = $comment;
     $tag = $depth === 1 ? 'li' : 'div'; ?>
-    <<?php echo $tag ?> <?php comment_class('media media-comment mb-4'); ?>>
+    <<?php echo $tag ?> <?php comment_class('media comment mb-3'); ?>>
 
         <?php echo lean_get_avatar($comment, 48); ?>
         <div id="comment-<?php comment_ID(); ?>" class="media-body">
-                    <h4 class="mt-0">
-                        <strong>
-                            <?php comment_author_link(); ?> - <?php comment_date(); ?>
-                        </strong>
-                        <p class="comment-reply float-right">
-                            <?php comment_reply_link(array_merge($args, array('reply_text' => __('回复', 'lambda-td'), 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
-                        </p>
-                    </h4>
-                    <?php comment_text(); ?>
-                    <hr>
+					<h5 class="comment-title mt-0">
+						<?php comment_author_link(); ?> - <?php comment_date(); ?>
+	          <p class="comment-reply float-right">
+	              <?php comment_reply_link(array_merge($args, array('reply_text' => __('回复', 'lean'), 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
+	          </p>
+      		</h5>
+      <?php comment_text(); ?>
     <?php
 }
 
-function oxy_comment_end_callback($comment, $args, $depth)
+function lean_comment_end_callback($comment, $args, $depth)
 {
     // we need to add 1 to the depth to get this to work
     $tag = $depth + 1 === 1 ? 'li' : 'div'; ?>
@@ -290,23 +287,23 @@ function oxy_comment_end_callback($comment, $args, $depth)
  *
  * @return new defaults
  **/
-function oxy_filter_comment_form_defaults($defaults)
+function lean_filter_comment_form_defaults($defaults)
 {
     $commenter = wp_get_current_commenter();
 
-    $defaults['fields']['author'] = '<div class="row"><div class="form-group col-md-4"><label for="author">' . __('名字 *', 'lambda-td') . '</label><input id="author" name="author" type="text" class="input-block-level form-control" value="' . esc_attr($commenter['comment_author']) .  '"/></div>';
-    $defaults['fields']['email']  = '<div class="form-group col-md-4"><label for="email">' . __('邮箱 *', 'lambda-td') . '</label><input id="email" name="email" type="text" class="input-block-level form-control" value="' . esc_attr($commenter['comment_author_email']) . '" /></div>';
-    $defaults['fields']['url'] = '<div class="form-group col-md-4"><label for="url">' . __('网站', 'lambda-td') . '</label><input id="url" name="url" type="text" class="input-block-level form-control" value="' . esc_attr($commenter['comment_author_url']) . '" /></div></div>';
+    $defaults['fields']['author'] = '<div class="row"><div class="form-group col-md-4"><label for="author">' . __('名字 *', 'lean') . '</label><input id="author" name="author" type="text" class="input-block-level form-control" value="' . esc_attr($commenter['comment_author']) .  '"/></div>';
+    $defaults['fields']['email']  = '<div class="form-group col-md-4"><label for="email">' . __('邮箱 *', 'lean') . '</label><input id="email" name="email" type="text" class="input-block-level form-control" value="' . esc_attr($commenter['comment_author_email']) . '" /></div>';
+    $defaults['fields']['url'] = '<div class="form-group col-md-4"><label for="url">' . __('网站', 'lean') . '</label><input id="url" name="url" type="text" class="input-block-level form-control" value="' . esc_attr($commenter['comment_author_url']) . '" /></div></div>';
 
 
-    $defaults['comment_field'] = '<div class="row"><div class="form-group col-md-12"><label for="comment">' . __('留言内容', 'lambda-td') . '</label><textarea id="comment" name="comment" class="input-block-level form-control" rows="5"></textarea></div></div>';
+    $defaults['comment_field'] = '<div class="row"><div class="form-group col-md-12"><label for="comment">' . __('留言内容', 'lean') . '</label><textarea id="comment" name="comment" class="input-block-level form-control" rows="5"></textarea></div></div>';
     $defaults['format'] = 'html5';
     $defaults['comment_notes_after'] = '';
     $defaults['class_submit'] = 'btn btn-primary';
 
     return $defaults;
 }
-add_filter('comment_form_defaults', 'oxy_filter_comment_form_defaults');
+add_filter('comment_form_defaults', 'lean_filter_comment_form_defaults');
 
 
 /**
@@ -315,8 +312,8 @@ add_filter('comment_form_defaults', 'oxy_filter_comment_form_defaults');
  * @return void
  * @author
  **/
-if (!function_exists('oxy_create_nav_header')) {
-    function oxy_create_nav_header()
+if (!function_exists('lean_create_nav_header')) {
+    function lean_create_nav_header()
     {
         global $post, $wp_query;
         $is_portfolio = false;
@@ -324,10 +321,10 @@ if (!function_exists('oxy_create_nav_header')) {
         $is_staff = false;
         $is_blog = false;
         if (!is_null($post)) {
-            $is_portfolio = $post->post_type === 'oxy_portfolio_image';
-            $is_service = $post->post_type === 'oxy_service';
-            $is_staff = $post->post_type === 'oxy_staff';
-            $is_blog = oxy_query_is_blog();
+            $is_portfolio = $post->post_type === 'lean_portfolio_image';
+            $is_service = $post->post_type === 'lean_service';
+            $is_staff = $post->post_type === 'lean_staff';
+            $is_blog = lean_query_is_blog();
         }
 
         // check for page overrides
@@ -341,9 +338,9 @@ if (!function_exists('oxy_create_nav_header')) {
             }
         }
 
-        global $oxy_theme;
+        global $lean_theme;
 
-        if ($oxy_theme->get_option('header_top_bar') === 'on') {
+        if ($lean_theme->get_option('header_top_bar') === 'on') {
             include(locate_template('partials/header/top-bar.php'));
         }
 
@@ -354,13 +351,13 @@ if (!function_exists('oxy_create_nav_header')) {
         if (isset($locations['primary'])) {
             $primary_menu = wp_get_nav_menu_object($locations['primary']);
             if (false !== $primary_menu) {
-                echo oxy_shortcode_menu( array(
+                echo lean_shortcode_menu( array(
                     'menu_slug'              => $primary_menu->slug,
-                    'header_style'           => $oxy_theme->get_option('header_style'),
-                    'header_sticky'          => $oxy_theme->get_option('header_sticky'),
-                    'header_sticky_mobile'   => $oxy_theme->get_option('header_sticky_mobile'),
-                    'header_capitalization'  => $oxy_theme->get_option('header_capitalization'),
-                    'container_class'        => $oxy_theme->get_option('header_container')
+                    'header_style'           => $lean_theme->get_option('header_style'),
+                    'header_sticky'          => $lean_theme->get_option('header_sticky'),
+                    'header_sticky_mobile'   => $lean_theme->get_option('header_sticky_mobile'),
+                    'header_capitalization'  => $lean_theme->get_option('header_capitalization'),
+                    'container_class'        => $lean_theme->get_option('header_container')
                 ));
             }
         }
@@ -380,7 +377,7 @@ require get_template_directory() . '/inc/extras.php';
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+//require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.

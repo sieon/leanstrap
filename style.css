@@ -205,13 +205,18 @@ body {
 # Comments
 --------------------------------------------------------------*/
 
-.comment h4{
-  font-size: 16px;
+.comments h5 {
+  font-size: 12px;
 }
 
 
-.comment p{
+.comment p {
+  font-size: 12px;
   color: #666;
+}
+
+.comments a {
+  color: #333;
 }
 
 /*--------------------------------------------------------------
