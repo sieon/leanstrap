@@ -21,7 +21,7 @@ if ( ! function_exists( 'lean_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function lean_setup() {
-	require 'inc/class-Upbootwp_Walker_Nav_Menu.php';
+	require 'inc/class-lean_Walker_Nav_Menu.php';
 	require 'inc/comment.php';
 	/*
 	 * Make theme available for translation.
@@ -234,28 +234,6 @@ function lean_get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $a
      */
     return apply_filters( 'get_avatar', $avatar, $id_or_email, $args['size'], $args['default'], $args['alt'], $args );
 }
-
-
-/*
- ************** COMMENTS **************************
- <!-- <div class="media">
-	 <img class="d-flex mr-3" src="..." alt="Generic placeholder image">
-	 <div class="media-body">
-		 <h5 class="mt-0">Media heading</h5>
-		 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-		 <div class="media mt-3">
-			 <a class="d-flex pr-3" href="#">
-				 <img src="..." alt="Generic placeholder image">
-			 </a>
-			 <div class="media-body">
-				 <h5 class="mt-0">Media heading</h5>
-				 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-			 </div>
-		 </div>
-	 </div>
- </div> -->
- */
 
 /*************** COMMENTS  评论   为了符合bootstrap media ***************************/
 function lean_comment_callback($comment, $args, $depth)

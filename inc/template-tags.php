@@ -69,76 +69,14 @@
  }
 
 
-/**
- * page navi
- */
-
- function lean_bootstrap_page_navi($before = '', $after = '') {
-   global $wpdb, $wp_query;
-   $request = $wp_query->request;
-   $posts_per_page = intval(get_query_var('posts_per_page'));
-   $paged = intval(get_query_var('paged'));
-   $numposts = $wp_query->found_posts;
-   $max_page = $wp_query->max_num_pages;
-   if ( $numposts <= $posts_per_page ) { return; }
-   if(empty($paged) || $paged == 0) {
-     $paged = 1;
-   }
-   $pages_to_show = 7;
-   $pages_to_show_minus_1 = $pages_to_show-1;
-   $half_page_start = floor($pages_to_show_minus_1/2);
-   $half_page_end = ceil($pages_to_show_minus_1/2);
-   $lean_page = $paged - $half_page_start;
-   if($lean_page <= 0) {
-     $lean_page = 1;
-   }
-   $end_page = $paged + $half_page_end;
-   if(($end_page - $lean_page) != $pages_to_show_minus_1) {
-     $end_page = $lean_page + $pages_to_show_minus_1;
-   }
-   if($end_page > $max_page) {
-     $lean_page = $max_page - $pages_to_show_minus_1;
-     $end_page = $max_page;
-   }
-   if($lean_page <= 0) {
-     $lean_page = 1;
-   }
-   echo $before.'<nav><ul class="pagination">'."";
-   if ($paged > 1) {
-     $first_page_text = "首页";
-     echo '<li class="page-item"><a href="'.get_pagenum_link().'" title="' . __('首页','wpbootstrap') . '" class="page-link">'.$first_page_text.'</a></li>';
-   }
-
-   $prevposts = lean_get_previous_posts_link( __('上一页','wpbootstrap') );
-   if($prevposts) { echo '<li class="page-item">' . $prevposts  . '</li>'; }
-   else { echo '<li class="page-item disabled"><a href="#" class="page-link">' . __('上一页','wpbootstrap') . '</a></li>'; }
-
-   for($i = $lean_page; $i  <= $end_page; $i++) {
-     if($i == $paged) {
-       echo '<li class="page-item active"><a href="#" class="page-link">'.$i.'</a></li>';
-     } else {
-       echo '<li class="page-item"><a href="'.get_pagenum_link($i).'" class="page-link">'.$i.'</a></li>';
-     }
-   }
-   echo '<li class="page-item">';
-   lean_next_posts_link( __('下一页','wpbootstrap') );
-   echo '</li>';
-   if ($end_page < $max_page) {
-     $last_page_text = "&raquo;";
-     echo '<li class="page-item"><a href="'.get_pagenum_link($max_page).'" title="' . __('Last','wpbootstrap') . '" class="page-link">'.$last_page_text.'</a></li>';
-   }
-   echo '</ul></nav>'.$after."";
- }
-
-
  /**
   * Posts pagination
   */
-	if (!function_exists( 'upbootwp_content_nav')):
+	if (!function_exists( 'lean_content_nav')):
 	/**
 	 * Display navigation to next/previous pages when applicable
 	 */
-	function upbootwp_content_nav($nav_id) {
+	function lean_content_nav($nav_id) {
 		global $wp_query, $post;
 
 		// Don't print empty markup on single pages if there's nowhere to navigate.
@@ -194,7 +132,7 @@
 		</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
 		<?php
 	}
-	endif; // upbootwp_content_nav
+	endif; // lean_content_nav
 
 
 if ( ! function_exists( 'lean_the_posts_navigation' ) ) :

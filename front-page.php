@@ -16,7 +16,6 @@
 get_header('2'); ?>
 
 <div class="row">
-  <!--
   <div class="col-lg-12">
     <?php
     $args = array(
@@ -40,7 +39,7 @@ get_header('2'); ?>
     // Reset Post Data
     wp_reset_postdata();
     ?>
-  </div>-->
+  </div>
 
   <div class="col-lg-8">
     <?php

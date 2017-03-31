@@ -34,7 +34,7 @@
                       'menu_class' => 'navbar-nav',
                       'fallback_cb' => '',
                                   'menu_id' => 'main-menu',
-                                  'walker' => new Upbootwp_Walker_Nav_Menu());
+                                  'walker' => new Lean_Walker_Nav_Menu());
               wp_nav_menu($args);
           ?>
         </div>

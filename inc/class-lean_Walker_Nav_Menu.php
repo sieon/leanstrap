@@ -1,12 +1,12 @@
 <?php
 /**
- * Upbootwp_Walker_Nav_Menu class.
+ * Lean_Walker_Nav_Menu class.
  *
  * @extends Walker_Nav_Menu
  * @author Matthias Thom | http://upplex.de
  * @package upBootWP 0.1
  */
-class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
+class Lean_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 	/**
 	 * __construct function.
