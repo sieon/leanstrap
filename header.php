@@ -41,5 +41,5 @@
     </nav>
   </header><!-- ./header -->
 
-  <main class="site-content pt-2">
+  <main class="">
   <!-- 上面是复用的头部 -->
