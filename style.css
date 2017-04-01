@@ -21,32 +21,15 @@ body {
   font-family: 微软雅黑, "Microsoft yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", "Microsoft Yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
 }
 
-#site-content {
-  margin-bottom: 40px;
-}
-
-.site-content {
-  margin-top: 20px;
-}
-
-#primary-navbar {
-
-}
-
-.card-columns {
-  @include media-breakpoint-only(lg) {
-    column-count: 4;
-  }
-  @include media-breakpoint-only(xl) {
-    column-count: 5;
-  }
-  @include media-breakpoint-only(sm) {
-    column-count: 5;
-  }
+.slide-img {
+  max-height: 274px;
 }
 
 .border-b {
-  border-bottom: : 1px solid #999;
+  border-bottom: 1px solid #ddd;
+}
+
+[class*="col-"] {
 }
 
 /*--------------------------------------------------------------
@@ -54,7 +37,6 @@ body {
 --------------------------------------------------------------*/
 
 .entry {
-  border-bottom: 1px solid #ddd;
 }
 
 .entry-header a {

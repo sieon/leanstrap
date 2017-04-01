@@ -18,7 +18,7 @@
 </head>
 <body <?php body_class( $class ); ?> >
   <header class="header">
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary" id="primary-navbar" role="navigation">
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse" id="primary-navbar" role="navigation">
 
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,5 +41,5 @@
     </nav>
   </header><!-- ./header -->
 
-  <main class="">
+  <main class="site-content">
   <!-- 上面是复用的头部 -->

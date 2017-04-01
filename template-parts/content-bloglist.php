@@ -8,10 +8,10 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('entry mb-4 pb-3'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('entry pb-3 border-b'); ?>>
 	<div class="row">
 		<?php if(has_post_thumbnail()) : ?>
-		<div class="col-lg-3">
+		<div class="col-lg-3 mb-3 pb-3">
 			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
 				<?php
 					// Post thumbnail.
@@ -19,9 +19,9 @@
 				?>
 			</a>
 		</div>
-		<div class="col-lg-9">
+		<div class="col-lg-9 mb-3 pb-3">
 		<?php else : ?>
-		<div class="col-lg-12">
+		<div class="col-lg-12 mb-3 pt-3">
 		<?php endif; ?>
 
 			<header class="entry-header mb-3">
