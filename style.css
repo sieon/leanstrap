@@ -21,6 +21,12 @@ body {
   font-family: 微软雅黑, "Microsoft yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", "Microsoft Yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
 }
 
+body,
+.comment {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+
 .slide-img {
   max-height: 274px;
 }
@@ -30,6 +36,44 @@ body {
 }
 
 [class*="col-"] {
+}
+
+
+.card-dingzhi {
+  color: rgba(255, 255, 255, 1); }
+  .dingzhi .card-header,
+  .dingzhi .card-footer {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.2); }
+  .dingzhi .card-header,
+  .dingzhi .card-footer,
+  .dingzhi .card-title,
+  .dingzhi .card-blockquote {
+    color: #fff; }
+  .dingzhi .card-link,
+  .dingzhi .card-text,
+  .dingzhi .card-subtitle,
+  .dingzhi .card-blockquote .blockquote-footer {
+    color: rgba(255, 255, 255, 1); }
+  .dingzhi .card-link:focus, .dingzhi .card-link:hover {
+    color: #fff; }
+
+.card-dingzhi .card-img-overlay {
+  background-color: rgba(0,0,0,.7);
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  font-size: 14px;
+  display: block;
+
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 
 /*--------------------------------------------------------------

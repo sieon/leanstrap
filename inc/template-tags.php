@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package start
+ * @package lean
  */
 
 
@@ -150,11 +150,11 @@ function lean_the_posts_navigation() {
 	<nav>
 		<ul class="pager">
 		<?php if ( get_next_posts_link() ) : ?>
-			<li><?php next_posts_link( esc_html__( '下一页', 'start' ) ); ?></li>
+			<li><?php next_posts_link( esc_html__( '下一页', 'lean' ) ); ?></li>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<li><?php previous_posts_link( esc_html__( '上一页', 'start' ) ); ?></li>
+			<li><?php previous_posts_link( esc_html__( '上一页', 'lean' ) ); ?></li>
 			<?php endif; ?>
 		</ul>
 	</nav><!-- .navigation -->
@@ -178,7 +178,7 @@ function lean_the_post_navigation() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'start' ); ?></h2>
+		<h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'lean' ); ?></h2>
 		<div class="nav-links">
 			<?php
 				previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
@@ -190,37 +190,138 @@ function lean_the_post_navigation() {
 }
 endif;
 
-if ( ! function_exists( 'lean_posted_on' ) ) :
 /**
- * Prints HTML with meta information for the current post-date/time and author.
+ * WordPress 修改时间的显示格式为几天前
+ * https://www.wpdaxue.com/time-ago.html
  */
-function lean_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+function lean_filter_time() {
+ global $post ;
+ $to = time();
+ $from = get_the_time('U') ;
+ $diff = (int) abs($to - $from);
+ if ($diff <= 3600) {
+   $mins = round($diff / 60);
+   if ($mins <= 1) {
+     $mins = 1;
+   }
+   $time = sprintf(_n('%s 分钟', '%s 分钟', $mins), $mins) . __( '前' , 'lean' );
+ }
+ else if (($diff <= 86400) && ($diff > 3600)) {
+   $hours = round($diff / 3600);
+   if ($hours <= 1) {
+     $hours = 1;
+   }
+   $time = sprintf(_n('%s 小时', '%s 小时', $hours), $hours) . __( '前' , 'lean' );
+ }
+ elseif ($diff >= 86400) {
+   $days = round($diff / 86400);
+   if ($days <= 1) {
+     $days = 1;
+     $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'lean' );
+   }
+   elseif( $days > 29){
+     $time = get_the_time(get_option('date_format'));
+   }
+   else{
+     $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'lean' );
+   }
+ }
+ return $time;
+}
+add_filter('the_time','lean_filter_time');
+
+
+if ( ! function_exists( 'lean_entry_meta' ) ) :
+/**
+ * Prints HTML with meta information for the categories, tags.
+ *
+ * @since Twenty Fifteen 1.0
+ */
+function lean_entry_meta() {
+	if ( is_sticky() && is_home() && ! is_paged() ) {
+		printf( '<span class="sticky-post">%s</span>', __( 'Featured', 'lean' ) );
 	}
 
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() )
-		//esc_attr( get_the_modified_date( 'c' ) ),
-		//esc_html( get_the_modified_date() )
-	);
+	/*
+  $format = get_post_format();
+	if ( current_theme_supports( 'post-formats', $format ) ) {
+		printf( '<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span>',
+			sprintf( '<span class="screen-reader-text">%s </span>', _x( 'Format', 'Used before post format.', 'lean' ) ),
+			esc_url( get_post_format_link( $format ) ),
+			get_post_format_string( $format )
+		);
+	}
+  */
 
-	$posted_on = sprintf(
-		esc_html_x( '发表于 %s', 'post date', 'start' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
+	if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time> ';
 
-	$byline = sprintf(
-		esc_html_x( '%s', 'post author', 'start' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <time class="updated" datetime="%3$s">%4$s</time> ';
+		}
 
-	echo '<span class="byline"> ' . $byline . '</span>'. $posted_on . '</span>';
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			get_the_date()
+			//esc_attr( get_the_modified_date( 'c' ) ),
+			//get_the_modified_date()
+		);
 
+		printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark">%3$s</a></span> ',
+			_x( 'Posted on', 'Used before publish date.', 'lean' ),
+			esc_url( get_permalink() ),
+			$time_string
+		);
+	}
+
+	if ( 'post' == get_post_type() ) {
+		if ( is_singular() || is_multi_author() ) {
+			printf( '<span class="byline"><span class="author vcard"><span class="screen-reader-text">%1$s </span><a class="url fn n" href="%2$s">%3$s</a></span></span>',
+				_x( 'Author', 'Used before post author name.', 'lean' ),
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+				get_the_author()
+			);
+		}
+
+		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'lean' ) );
+		if ( $categories_list && lean_categorized_blog() ) {
+			printf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span> ',
+				_x( 'Categories', 'Used before category names.', 'lean' ),
+				$categories_list
+			);
+		}
+
+		$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'lean' ) );
+		if ( $tags_list ) {
+			printf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+				_x( 'Tags', 'Used before tag names.', 'lean' ),
+				$tags_list
+			);
+		}
+	}
+
+	if ( is_attachment() && wp_attachment_is_image() ) {
+		// Retrieve attachment metadata.
+		$metadata = wp_get_attachment_metadata();
+
+		printf( '<span class="full-size-link"><span class="screen-reader-text">%1$s </span><a href="%2$s">%3$s &times; %4$s</a></span>',
+			_x( 'Full size', 'Used before full size attachment link.', 'lean' ),
+			esc_url( wp_get_attachment_url() ),
+			$metadata['width'],
+			$metadata['height']
+		);
+	}
+
+	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+		echo '<span class="comments-link">';
+		/* translators: %s: post title */
+		comments_popup_link( sprintf( __( '去评论<span class="screen-reader-text"> on %s</span>', 'lean' ), get_the_title() ) );
+		echo '</span>';
+	}
 }
 endif;
+
+
 
 if ( ! function_exists( 'lean_entry_footer' ) ) :
 /**
@@ -230,25 +331,25 @@ function lean_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'start' ) );
+		$categories_list = get_the_category_list( esc_html__( ', ', 'lean' ) );
 		if ( $categories_list && lean_categorized_blog() ) {
-			printf( '<span class="cat-links"><i class="fa fa-book fa-fw" aria-hidden="true"></i> ' . esc_html__( '%1$s', 'start' ) . '</span>', $categories_list );
+			printf( '<span class="cat-links"><i class="fa fa-book fa-fw" aria-hidden="true"></i> ' . esc_html__( '%1$s', 'lean' ) . '</span>', $categories_list );
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'start' ) );
+		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'lean' ) );
 		if ( $tags_list ) {
-			printf( '&nbsp;<span class="tags-links"><i class="fa fa-tags" aria-hidden="true"></i>' . esc_html__('&nbsp;%1$s', 'start' ) . '</span>', $tags_list );
+			printf( '&nbsp;<span class="tags-links"><i class="fa fa-tags" aria-hidden="true"></i>' . esc_html__('&nbsp;%1$s', 'lean' ) . '</span>', $tags_list );
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '&nbsp;<span class="comments-link"><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;';
-		comments_popup_link( esc_html__( '0 条评论', 'start' ), esc_html__( '1 条评论', 'start' ), esc_html__( '% 条评论', 'start' ) );
+		comments_popup_link( esc_html__( '0 条评论', 'lean' ), esc_html__( '1 条评论', 'lean' ), esc_html__( '% 条评论', 'lean' ) );
 		echo '</span> ';
 	}
 
-	edit_post_link( esc_html__( '编辑', 'start' ), '<span class="edit-link">', '</span>' );
+	edit_post_link( esc_html__( '编辑', 'lean' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
@@ -265,45 +366,45 @@ if ( ! function_exists( 'lean_the_archive_title' ) ) :
  */
 function lean_the_archive_title( $before = '', $after = '' ) {
 	if ( is_category() ) {
-		$title = sprintf( esc_html__( '%s', 'start' ), single_cat_title( '', false ) );
+		$title = sprintf( esc_html__( '%s', 'lean' ), single_cat_title( '', false ) );
 	} elseif ( is_tag() ) {
-		$title = sprintf( esc_html__( '标签: %s', 'start' ), single_tag_title( '', false ) );
+		$title = sprintf( esc_html__( '标签: %s', 'lean' ), single_tag_title( '', false ) );
 	} elseif ( is_author() ) {
-		$title = sprintf( esc_html__( '作者: %s', 'start' ), '<span class="vcard">' . get_the_author() . '</span>' );
+		$title = sprintf( esc_html__( '作者: %s', 'lean' ), '<span class="vcard">' . get_the_author() . '</span>' );
 	} elseif ( is_year() ) {
-		$title = sprintf( esc_html__( '年: %s', 'start' ), get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'start' ) ) );
+		$title = sprintf( esc_html__( '年: %s', 'lean' ), get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'lean' ) ) );
 	} elseif ( is_month() ) {
-		$title = sprintf( esc_html__( '月: %s', 'start' ), get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'start' ) ) );
+		$title = sprintf( esc_html__( '月: %s', 'lean' ), get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'lean' ) ) );
 	} elseif ( is_day() ) {
-		$title = sprintf( esc_html__( '日: %s', 'start' ), get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', 'start' ) ) );
+		$title = sprintf( esc_html__( '日: %s', 'lean' ), get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', 'lean' ) ) );
 	} elseif ( is_tax( 'post_format' ) ) {
 		if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-			$title = esc_html_x( 'Asides', 'post format archive title', 'start' );
+			$title = esc_html_x( 'Asides', 'post format archive title', 'lean' );
 		} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-			$title = esc_html_x( 'Galleries', 'post format archive title', 'start' );
+			$title = esc_html_x( 'Galleries', 'post format archive title', 'lean' );
 		} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-			$title = esc_html_x( 'Images', 'post format archive title', 'start' );
+			$title = esc_html_x( 'Images', 'post format archive title', 'lean' );
 		} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-			$title = esc_html_x( 'Videos', 'post format archive title', 'start' );
+			$title = esc_html_x( 'Videos', 'post format archive title', 'lean' );
 		} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-			$title = esc_html_x( 'Quotes', 'post format archive title', 'start' );
+			$title = esc_html_x( 'Quotes', 'post format archive title', 'lean' );
 		} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-			$title = esc_html_x( 'Links', 'post format archive title', 'start' );
+			$title = esc_html_x( 'Links', 'post format archive title', 'lean' );
 		} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-			$title = esc_html_x( 'Statuses', 'post format archive title', 'start' );
+			$title = esc_html_x( 'Statuses', 'post format archive title', 'lean' );
 		} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-			$title = esc_html_x( 'Audio', 'post format archive title', 'start' );
+			$title = esc_html_x( 'Audio', 'post format archive title', 'lean' );
 		} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-			$title = esc_html_x( 'Chats', 'post format archive title', 'start' );
+			$title = esc_html_x( 'Chats', 'post format archive title', 'lean' );
 		}
 	} elseif ( is_post_type_archive() ) {
-		$title = sprintf( esc_html__( 'Archives: %s', 'start' ), post_type_archive_title( '', false ) );
+		$title = sprintf( esc_html__( 'Archives: %s', 'lean' ), post_type_archive_title( '', false ) );
 	} elseif ( is_tax() ) {
 		$tax = get_taxonomy( get_queried_object()->taxonomy );
 		/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
-		$title = sprintf( esc_html__( '%1$s: %2$s', 'start' ), $tax->labels->singular_name, single_term_title( '', false ) );
+		$title = sprintf( esc_html__( '%1$s: %2$s', 'lean' ), $tax->labels->singular_name, single_term_title( '', false ) );
 	} else {
-		$title = esc_html__( 'Archives', 'start' );
+		$title = esc_html__( 'Archives', 'lean' );
 	}
 
 	/**
@@ -389,46 +490,6 @@ function lean_category_transient_flusher() {
 }
 add_action( 'edit_category', 'lean_category_transient_flusher' );
 add_action( 'save_post',     'lean_category_transient_flusher' );
-
-/**
- * WordPress 修改时间的显示格式为几天前
- * https://www.wpdaxue.com/time-ago.html
- */
-function Bing_filter_time(){
- global $post ;
- $to = time();
- $from = get_the_time('U') ;
- $diff = (int) abs($to - $from);
- if ($diff <= 3600) {
-   $mins = round($diff / 60);
-   if ($mins <= 1) {
-     $mins = 1;
-   }
-   $time = sprintf(_n('%s 分钟', '%s 分钟', $mins), $mins) . __( '前' , 'Bing' );
- }
- else if (($diff <= 86400) && ($diff > 3600)) {
-   $hours = round($diff / 3600);
-   if ($hours <= 1) {
-     $hours = 1;
-   }
-   $time = sprintf(_n('%s 小时', '%s 小时', $hours), $hours) . __( '前' , 'Bing' );
- }
- elseif ($diff >= 86400) {
-   $days = round($diff / 86400);
-   if ($days <= 1) {
-     $days = 1;
-     $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
-   }
-   elseif( $days > 29){
-     $time = get_the_time(get_option('date_format'));
-   }
-   else{
-     $time = sprintf(_n('%s 天', '%s 天', $days), $days) . __( '前' , 'Bing' );
-   }
- }
- return $time;
-}
-add_filter('the_time','Bing_filter_time');
 
 
 // add custom active class in menu items 多余的 active
