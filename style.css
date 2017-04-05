@@ -32,7 +32,7 @@ body,
 }
 
 .border-b {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 }
 
 [class*="col-"] {
@@ -80,7 +80,8 @@ body,
 # Entry
 --------------------------------------------------------------*/
 
-.entry {
+.entry:hover {
+  background-color: #f5f5f5;
 }
 
 .entry-header a {
@@ -134,6 +135,7 @@ body,
 
 .entry-excerpt {
   color: #666;
+  min-height: 3em;
 }
 
 .entry-footer,
