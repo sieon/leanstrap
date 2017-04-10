@@ -5,6 +5,9 @@
  * @package lean
  */
 
+
+//支持bs4 navbar
+require 'inc/bootstrap-wp-navwalker.php';
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
@@ -21,8 +24,6 @@ if ( ! function_exists( 'lean_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function lean_setup() {
-	require 'inc/class-lean_Walker_Nav_Menu.php';
-	require 'inc/comment.php';
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
@@ -364,7 +365,10 @@ require get_template_directory() . '/inc/extras.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/custom-comments.php';
 
 /**
  *   customizer-library   https://github.com/devinsays/customizer-library
@@ -372,16 +376,21 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 
 // Helper library for the theme customizer.
-require get_template_directory() . '/inc/customizer-library/customizer-library.php';
+//require get_template_directory() . '/inc/customizer-library/customizer-library.php';
 
 // Define options for the theme customizer.
-require get_template_directory() . '/inc/customizer-options.php';
+//require get_template_directory() . '/inc/customizer-options.php';
 
 // Output inline styles based on theme customizer selections.
-require get_template_directory() . '/inc/styles.php';
+//require get_template_directory() . '/inc/styles.php';
 
 // Additional filters and actions based on theme customizer selections.
-require get_template_directory() . '/inc/mods.php';
+// require get_template_directory() . '/inc/mods.php';
+
+
+
+// 支持bs4菜单
+require get_template_directory() . '/inc/pagination.php';
 
 
 /**
