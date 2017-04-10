@@ -1,24 +1,21 @@
 @charset "UTF-8";
 /**
- * Theme Name: wpbs4
- * Description: wpbs3 is a finely crafted WordPress theme with clean layout. No matter which blog topic you are about to cover, you will find EverBox's features a perfect fit. It's fully responsive, retina ready and easy to customize.
- * Theme URI: http://blog.qingzhuti.com/themes/wpbs3
- * Version: 0.0.1
- * Author: moyu
- * Author URI: http://blog.qingzhuti.com
+ * Theme Name: leanstrap
+ * Description: 这是一个wordpress bootstrap4的主题。
+ * Theme URI: http://qingzhuti.com/
+ * Version: 0.5
+ * Author: mxy
+ * Author URI: http://qingzhuti.com/
  * Tags: translation-ready
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: everbox
+ * Text Domain: lean
  * Domain Path: /languages
- *
- * wpbs3 WordPress Theme, Copyright 2015 moyu
- * wpbs3 is Distributed under the terms of the GNU GPL
- * Use it to make something cool, have fun, and share what you've learned with others.
  */
 
 body {
   font-family: 微软雅黑, "Microsoft yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", "Microsoft Yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
+  padding-top: 4.5rem;
 }
 
 body,
@@ -36,44 +33,6 @@ body,
 }
 
 [class*="col-"] {
-}
-
-
-.card-dingzhi {
-  color: rgba(255, 255, 255, 1); }
-  .dingzhi .card-header,
-  .dingzhi .card-footer {
-    background-color: transparent;
-    border-color: rgba(255, 255, 255, 0.2); }
-  .dingzhi .card-header,
-  .dingzhi .card-footer,
-  .dingzhi .card-title,
-  .dingzhi .card-blockquote {
-    color: #fff; }
-  .dingzhi .card-link,
-  .dingzhi .card-text,
-  .dingzhi .card-subtitle,
-  .dingzhi .card-blockquote .blockquote-footer {
-    color: rgba(255, 255, 255, 1); }
-  .dingzhi .card-link:focus, .dingzhi .card-link:hover {
-    color: #fff; }
-
-.card-dingzhi .card-img-overlay {
-  background-color: rgba(0,0,0,.7);
-  height: 50px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  color: #fff;
-  font-size: 14px;
-  display: block;
-
-  word-break: break-all;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
 }
 
 /*--------------------------------------------------------------

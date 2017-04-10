@@ -1,5 +1,5 @@
 <?php get_header();?>
-<div class="container mt-3">
+<div class="container">
   <div class="row">
     <div class="col-xl-8 col-lg-8">
       <!-- .col-  .col-sm-	.col-md-	.col-lg-	.col-xl--->
