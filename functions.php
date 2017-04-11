@@ -103,15 +103,19 @@ function lean_scripts() {
   wp_enqueue_style( 'lean-bootstrap', get_template_directory_uri() . '/assets/bootstrap4/dist/css/bootstrap.css');
 	wp_enqueue_style( 'lean-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'lean-font-awesome', '//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css');
+	//wp_enqueue_style( 'lean-superfish', get_template_directory_uri() .'/assets/css/superfish.min.css');
+
 
 
   //jQuery first, then Tether, then Bootstrap JS.
 	wp_enqueue_script( 'lean-jquery', 'https://cdn.bootcss.com/jquery/3.1.1/jquery.slim.min.js', array(), '20130115', true );
 	wp_enqueue_script( 'lean-tether', 'https://cdn.bootcss.com/tether/1.4.0/js/tether.min.js', array(), '20130115', true );
 	wp_enqueue_script( 'lean-bootstrap', 'https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array(), '20130115', true );
+	wp_enqueue_script( 'lean-superfish', get_template_directory_uri() . '/assets/js/superfish.min.js', array(), '20130115', true );
 	//wp_enqueue_script( 'lean-masonry', get_template_directory_uri() . '/assets/js/masonry.pkgd.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'lean-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
 
+	wp_enqueue_script( 'lean-main', get_template_directory_uri() . '/assets/js/main.js', array(), '20120206', true );
 	wp_enqueue_script( 'lean-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

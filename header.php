@@ -4,16 +4,6 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?dd964c74a3611b3cbfb8505ff75dbbc1";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
   <?php wp_head(); ?>
 </head>
 <body <?php body_class( $class ); ?> >
@@ -32,7 +22,7 @@
   						'theme_location'  => 'primary',
   						'container_class' => 'collapse navbar-collapse',
   						'container_id'    => 'navbarNavDropdown',
-  						'menu_class'      => 'navbar-nav',
+  						'menu_class'      => 'navbar-nav sf-menu',
   						'fallback_cb'     => '',
   						'menu_id'         => 'main-menu',
   						'walker'          => new WP_Bootstrap_Navwalker(),
