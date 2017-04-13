@@ -8,7 +8,7 @@
 </head>
 <body <?php body_class( $class ); ?> >
   <header class="header">
-    <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse bg-inverse" id="primary-navbar" role="navigation">
+    <nav class="navbar navbar-toggleable-md fixed-top navbar-light bg-faded border-bs" id="primary-navbar" style="border-bottom: 1px solid #ddd;" role="navigation">
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@
   						'theme_location'  => 'primary',
   						'container_class' => 'collapse navbar-collapse',
   						'container_id'    => 'navbarNavDropdown',
-  						'menu_class'      => 'navbar-nav sf-menu',
+  						'menu_class'      => 'navbar-nav',
   						'fallback_cb'     => '',
   						'menu_id'         => 'main-menu',
   						'walker'          => new WP_Bootstrap_Navwalker(),

@@ -15,9 +15,8 @@
 
 body {
   font-family: 微软雅黑, "Microsoft yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", "Microsoft Yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;
-  padding-top: 4.5rem;
+  padding-top: 4.5em;
 }
-
 
 .comment {
   -ms-word-wrap: break-word;
@@ -34,10 +33,6 @@ body {
 /*--------------------------------------------------------------
 # Entry
 --------------------------------------------------------------*/
-
-.entry:hover {
-  background-color: #f5f5f5;
-}
 
 .entry-header a {
   color: #333;
@@ -63,6 +58,7 @@ body {
 .entry-content h3 {
   font-size: 1.2em;
   margin: 20px 0;
+  font-weight: 600;
 }
 
 .entry-content h4 {
@@ -79,12 +75,14 @@ body {
   font-size: 0.8em;
 }
 
-.entry-content p{
+.entry-content p {
   line-height: 2em;
-  margin-bottom: 10px;
+  margin: 1em 0;
 }
 
-.entry-content ul li{
+.entry-content ul li,
+.entry-content ol li {
+  font-size: 1em;
   line-height: 1.8em;
 }
 
@@ -298,6 +296,8 @@ object {
 	display: block;
 }
 
+
+
 /*** ESSENTIAL STYLES ***/
 .sf-menu, .sf-menu * {
 	margin: 0;
@@ -353,10 +353,6 @@ object {
 	transition: none;
 }
 
-.navbar-inverse .navbar-nav .nav-link {
-  
-}
-
 
 /*** arrows (for all except IE7) **/
 .sf-arrows .sf-with-ul {
@@ -394,23 +390,4 @@ object {
 .sf-arrows ul li:hover > .sf-with-ul:after,
 .sf-arrows ul .sfHover > .sf-with-ul:after {
 	border-left-color: white;
-}
-
-.header {
-    display: block;
-    position: relative;
-    text-align: left;
-}
-
-.logo {
-    height: 80px;
-}
-
-.logo h1 {
-    margin: 13px 0;
-}
-
-.header .navbar-collapse {
-    padding-left: 0;
-    padding-right: 0;
 }

@@ -2,28 +2,19 @@
 <div class="container">
   <div class="row">
     <div class="col-xl-8 col-lg-8">
-      <!-- .col-  .col-sm-	.col-md-	.col-lg-	.col-xl--->
 
-      <?php while ( have_posts() ) : the_post(); ?>
-      <div class="entry-header pb-2">
-        <?php the_title( '<h1 class="mb-2">', '</h1>' ); ?>
-        <p class="text-muted"><?php echo the_time(); ?></p>
-      </div>
-
-      <div class="entry-content">
-        <?php
-    			// Post thumbnail.
-          lean_post_thumbnail();
-    		?>
-        <?php the_content(); ?>
-      </div>
-      <hr>
-      <?php
-        // If comments are open or we have at least one comment, load up the comment template
-        if ( comments_open() || get_comments_number() ) :
-          comments_template();
-        endif;
-      ?>
+        <!-- .col-  .col-sm-	.col-md-	.col-lg-	.col-xl--->
+        <?php while ( have_posts() ) : the_post(); ?>
+          <?php
+            // 显示页面内容
+            get_template_part( 'template-parts/content', 'single' );
+          ?>
+          <?php
+            // If comments are open or we have at least one comment, load up the comment template
+            if ( comments_open() || get_comments_number() ) :
+              comments_template();
+            endif;
+          ?>
         <?php endwhile; // end of the loop. ?>
     </div>
     <div class="col-xl-4 col-lg-4">
