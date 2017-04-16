@@ -8,12 +8,10 @@
 </head>
 <body <?php body_class( $class ); ?> >
   <header class="header">
-    <nav class="navbar navbar-toggleable-md fixed-top navbar-light bg-faded border-bs" id="primary-navbar" style="border-bottom: 1px solid #ddd;" role="navigation">
-
+    <nav class="navbar navbar-toggleable-md navbar-light" id="primary-navbar" role="navigation">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="container">
         <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 

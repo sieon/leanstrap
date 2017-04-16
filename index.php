@@ -1,13 +1,20 @@
 <?php get_header(); ?>
 
+<?php if ( have_posts() ) :?>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="header-title">博客</h1>
+    </div>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-lg-8">
-      <?php
-      if ( have_posts() ) :
-        while ( have_posts() ) : the_post();
+
+      <?php  while ( have_posts() ) : the_post();
         /* 显示内容 */
-        get_template_part( 'template-parts/content', 'bloglist' );
+        get_template_part( 'template-parts/content', 'list' );
       endwhile; ?>
         <div class="pagination pt-2 mt-2">
           <?php lean_pagination();?>

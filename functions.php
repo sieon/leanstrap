@@ -49,10 +49,17 @@ function lean_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
+	the_post_thumbnail('thumbnail');       // Thumbnail (default 150px x 150px max)
+	the_post_thumbnail('medium');          // Medium resolution (default 300px x 300px max)
+	the_post_thumbnail('large');           // Large resolution (default 640px x 640px max)
+	the_post_thumbnail('full');            // Original image resolution (unmodified)
+
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'start' ),
+		'primary' => esc_html__( 'Primary Menu', 'lean' ),
+		'blogroll' => esc_html__( '友情链接', 'lean' ),
+		'about' => esc_html__( '关于', 'lean' ),
 	) );
 
 	/*
@@ -91,6 +98,24 @@ function lean_widgets_init() {
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="card-title widget-title">',
 		'after_title'   => '</h3>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( '首页主轮播图', 'lean' ),
+		'id'            => 'home-main-slider',
+		'description'   => '首页轮播图。',
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( '底部 1', 'lean' ),
+		'id'            => 'footer-1',
+		'description'   => '这个地方是一定要放菜单。',
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => '',
 	) );
 }
 add_action( 'widgets_init', 'lean_widgets_init' );
@@ -394,6 +419,8 @@ require get_template_directory() . '/inc/custom-comments.php';
 // 支持bs4菜单
 require get_template_directory() . '/inc/pagination.php';
 
+//支持面包屑
+//require get_template_directory() . '/inc/Crumbs.php';
 
 /**
  *   下一段代码

@@ -1,14 +1,17 @@
 <?php get_header(); ?>
 
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1><?php the_title(); ?></h1>
+    </div>
+</div>
+
 <div class="container" id="site-content">
   <div class="row">
     <div class="col-lg-8">
-      <?php if ( have_posts() ) : // Start the Loop ?>
-      <?php while ( have_posts() ) : the_post(); ?>
-        <?php
-          // 显示页面内容
-          get_template_part( 'template-parts/content', 'page' );
-        ?>
+      <?php the_content(); ?>
         <hr>
         <?php
           // If comments are open or we have at least one comment, load up the comment template
@@ -16,7 +19,13 @@
             comments_template();
         //  endif;
         ?>
-      <?php endwhile; ?>  <?php endif; ?>
+      <?php endwhile;else: ?>
+        <div class="page-header">
+            <h1>Oh no!</h1>
+        </div>
+
+        <p>No content is appearing for this page!</p>
+        <?php endif; ?>
     </div>
     <div class="col-lg-4">
       <?php get_sidebar();?>

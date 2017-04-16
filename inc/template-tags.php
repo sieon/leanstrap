@@ -442,7 +442,7 @@ function lean_post_thumbnail() {
 }
 endif;
 
-if ( ! function_exists( 'lean_carousel_post_thumbnail' ) ) :
+if ( ! function_exists( 'lean_list_post_thumbnail' ) ) :
 /**
  * Display an optional post thumbnail.
  *
@@ -451,7 +451,7 @@ if ( ! function_exists( 'lean_carousel_post_thumbnail' ) ) :
  *
  * @since Twenty Fifteen 1.0
  */
-function lean_carousel_post_thumbnail() {
+function lean_list_post_thumbnail() {
  if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
    return;
  }
@@ -459,7 +459,7 @@ function lean_carousel_post_thumbnail() {
  if ( is_singular() ) :
  ?>
 
- <div class="post-thumbnail mb-4">
+ <div class="post-thumbnail">
    <?php
      // Post thumbnail.
      the_post_thumbnail('post-thumbnail', ['class' => 'img-fluid']);
@@ -471,7 +471,7 @@ function lean_carousel_post_thumbnail() {
  <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
    <?php
      // Post thumbnail.
-     the_post_thumbnail('post-thumbnail', ['class' => 'd-block img-fluid']);
+     the_post_thumbnail('post-thumbnail', ['class' => 'd-block img-fluid float-left']);
    ?>
  </a>
  <?php endif; // End is_singular()

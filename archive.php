@@ -1,21 +1,27 @@
 <?php get_header(); ?>
 
+<?php if ( have_posts() ) : ?>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <?php
+      lean_the_archive_title( '<h1 class="header-title">', '</h1>' );
+      lean_the_archive_description( '<p class="header-subtitle">', '</p>' );
+      ?>
+    </div>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-lg-8">
 
-      <?php if ( have_posts() ) : ?>
-      <?php
-      lean_the_archive_title( '<h1 class="card-title">', '</h1>' );
-      lean_the_archive_description( '<p class="card-subtitle">', '</p>' );
-      ?>
       <?php  while ( have_posts() ) : the_post(); ?>
 
          <?php
          /**
           * 显示内容
           */
-         get_template_part( 'template-parts/content', 'bloglist' );
+         get_template_part( 'template-parts/content', 'list' );
           ?>
         <?php endwhile; ?>
         <div class="pagination pt-2 mt-2">

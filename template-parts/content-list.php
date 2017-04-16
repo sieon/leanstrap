@@ -1,23 +1,20 @@
 <?php
 /**
- * The template part for displaying results in search pages.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package start
+ * 文章列表
+ * @package lean
  */
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('entry border-b pt-3 pb-2'); ?>>
 	<div class="row">
 		<?php if(has_post_thumbnail()) : ?>
-		<div class="col-4 col-lg-3">
+		<div class="thumbnail">
 			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
-				<?php
-					// Post thumbnail.
-					lean_post_thumbnail();
-				?>
-			</a>
+		    <?php
+		      // Post thumbnail.
+		      the_post_thumbnail('thumbnail', ['class' => 'd-block img-fluid float-left']);
+		    ?>
+		  </a>
 		</div>
 		<div class="col-8 col-lg-9">
 		<?php else : ?>
@@ -53,6 +50,5 @@
 				</p>
 			</footer><!-- .entry-footer -->
 		</div>
-
 	</div><!--./row -->
 </article><!-- #post-## -->
