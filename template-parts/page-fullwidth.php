@@ -7,13 +7,21 @@
  */
 get_header(); ?>
 
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1><?php the_title(); ?></h1>
+    </div>
+</div>
+
 <div class="container p-a" id="site-content">
-  <?php if ( have_posts() ) : // Start the Loop ?>
-    <?php while ( have_posts() ) : the_post(); ?>
-      <?php
-        // 显示页面内容
-        get_template_part( 'template-parts/content', 'page' );
-      ?>
+  <div class="entry-content">
+    <?php
+      // 显示页面内容
+      get_template_part( 'template-parts/content', 'page' );
+    ?>
+  </div>
       <hr>
       <?php
         // If comments are open or we have at least one comment, load up the comment template

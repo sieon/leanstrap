@@ -14,7 +14,7 @@
 
       <?php  while ( have_posts() ) : the_post();
         /* 显示内容 */
-        get_template_part( 'template-parts/content', 'list' );
+        get_template_part( 'template-parts/content', 'list-2' );
       endwhile; ?>
         <div class="pagination pt-2 mt-2">
           <?php lean_pagination();?>

@@ -11,7 +11,9 @@
 <div class="container" id="site-content">
   <div class="row">
     <div class="col-lg-8">
-      <?php the_content(); ?>
+      <div class="entry-content">
+        <?php the_content(); ?>
+      </div>
         <hr>
         <?php
           // If comments are open or we have at least one comment, load up the comment template

@@ -8,6 +8,10 @@
 
 //支持bs4 navbar
 require 'inc/bootstrap-wp-navwalker.php';
+
+// Widgets
+//require get_template_directory() . '/inc/widgets/posts.php';
+require get_template_directory() . '/inc/widgets/mywidget.php';
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
@@ -94,7 +98,7 @@ function lean_widgets_init() {
 		'name'          => esc_html__( '边栏', 'lean' ),
 		'id'            => 'sidebar-1',
 		'description'   => '这是默认的边栏。',
-		'before_widget' => '<aside id="%1$s" class="card card-block widget %2$s clearfix">',
+		'before_widget' => '<aside id="%1$s" class="card widget %2$s" style="border: 0px;">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="card-title widget-title">',
 		'after_title'   => '</h3>',
@@ -125,21 +129,21 @@ add_action( 'widgets_init', 'lean_widgets_init' );
  */
 function lean_scripts() {
 
-  wp_enqueue_style( 'lean-bootstrap', get_template_directory_uri() . '/assets/bootstrap4/dist/css/bootstrap.css');
+  wp_enqueue_style( 'lean-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css');
 	wp_enqueue_style( 'lean-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'lean-font-awesome', '//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css');
-	//wp_enqueue_style( 'lean-superfish', get_template_directory_uri() .'/assets/css/superfish.min.css');
+	wp_enqueue_style( 'lean-flexslider', '//cdn.bootcss.com/flexslider/2.6.3/flexslider.min.css');
 
   //jQuery first, then Tether, then Bootstrap JS.
-	wp_enqueue_script( 'lean-jquery', 'https://cdn.bootcss.com/jquery/3.1.1/jquery.slim.min.js', array(), '20130115', true );
-	wp_enqueue_script( 'lean-tether', 'https://cdn.bootcss.com/tether/1.4.0/js/tether.min.js', array(), '20130115', true );
-	wp_enqueue_script( 'lean-bootstrap', 'https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', array(), '20130115', true );
-	//wp_enqueue_script( 'lean-superfish', get_template_directory_uri() . '/assets/js/superfish.min.js', array(), '20130115', true );
+	wp_enqueue_script( 'lean-jquery', '//cdn.bootcss.com/jquery/3.1.1/jquery.slim.min.js', array(), '20170416', true );
+	wp_enqueue_script( 'lean-tether', '//cdn.bootcss.com/tether/1.4.0/js/tether.min.js', array(), '20170416', true );
+	wp_enqueue_script( 'lean-bootstrap', get_template_directory_uri() . '/assets/css/js/bootstrap.min.js', array(), '20170417', true );
+	wp_enqueue_script( 'lean-flexslider', '//cdn.bootcss.com/flexslider/2.6.3/jquery.flexslider-min.js', array(), '20170416', true );
 	//wp_enqueue_script( 'lean-masonry', get_template_directory_uri() . '/assets/js/masonry.pkgd.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'lean-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'lean-main', get_template_directory_uri() . '/assets/js/main.js', array(), '20120206', true );
-	wp_enqueue_script( 'lean-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'lean-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20170416', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -418,6 +422,7 @@ require get_template_directory() . '/inc/custom-comments.php';
 
 // 支持bs4菜单
 require get_template_directory() . '/inc/pagination.php';
+
 
 //支持面包屑
 //require get_template_directory() . '/inc/Crumbs.php';

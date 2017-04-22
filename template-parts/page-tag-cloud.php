@@ -7,10 +7,14 @@
  */
 get_header(); ?>
 
-<div class="container p-a">
-  <h1 class="">标签云</h1>
-  <div class="content">
-    <?php wp_tag_cloud(); //wp_list_categories();wp_list_pages();?>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1>标签云</h1>
+    </div>
+</div>
+<div class="container">
+  <div class="entry-content pb-4">
+    <?php wp_tag_cloud(); ?>
   </div>
 </div>
 

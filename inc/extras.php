@@ -27,7 +27,10 @@ function lean_body_classes( $classes ) {
 		$classes[] = 'full-width';
 	}
 
-	
+	if (is_front_page()) {
+		$classes[] = 'loading';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'lean_body_classes' );

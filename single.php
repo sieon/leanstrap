@@ -10,7 +10,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xl-8 col-lg-8">
+    <div class="col-lg-8">
       <?php
             // 显示页面内容
             get_template_part( 'formats/format', get_post_format() );
@@ -23,7 +23,7 @@
           ?>
         <?php endwhile; // end of the loop. ?>
     </div>
-    <div class="col-xl-4 col-lg-4">
+    <div class="col-lg-3  offset-lg-1">
       <?php get_sidebar();?>
     </div>
   </div><!-- /.row -->
