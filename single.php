@@ -26,9 +26,9 @@
         $posttags = get_the_tags();
         // var_dump( $posttags );
         if ( $posttags ) {
-          echo '<div class="post-tags">';
+          echo '<div class="post-tags mb-3">标签：';
           foreach( $posttags as $tag ) {
-            echo '<a href="' . get_tag_link( $tag->term_id ) . '" class="btn btn-secondary btn-sm mb-2">' . $tag->name . '</a>&nbsp;';
+            echo '<a href="' . get_tag_link( $tag->term_id ) . '" class="badge badge-pill badge-info mr-3">' . $tag->name . '</a>';
           }
           echo '</div>';
         }

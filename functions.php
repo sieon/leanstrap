@@ -218,17 +218,18 @@ add_action( 'widgets_init', 'lean_widgets_init' );
 function lean_scripts() {
 
   wp_enqueue_style( 'lean-bootstrap', get_template_directory_uri() . '/assets/css/bs-1.css');
-	wp_enqueue_style( 'lean-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'lean-font-awesome', '//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css');
 	wp_enqueue_style( 'lean-flexslider', get_template_directory_uri() . '/assets/css/flexslider.css');
   wp_enqueue_style( 'lean-animate', get_template_directory_uri() . '/assets/css/animate.css');
+  wp_enqueue_style( 'lean-superfish', get_template_directory_uri() . '/assets/css/superfish.css');
+  wp_enqueue_style( 'lean-main', get_template_directory_uri() . '/assets/css/main.css');
 
   //jQuery first, then Tether, then Bootstrap JS.
 	wp_enqueue_script( 'lean-jquery', get_template_directory_uri() . '/assets/js/jquery.js', array(), '20170416', true );
 	wp_enqueue_script( 'lean-tether', '//cdn.bootcss.com/tether/1.4.0/js/tether.min.js', array(), '20170416', true );
 	wp_enqueue_script( 'lean-bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), '20170417', true );
 	wp_enqueue_script( 'lean-flexslider', get_template_directory_uri() . '/assets/js/flexslider-min.js', array(), '20170416', true );
-	//wp_enqueue_script( 'lean-masonry', get_template_directory_uri() . '/assets/js/masonry.pkgd.min.js', array(), '20120206', true );
+	wp_enqueue_script( 'lean-superfish', get_template_directory_uri() . '/assets/js/superfish.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'lean-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'lean-main', get_template_directory_uri() . '/assets/js/main.js', array(), '20120206', true );
