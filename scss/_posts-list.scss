@@ -1,0 +1,32 @@
+//
+// Base styles
+//
+
+.card .card-block ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0; }
+
+.card .card-block ul li {
+  }
+.card .card-block ul li .fa-caret-right {
+  color: #4285f4;
+}
+
+.card .card-block ul li a {
+  color: #333; }
+
+.card .card-block ul li span a {
+  color: #666; }
+
+.card .card-block ul li h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0; }
+.card .card-block ul li h3 a {
+  color: #06c; }
+
+.card .card-block ul li p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 0; }

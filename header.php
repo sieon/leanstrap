@@ -8,12 +8,15 @@
 </head>
 <body <?php body_class( $class ); ?> >
   <header class="header">
-    <nav class="navbar navbar-toggleable-md navbar-light" id="primary-navbar" role="navigation">
+    <nav class="navbar navbar-toggleable-md navbar-light fixed-top" id="primary-navbar" role="navigation">
+      <div class="container">
+        <div class="text-center">
+<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="container">
-        <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+
+      </div>
 
   				<?php wp_nav_menu(
   					array(

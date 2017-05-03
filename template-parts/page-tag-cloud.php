@@ -14,7 +14,15 @@ get_header(); ?>
 </div>
 <div class="container">
   <div class="entry-content pb-4">
-    <?php wp_tag_cloud(); ?>
+    <?php //lean_wp_tag_cloud();
+    $poststags= get_tags();
+    if ( $poststags ) {
+      echo '<div class="posts-tags">';
+      foreach( $poststags as $tag ) {
+        echo '<a href="' . get_tag_link( $tag->term_id ) . '" class="btn btn-secondary btn-sm mb-2"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;' . $tag->name . '</a>&nbsp;';
+      }
+      echo '</div>';
+    } ?>
   </div>
 </div>
 

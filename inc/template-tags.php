@@ -271,7 +271,7 @@ function lean_the_archive_title( $before = '', $after = '' ) {
 	if ( is_category() ) {
 		$title = sprintf( esc_html__( '%s', 'lean' ), single_cat_title( '', false ) );
 	} elseif ( is_tag() ) {
-		$title = sprintf( esc_html__( '标签: %s', 'lean' ), single_tag_title( '', false ) );
+		$title = sprintf( esc_html__( '%s', 'lean' ), single_tag_title( '', false ) );
 	} elseif ( is_author() ) {
 		$title = sprintf( esc_html__( '作者: %s', 'lean' ), '<span class="vcard">' . get_the_author() . '</span>' );
 	} elseif ( is_year() ) {

@@ -12,9 +12,9 @@ class lean_widget extends WP_Widget {
   function __construct() {
     $widget_ops = array(
       'classname' => 'lean_widget_class',
-      'description' => '这是一个介绍。'
+      'description' => '这是一个介绍，显示最近的文章。'
     );
-    parent::__construct( 'lean_widgt','Bio Widget', $widget_ops);
+    parent::__construct( 'lean_widgt','文章列表', $widget_ops);
   }
 
   function form( $instance ) {
@@ -22,7 +22,7 @@ class lean_widget extends WP_Widget {
       'title' => 'My Bio',
       'name' => 'Michael Myers',
       'bio' => ''
-    );
+    ); //默认的值
     $instance = wp_parse_args( (array) $instance, $defaults );
     $title = $instance['title'];
     $name = $instance['name'];

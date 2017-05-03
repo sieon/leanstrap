@@ -5,7 +5,7 @@
  * The area of the page that contains both current comments
  * and the comment form.
  *
- * @package understrap
+ * @package lean
  */
 
 /*
@@ -20,6 +20,8 @@ if ( post_password_required() ) {
 
 <div class="comments-area" id="comments">
 
+	<?php comment_form(); // Render comments form. ?>
+
 	<?php // You can start editing here -- including this comment! ?>
 
 	<?php if ( have_comments() ) : ?>
@@ -29,18 +31,18 @@ if ( post_password_required() ) {
 				if ( 1 === $comments_number ) {
 					printf(
 						/* translators: %s: post title */
-						esc_html_x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'understrap' ),
-						'<span>' . get_the_title() . '</span>'
+						esc_html_x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'lean' ),
+						'<h>' . get_the_title() . '</span>'
 					);
 				} else {
 					printf( // WPCS: XSS OK.
 						/* translators: 1: number of comments, 2: post title */
 						esc_html( _nx(
-							'%1$s thought on &ldquo;%2$s&rdquo;',
-							'%1$s thoughts on &ldquo;%2$s&rdquo;',
+							'&ldquo;%2$s&rdquo;上有%1$s条评论',
+							'&ldquo;%2$s&rdquo;上有%1$s条评论',
 							$comments_number,
 							'comments title',
-							'understrap'
+							'lean'
 						) ),
 						number_format_i18n( $comments_number ),
 						'<span>' . get_the_title() . '</span>'
@@ -51,14 +53,14 @@ if ( post_password_required() ) {
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
 			<nav class="comment-navigation" id="comment-nav-above">
-				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'understrap' ); ?></h1>
+				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'lean' ); ?></h1>
 				<?php if ( get_previous_comments_link() ) { ?>
 					<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments',
-					'understrap' ) ); ?></div>
+					'lean' ) ); ?></div>
 				<?php }
 if ( get_next_comments_link() ) { ?>
 					<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;',
-					'understrap' ) ); ?></div>
+					'lean' ) ); ?></div>
 				<?php } ?>
 			</nav><!-- #comment-nav-above -->
 		<?php endif; // check for comment navigation. ?>
@@ -74,14 +76,14 @@ if ( get_next_comments_link() ) { ?>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
 			<nav class="comment-navigation" id="comment-nav-below">
-				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'understrap' ); ?></h1>
+				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'lean' ); ?></h1>
 				<?php if ( get_previous_comments_link() ) { ?>
 					<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments',
-					'understrap' ) ); ?></div>
+					'lean' ) ); ?></div>
 				<?php }
 if ( get_next_comments_link() ) { ?>
 					<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;',
-					'understrap' ) ); ?></div>
+					'lean' ) ); ?></div>
 				<?php } ?>
 			</nav><!-- #comment-nav-below -->
 		<?php endif; // check for comment navigation. ?>
@@ -93,10 +95,8 @@ if ( get_next_comments_link() ) { ?>
 	if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 		?>
 
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'understrap' ); ?></p>
+		<p class="no-comments"><?php esc_html_e( '评论被关闭.', 'lean' ); ?></p>
 
 	<?php endif; ?>
-
-	<?php comment_form(); // Render comments form. ?>
 
 </div><!-- #comments -->

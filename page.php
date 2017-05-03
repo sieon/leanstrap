@@ -12,9 +12,9 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="entry-content">
+
         <?php the_content(); ?>
       </div>
-        <hr>
         <?php
           // If comments are open or we have at least one comment, load up the comment template
         //  if ( comments_open() || get_comments_number() ) :
@@ -29,7 +29,7 @@
         <p>No content is appearing for this page!</p>
         <?php endif; ?>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-4 hidden-sm-down">
       <?php get_sidebar();?>
     </div>
   </div>

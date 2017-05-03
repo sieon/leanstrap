@@ -1,32 +1,52 @@
 <?php get_header();?>
+
 <!-- .col-  .col-sm-	.col-md-	.col-lg-	.col-xl--->
 <?php while ( have_posts() ) : the_post(); ?>
-
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1><?php the_title(); ?></h1>
+  <div class="container mt-3">
+    <div class="mb-5">
+        <?php if ( !dynamic_sidebar('home-ad-1') ) { _e('','lean'); } //广告 ?>
     </div>
-</div>
+    <div class="row">
+      <div class="col-lg-8">
+        <header class="entry-header">
+          <?php the_title('<h1 class="mb-4">', '</h1>'); ?>
+          <p class="post-meta text-weakest mb-3">
+            <span><?php the_author(); ?></span>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <time><?php the_time(); ?></time>
+            <span>&nbsp;&bull;&nbsp;</span>
+            <?php the_category(' / '); ?>
+          </p>
+        </header>
+        <?php
+        // 显示页面内容
+        get_template_part( 'formats/format', get_post_format() ); ?>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8">
-      <?php
-            // 显示页面内容
-            get_template_part( 'formats/format', get_post_format() );
-          ?>
-          <?php
-            // If comments are open or we have at least one comment, load up the comment template
-            if ( comments_open() || get_comments_number() ) :
-              comments_template();
-            endif;
-          ?>
+        <?php // 显示标签
+        $posttags = get_the_tags();
+        // var_dump( $posttags );
+        if ( $posttags ) {
+          echo '<div class="post-tags">';
+          foreach( $posttags as $tag ) {
+            echo '<a href="' . get_tag_link( $tag->term_id ) . '" class="btn btn-secondary btn-sm mb-2">' . $tag->name . '</a>&nbsp;';
+          }
+          echo '</div>';
+        }
+        //相关文章
+        related_posts(); ?>
+
+        <?php // 加载评论
+        if ( comments_open() || get_comments_number() ) :
+          comments_template();
+        endif;
+        ?>
         <?php endwhile; // end of the loop. ?>
-    </div>
-    <div class="col-lg-3  offset-lg-1">
-      <?php get_sidebar();?>
-    </div>
-  </div><!-- /.row -->
-</div><!-- /.container -->
 
+      </div>
+
+      <div class="col-lg-4 hidden-sm-down">
+        <?php get_sidebar();?>
+      </div>
+    </div><!-- /.row -->
+  </div><!-- /.container -->
 <?php get_footer();?>

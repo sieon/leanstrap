@@ -1,9 +1,6 @@
 <?php
 /**
  * Template Name: Full Width Page Template
- *
- * @package leanstrap
- * @since leanstrap 0.5
  */
 get_header(); ?>
 

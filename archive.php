@@ -2,7 +2,11 @@
 
 <?php if ( have_posts() ) : ?>
 
-<div class="jumbotron jumbotron-fluid">
+<div class="container mt-3">
+    <?php if ( !dynamic_sidebar('home-ad-1') ) { _e('','lean'); } //广告 ?>
+</div>
+
+<div class="jumbotron jumbotron-fluid mt-3">
     <div class="container">
       <?php
       lean_the_archive_title( '<h1 class="header-title">', '</h1>' );
@@ -21,7 +25,7 @@
          /**
           * 显示内容
           */
-         get_template_part( 'template-parts/content', 'list' );
+         get_template_part( 'template-parts/posts', 'list' );
           ?>
         <?php endwhile; ?>
         <div class="pagination pt-2 mt-2">
@@ -33,7 +37,7 @@
        wp_reset_postdata();?>
     </div>
 
-    <div class="col-xl-4 col-lg-4">
+    <div class="col-xl-4 col-lg-4 hidden-sm-down">
       <?php get_sidebar();?>
     </div>
   </div>

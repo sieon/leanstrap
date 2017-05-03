@@ -5,18 +5,44 @@
  * @package lean
  */
 
-
+ /*  Loads Custom Widgets
+ /* ------------------------------------ */
+ load_template( get_template_directory() . '/inc/widgets/alx-tabs.php' );
+ //load_template( get_template_directory() . '/functions/widgets/alx-video.php' );
+ //load_template( get_template_directory() . '/inc/widgets/alx-posts.php' );
+ load_template( get_template_directory() . '/inc/widgets/lean-posts.php' );
+ load_template( get_template_directory() . '/inc/widgets/lean-sidebar-posts.php' );
 //支持bs4 navbar
 require 'inc/bootstrap-wp-navwalker.php';
 
 // Widgets
 //require get_template_directory() . '/inc/widgets/posts.php';
-require get_template_directory() . '/inc/widgets/mywidget.php';
+//require get_template_directory() . '/inc/widgets/mywidget.php';
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
+}
+
+//图片延迟加载
+add_filter ('the_content', 'lazyload');
+function lazyload($content) {
+	global $post;
+	$loadimg_url=get_bloginfo('template_directory').'/assets/img/lazy_loading.gif';
+	if(!is_page()) {
+		$content=preg_replace('/<img(.+)src=[\'"]([^\'"]+)[\'"](.*)>/i',"<img\$1data-original=\"\$2\" src=\"$loadimg_url\"\$3>",$content);
+	}
+	return $content;
+}
+
+
+/**
+ * 为日历增加样式
+ */
+add_filter('get_calendar','calendar_class_add');
+function calendar_class_add($content){
+	return preg_replace("/<table(.*)>/i","<table class='table' $1>",$content);
 }
 
 if ( ! function_exists( 'lean_setup' ) ) :
@@ -98,10 +124,10 @@ function lean_widgets_init() {
 		'name'          => esc_html__( '边栏', 'lean' ),
 		'id'            => 'sidebar-1',
 		'description'   => '这是默认的边栏。',
-		'before_widget' => '<aside id="%1$s" class="card widget %2$s" style="border: 0px;">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="card-title widget-title">',
-		'after_title'   => '</h3>',
+		'before_widget' => '<aside id="%1$s" class="card %2$s">',
+		'after_widget'  => '</div></aside>',
+		'before_title'  => '<h3 class="card-header-2">',
+		'after_title'   => '</h3><div class="card-block">',
 	) );
 	register_sidebar( array(
 		'name'          => esc_html__( '首页主轮播图', 'lean' ),
@@ -112,6 +138,41 @@ function lean_widgets_init() {
 		'before_title'  => '',
 		'after_title'   => '',
 	) );
+  register_sidebar( array(
+    'name'          => esc_html__( '首页区块1', 'lean' ),
+    'id'            => 'home-block-1',
+    'description'   => '没有子card。',
+    'before_widget' => '<div id="%1$s" class="card %2$s">',
+    'after_widget'  => '</div></div>',
+    'before_title'  => '<h3 class="card-header">',
+		'after_title'   => '</h3><div class="card-block">',
+  ) );
+  register_sidebar( array(
+    'name'          => esc_html__( '首页区块2', 'lean' ),
+    'id'            => 'home-block-2',
+    'description'   => '没有子card',
+    'before_widget' => '<div id="%1$s" class="card %2$s">',
+    'after_widget'  => '</div></div>',
+    'before_title'  => '<h3 class="card-header">',
+		'after_title'   => '</h3><div class="card-block">',
+  ) );
+  register_sidebar( array(
+    'name'          => esc_html__( '首页区块 3', 'lean' ),
+    'id'            => 'home-block-3',
+    'before_widget' => '<div id="%1$s" class="card widget %2$s">',
+    'after_widget'  => '</div></div>',
+    'before_title'  => '<h3 class="card-header widget-header">',
+		'after_title'   => '</h3><div class="card-block">',
+  ) );
+  register_sidebar( array(
+    'name'          => esc_html__( '首页区块 4', 'lean' ),
+    'id'            => 'home-block-4',
+    'description'   => '首页区块4。',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h3 class="widget-header">',
+		'after_title'   => '</h3>',
+  ) );
 	register_sidebar( array(
 		'name'          => esc_html__( '底部 1', 'lean' ),
 		'id'            => 'footer-1',
@@ -121,6 +182,33 @@ function lean_widgets_init() {
 		'before_title'  => '',
 		'after_title'   => '',
 	) );
+  register_sidebar( array(
+    'name'          => esc_html__( '顶部广告', 'lean' ),
+    'id'            => 'home-ad-1',
+    'description'   => '这是顶部的长条广告。',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<h3 class="card-header widget-header">',
+    'after_title'   => '</h3>',
+  ) );
+  register_sidebar( array(
+    'name'          => esc_html__( '右侧产品', 'lean' ),
+    'id'            => 'home-ad-2',
+    'description'   => '',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h3 class="card-header widget-header">',
+    'after_title'   => '</h3>',
+  ) );
+  register_sidebar( array(
+    'name'          => esc_html__( '三个广告', 'lean' ),
+    'id'            => 'home-ad-3',
+    'description'   => '',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h3 class="widget-header">',
+    'after_title'   => '</h3>',
+  ) );
 }
 add_action( 'widgets_init', 'lean_widgets_init' );
 
@@ -129,16 +217,17 @@ add_action( 'widgets_init', 'lean_widgets_init' );
  */
 function lean_scripts() {
 
-  wp_enqueue_style( 'lean-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css');
+  wp_enqueue_style( 'lean-bootstrap', get_template_directory_uri() . '/assets/css/bs-1.css');
 	wp_enqueue_style( 'lean-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'lean-font-awesome', '//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css');
-	wp_enqueue_style( 'lean-flexslider', '//cdn.bootcss.com/flexslider/2.6.3/flexslider.min.css');
+	wp_enqueue_style( 'lean-flexslider', get_template_directory_uri() . '/assets/css/flexslider.css');
+  wp_enqueue_style( 'lean-animate', get_template_directory_uri() . '/assets/css/animate.css');
 
   //jQuery first, then Tether, then Bootstrap JS.
-	wp_enqueue_script( 'lean-jquery', '//cdn.bootcss.com/jquery/3.1.1/jquery.slim.min.js', array(), '20170416', true );
+	wp_enqueue_script( 'lean-jquery', get_template_directory_uri() . '/assets/js/jquery.js', array(), '20170416', true );
 	wp_enqueue_script( 'lean-tether', '//cdn.bootcss.com/tether/1.4.0/js/tether.min.js', array(), '20170416', true );
-	wp_enqueue_script( 'lean-bootstrap', get_template_directory_uri() . '/assets/css/js/bootstrap.min.js', array(), '20170417', true );
-	wp_enqueue_script( 'lean-flexslider', '//cdn.bootcss.com/flexslider/2.6.3/jquery.flexslider-min.js', array(), '20170416', true );
+	wp_enqueue_script( 'lean-bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), '20170417', true );
+	wp_enqueue_script( 'lean-flexslider', get_template_directory_uri() . '/assets/js/flexslider-min.js', array(), '20170416', true );
 	//wp_enqueue_script( 'lean-masonry', get_template_directory_uri() . '/assets/js/masonry.pkgd.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'lean-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20120206', true );
 
@@ -265,57 +354,18 @@ function lean_get_avatar( $id_or_email, $size = 96, $default = '', $alt = '', $a
     return apply_filters( 'get_avatar', $avatar, $id_or_email, $args['size'], $args['default'], $args['alt'], $args );
 }
 
-/*************** COMMENTS  评论   为了符合bootstrap media ***************************/
-function lean_comment_callback($comment, $args, $depth)
-{
-    $GLOBALS['comment'] = $comment;
-    $tag = $depth === 1 ? 'li' : 'div'; ?>
-    <<?php echo $tag ?> <?php comment_class('media comment mb-3'); ?>>
-
-        <?php echo lean_get_avatar($comment, 48); ?>
-        <div id="comment-<?php comment_ID(); ?>" class="media-body">
-					<h5 class="comment-title mt-0">
-						<?php comment_author_link(); ?> - <?php comment_date(); ?>
-	          <p class="comment-reply float-right">
-	              <?php comment_reply_link(array_merge($args, array('reply_text' => __('回复', 'lean'), 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
-	          </p>
-      		</h5>
-      <?php comment_text(); ?>
-    <?php
-}
-
-function lean_comment_end_callback($comment, $args, $depth)
-{
-    // we need to add 1 to the depth to get this to work
-    $tag = $depth + 1 === 1 ? 'li' : 'div'; ?>
-
-        </div>
-    </<?php echo $tag ?>>
-    <?php
-}
 
 /**
- * Replaces default arguments used in comment_form function
- *
- * @return new defaults
+ * Remove Default Widgets
  **/
-function lean_filter_comment_form_defaults($defaults)
-{
-    $commenter = wp_get_current_commenter();
-
-    $defaults['fields']['author'] = '<div class="row"><div class="form-group col-md-4"><label for="author">' . __('名字 *', 'lean') . '</label><input id="author" name="author" type="text" class="input-block-level form-control" value="' . esc_attr($commenter['comment_author']) .  '"/></div>';
-    $defaults['fields']['email']  = '<div class="form-group col-md-4"><label for="email">' . __('邮箱 *', 'lean') . '</label><input id="email" name="email" type="text" class="input-block-level form-control" value="' . esc_attr($commenter['comment_author_email']) . '" /></div>';
-    $defaults['fields']['url'] = '<div class="form-group col-md-4"><label for="url">' . __('网站', 'lean') . '</label><input id="url" name="url" type="text" class="input-block-level form-control" value="' . esc_attr($commenter['comment_author_url']) . '" /></div></div>';
-
-
-    $defaults['comment_field'] = '<div class="row"><div class="form-group col-md-12"><label for="comment">' . __('留言内容', 'lean') . '</label><textarea id="comment" name="comment" class="input-block-level form-control" rows="5"></textarea></div></div>';
-    $defaults['format'] = 'html5';
-    $defaults['comment_notes_after'] = '';
-    $defaults['class_submit'] = 'btn btn-primary';
-
-    return $defaults;
+function unregister_widgets() {
+  unregister_widget( 'WP_Widget_RSS' );
+  unregister_widget( 'WP_Widget_Pages' );
+  unregister_widget( 'WP_Widget_Search' );
+  unregister_widget( 'WP_Widget_Recent_Comments' );
+  unregister_widget( 'WP_Nav_Menu_Widget' );
 }
-add_filter('comment_form_defaults', 'lean_filter_comment_form_defaults');
+add_action( 'widgets_init', 'unregister_widgets' );
 
 
 /**
@@ -387,11 +437,6 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/extras.php';
 
 /**
- * Customizer additions.
- */
-//require get_template_directory() . '/inc/customizer.php';
-
-/**
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
@@ -401,31 +446,8 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require get_template_directory() . '/inc/custom-comments.php';
 
-/**
- *   customizer-library   https://github.com/devinsays/customizer-library
- *   demo   https://github.com/devinsays/customizer-library-demo
- */
-
-// Helper library for the theme customizer.
-//require get_template_directory() . '/inc/customizer-library/customizer-library.php';
-
-// Define options for the theme customizer.
-//require get_template_directory() . '/inc/customizer-options.php';
-
-// Output inline styles based on theme customizer selections.
-//require get_template_directory() . '/inc/styles.php';
-
-// Additional filters and actions based on theme customizer selections.
-// require get_template_directory() . '/inc/mods.php';
-
-
-
 // 支持bs4菜单
 require get_template_directory() . '/inc/pagination.php';
-
-
-//支持面包屑
-//require get_template_directory() . '/inc/Crumbs.php';
 
 /**
  *   下一段代码
@@ -533,4 +555,146 @@ function lean_carousel_category() {
 }
 add_action( 'init', 'lean_carousel_category', 0 );
 
+}
+
+/**
+ * 9IPHP <Post views statistics> in the theme.
+ *
+ * 文章阅读量统计
+ * @version 1.0
+ * @package Specs
+ * @copyright 2014 all rights reserved
+ *
+ */
+function specs_set_post_views($postID) {
+	if (!current_user_can('level_10')) {
+	    $count_key = 'post_views_count';
+	    $count = get_post_meta($postID, $count_key, true);
+	    if($count==''){
+	        $count = 0;
+	        delete_post_meta($postID, $count_key);
+	        add_post_meta($postID, $count_key, '0');
+	    }else{
+	      $count++;
+	      update_post_meta($postID, $count_key, $count);
+	    }
+	}
+}
+function specs_get_post_views($postID){
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0";
+    }
+    return $count;
+}
+
+function related_posts( $post_num = 6 ) {
+	global $post;
+    echo '<div class="widget"><h3 class="widget-header">你可能喜欢：</h3><div class="row">';
+    $exclude_id = $post->ID;
+    $posttags = get_the_tags(); $i = 0;
+    if ( $posttags ) {
+        $tags = ''; foreach ( $posttags as $tag ) $tags .= $tag->term_id . ',';
+        $args = array(
+            'post_status' => 'publish',
+            'tag__in' => explode(',', $tags),
+            'post__not_in' => explode(',', $exclude_id),
+            'ignore_sticky_posts' => 1,
+            'orderby' => 'comment_date',
+            'posts_per_page' => $post_num
+        );
+        query_posts($args);
+        while( have_posts() ) { the_post(); ?>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+                <?php the_post_thumbnail('medium', ['class' => 'card-img-top']); ?>
+              </a>
+              <div class="card-block">
+                <div class="card-title">
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank"><?php the_title(); ?></a>
+                </div>
+              </div>
+            </div>
+          </div>
+            <?php
+            $exclude_id .= ',' . $post->ID; $i ++;
+        }
+		wp_reset_query();
+    }
+    if ( $i < $post_num ) {
+        $cats = ''; foreach ( get_the_category() as $cat ) $cats .= $cat->cat_ID . ',';
+        $args = array(
+            'category__in' => explode(',', $cats),
+            'post__not_in' => explode(',', $exclude_id),
+            'ignore_sticky_posts' => 1,
+            'orderby' => 'comment_date',
+            'posts_per_page' => $post_num - $i
+        );
+        query_posts($args);
+        while( have_posts() ) { the_post(); ?>
+          <div class="col-md-4 col-6">
+            <div class="card">
+              <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+                <?php the_post_thumbnail('medium', ['class' => 'card-img-top rounded-0']); ?>
+              </a>
+              <div class="card-block">
+                <div class="card-title">
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank"><?php the_title(); ?></a>
+                </div>
+              </div>
+            </div>
+          </div>
+            <?php $i++;
+        }
+		wp_reset_query();
+    }
+    if ( $i  == 0 )  echo '<div class="col-12"><p>没有相关文章!</p></div>';
+    echo '</div></div>';
+}
+
+function lean_wp_tag_cloud( $args = '' ) {
+    $defaults = array(
+        'smallest' => 1, 'largest' => 1, 'unit' => 'rem', 'number' => 45,
+        'format' => 'flat', 'separator' => "\n", 'orderby' => 'name', 'order' => 'ASC',
+        'exclude' => '', 'include' => '', 'link' => 'view', 'taxonomy' => 'post_tag', 'post_type' => '', 'echo' => true
+    );
+    $args = wp_parse_args( $args, $defaults );
+
+    $tags = get_terms( $args['taxonomy'], array_merge( $args, array( 'orderby' => 'count', 'order' => 'DESC' ) ) ); // Always query top tags
+
+    if ( empty( $tags ) || is_wp_error( $tags ) )
+        return;
+
+    foreach ( $tags as $key => $tag ) {
+        if ( 'edit' == $args['link'] )
+            $link = get_edit_term_link( $tag->term_id, $tag->taxonomy, $args['post_type'] );
+        else
+            $link = get_term_link( intval($tag->term_id), $tag->taxonomy );
+        if ( is_wp_error( $link ) )
+            return;
+
+        $tags[ $key ]->link = $link;
+        $tags[ $key ]->id = $tag->term_id;
+    }
+
+    $return = wp_generate_tag_cloud( $tags, $args ); // Here's where those top tags get sorted according to $args
+
+    /**
+     * Filters the tag cloud output.
+     *
+     * @since 2.3.0
+     *
+     * @param string $return HTML output of the tag cloud.
+     * @param array  $args   An array of tag cloud arguments.
+     */
+    $return = apply_filters( 'wp_tag_cloud', $return, $args );
+
+    if ( 'array' == $args['format'] || empty($args['echo']) )
+        return $return;
+
+    echo $return;
 }

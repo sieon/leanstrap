@@ -11,11 +11,12 @@
     <div class="carousel-item <?php echo ($count == 0) ? 'active' : ''; ?>">
       <a href="<?php echo get_post_meta($slide->ID, "lean_slide_url", $single = true); ?>">
       <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($slide->ID)) ?>" class="d-block img-fluid rounded silde-img" />
-
+      <div class="container">
         <div class="carousel-caption d-none d-md-block">
           <h3><?php echo $slide->post_title; ?><h3>
           <p><?php echo $slide->post_content; ?></p>
         </div>
+      </div>
       </a>
     </div>
     <?php $count++; ?>
