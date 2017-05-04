@@ -31,12 +31,15 @@
   				); ?>
       </div>
       <script>
-
-	jQuery(document).ready(function(){
-		jQuery('ul.navbar-nav').superfish();
-	});
-
-</script>
+      	jQuery(document).ready(function(){
+      		jQuery('ul.navbar-nav').superfish({
+            delay:       100,                            // one second delay on mouseout
+      			animation:   {opacity:'show',height:'show'},  // fade-in and slide-down animation
+      			speed:       'fast',                          // faster animation speed
+      			autoArrows:  false                            // disable generation of arrow mark-up
+          });
+      	});
+      </script>
     </nav>
   </header><!-- ./header -->
 

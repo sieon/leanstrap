@@ -213,7 +213,7 @@ body {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
   font-weight: normal;
-  line-height: 1.8;
+  line-height: 1.5;
   color: #292b2c;
   background-color: #fff; }
 
@@ -263,8 +263,8 @@ a {
   color: #0275d8;
   text-decoration: none; }
   a:focus, a:hover {
-    color: #366df0;
-    text-decoration: none; }
+    color: #014c8c;
+    text-decoration: underline; }
 
 a:not([href]):not([tabindex]) {
   color: inherit;

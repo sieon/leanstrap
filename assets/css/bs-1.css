@@ -2803,6 +2803,23 @@ tbody.collapse.show {
   flex-direction: column;
   padding: 0 1rem; }
 
+#primary-navbar {
+  /**
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(242, 242, 242);
+  box-shadow: rgba(0, 0, 0, 0.0980392) 0px 1px 1px;**/
+  background-color: #9c27b0;
+  color: #ffffff;
+  box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2); }
+
+#primary-navbar a {
+  color: inherit; }
+
+#primary-navbar a:focus,
+#primary-navbar a:hover {
+  color: #eee;
+  text-decoration: none; }
+
 .navbar-brand {
   display: inline-block;
   padding-top: .25rem;
@@ -3074,7 +3091,7 @@ tbody.collapse.show {
   padding: 0 0.65rem;
   margin-bottom: 0;
   background-color: inherit;
-  border-left: 5px solid #666;
+  border-left: 5px solid #9c27b0;
   font-size: 1rem;
   font-weight: 500; }
 

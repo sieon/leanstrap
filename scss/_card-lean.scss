@@ -67,7 +67,7 @@
   margin-bottom: 0; // Removes the default margin-bottom of <hN>
   background-color: inherit;
   //border-bottom: $card-border-width solid $card-border-color;
-  border-left: 5px solid #666;
+  border-left: 5px solid #9c27b0;
   font-size: $font-size-base;
   font-weight: $headings-font-weight;
 }
@@ -181,7 +181,7 @@
   background: rgba(0, 0, 0, 0.5);
   padding: $card-img-overlay-padding;
 }
-.card-img-overlay-part {
+.card-img-overlay-bottom {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -190,7 +190,7 @@
   padding: 0 $card-img-overlay-padding;
   word-break: break-all; }
 
-.card-img-overlay-part a {
+.card-img-overlay-bottom a {
   color: white;
 }
 
@@ -301,20 +301,6 @@
     text-decoration: $link-hover-decoration;
   }
 }
-
-.card .posts-categories {
-  position: absolute;
-  top: .4rem;
-  left: .4rem; }
-
-.card .posts-category {
-  padding: 0 .5rem;
-  color: #fff;
-  background: rgba(0,0,0,.5);
-  font-size: .6em;
-  text-align: center;
-  border-radius: 1rem;
-  z-index: 11;}
 
 .card .entry-excerpt {
   font-size: .9rem;

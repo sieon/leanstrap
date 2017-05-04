@@ -1,0 +1,222 @@
+/*!
+ * leanstrap style-1  (http://leantheme.com)
+ * Copyright 2017 leantheme
+ * Copyright 2017 leantheme, Inc.
+ * Licensed under MIT
+ */
+
+// Core variables and mixins
+@import "variables";
+@import "entry";
+@import "carousel";
+@import "widget";
+@import "align";
+@import "media";
+@import "captions";
+@import "sr";
+@import "galleries";
+@import "post-format";
+
+body {
+  /**font-family: 微软雅黑, "Microsoft yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", "Microsoft Yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;**/
+  font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+  padding-top: 3.84rem; }
+
+.home {
+  padding-top: 4.7rem; }
+
+.border-bottom-1 {
+  border-bottom: 1px solid #eee; }
+
+.text-weakest {
+  color: #999; }
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%; }
+
+.avatar {
+  border-radius: 50%;
+}
+
+/*** card **/
+.card {
+  margin-bottom: 1.25rem; }
+
+#stick-posts.card {
+  margin-bottom: 0; }
+
+#stick-posts.card {
+  margin-bottom: 0; }
+
+.card ul li a {
+  color: #333;
+  text-decoration: none;
+  transition: all .2s ease; }
+  .card ul li a:focus, .card ul li a:hover {
+    color: #0275d8;
+    text-decoration: none; }
+
+#sticky-posts.card {
+  margin-bottom: 0; }
+
+.card .card-block ul li.feature-posts h2 {
+  font-size: 1.6rem;
+  text-align: center; }
+
+.card .card-block ul li.feature-posts a{
+  color: #9c27b0; }
+
+.card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  max-height: 3rem;
+  line-height: 1.5rem;
+  word-break: break-all; }
+
+.card .posts-categories {
+  position: absolute;
+  top: .4rem;
+  left: .4rem; }
+
+.card .posts-category {
+  padding: 0 .5rem;
+  color: #fff;
+  background: rgba(0,0,0,.5);
+  font-size: .6em;
+  text-align: center;
+  border-radius: 1rem;
+  z-index: 11;}
+
+.comment {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5); }
+
+.text-roll {
+  background-color: #f0f0f0;
+  padding: 0 15px;
+  margin-bottom: 0;
+}
+/*****************************
+ ~~ html specific
+*****************************/
+
+.footer p {
+  color: #99979c;
+  margin-bottom: 0;
+}
+
+.footer a {
+  color: white;
+  opacity: 0.75;
+}
+
+.footer {
+  background: #2a2730;
+  padding: 20px 0;
+}
+
+.footer .nav-link {
+}
+/*****************************
+ ~~ WordPress Config Specific
+
+ .sticky {
+   background-color: #FFEBCD;
+ }
+*****************************/
+
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+  max-width: 100%;
+  height: auto;
+}
+
+.hide-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.hide-bullets li.col-sm-4 {
+  padding: 0;
+}
+
+/*****************
+ ~~ Blog (home)
+*****************************/
+
+article.post {
+  margin: 20px 0;
+
+}
+
+/*****************************
+ ~~ admin
+*****************************/
+
+.admin-bar .navbar-fixed-top {
+    margin-top: 32px;
+}
+
+/*****************************
+ ~~ 404 (error)
+*****************************/
+
+body.error404 {
+    background: #563D7C;
+    color: #f7f7f7;
+}
+
+/*****************************
+~~ Posts display (list / grid)
+*****************************/
+
+#display {
+    margin: 0 0 40px 8px;
+}
+
+#display a {
+    font-size: 16px;
+}
+
+div#post-metadata {
+    display: none;
+}
+
+/**tag**/
+.jumbotron {
+  background-color: #fafafa;
+  padding: 2rem 2rem;
+}
+
+.tag-tip {
+  font-size: 1.1rem;
+  color: #68727d; }
+
+.page-header h1 {
+  font-size: 1.6rem;
+  color: #4285f4; }
+
+.page-header span {
+  font-size: 1.6rem;
+  color: #3d464d; }
+
+.header-subtitle {
+  color: #aaa;
+  font-size: 1rem; }

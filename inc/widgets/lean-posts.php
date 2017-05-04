@@ -89,14 +89,14 @@ class LeanPostsList extends WP_Widget {
 								<?php if ( has_post_format('video') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-play"></i></span>'; ?>
 								<?php if ( has_post_format('audio') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-volume-up"></i></span>'; ?>
 								<?php //if ( is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-star"></i></span>'; ?>
+								<?php if($instance['posts_category']) {
+									echo '<div class="posts-categories">';
+									foreach((get_the_category()) as $category) {
+										echo  '<span class="posts-category">'.$category->cat_name.'</span>&nbsp;';
+									}
+									echo "</div>";
+								} ?>
 							</a>
-							<?php if($instance['posts_category']) {
-								echo '<p class="posts-categories">';
-								foreach((get_the_category()) as $category) {
-									echo  '<span class="posts-category">'.$category->cat_name.'</span>&nbsp;';
-								}
-								echo "</p>";
-							} ?>
 							<div class="card-block">
 								<h3 class="card-title">
 									<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
