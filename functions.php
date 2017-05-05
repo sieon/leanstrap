@@ -217,7 +217,7 @@ add_action( 'widgets_init', 'lean_widgets_init' );
  */
 function lean_scripts() {
 
-  wp_enqueue_style( 'lean-bootstrap', get_template_directory_uri() . '/assets/css/bs-1.css');
+  wp_enqueue_style( 'lean-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css');
 	wp_enqueue_style( 'lean-font-awesome', '//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css');
 	wp_enqueue_style( 'lean-flexslider', get_template_directory_uri() . '/assets/css/flexslider.css');
   wp_enqueue_style( 'lean-animate', get_template_directory_uri() . '/assets/css/animate.css');

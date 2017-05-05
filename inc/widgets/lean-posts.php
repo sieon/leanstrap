@@ -38,6 +38,7 @@ class LeanPostsList extends WP_Widget {
       'posts_orderby'   => 'date',
       'posts_time'    => '0',
 			'posts_col'     => '2',
+			'posts_overlay_bottom'  => 1,
     );
   }
 
@@ -83,9 +84,15 @@ class LeanPostsList extends WP_Widget {
 					<div class="col-md-<?php if($instance['posts_col']) { echo $instance['posts_col']; } ?> col-6">
 						<div class="card">
 							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+
 								<?php
+								if($instance['posts_overlay_bottom']){
+									the_post_thumbnail('medium', ['class' => 'card-img rounded-0']);
+								}else{
 									the_post_thumbnail('medium', ['class' => 'card-img-top rounded-0']);
+								}
 								?>
+
 								<?php if ( has_post_format('video') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-play"></i></span>'; ?>
 								<?php if ( has_post_format('audio') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-volume-up"></i></span>'; ?>
 								<?php //if ( is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-star"></i></span>'; ?>
@@ -97,7 +104,9 @@ class LeanPostsList extends WP_Widget {
 									echo "</div>";
 								} ?>
 							</a>
-							<div class="card-block">
+
+							<div class="<?php if($instance['posts_overlay_bottom']){echo 'card-img-overlay-bottom'; }else{ echo 'card-block';} ?>">
+
 								<h3 class="card-title">
 									<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 								</h3>
@@ -142,6 +151,7 @@ class LeanPostsList extends WP_Widget {
 		$instance['posts_orderby'] = strip_tags($new['posts_orderby']);
 		$instance['posts_time'] = strip_tags($new['posts_time']);
 		$instance['posts_col'] = strip_tags($new['posts_col']);
+		$instance['posts_overlay_bottom'] = $new['posts_overlay_bottom']?1:0;
 		return $instance;
 	}
 
@@ -172,6 +182,12 @@ class LeanPostsList extends WP_Widget {
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('posts_thumb') ); ?>" name="<?php echo esc_attr( $this->get_field_name('posts_thumb') ); ?>" <?php checked( (bool) $instance["posts_thumb"], true ); ?>>
 			<label for="<?php echo esc_attr( $this->get_field_id('posts_thumb') ); ?>">显示缩略图</label>
 		</p>
+
+		<p>
+			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('posts_overlay_bottom') ); ?>" name="<?php echo esc_attr( $this->get_field_name('posts_overlay_bottom') ); ?>" <?php checked( (bool) $instance["posts_overlay_bottom"], true ); ?>>
+			<label for="<?php echo esc_attr( $this->get_field_id('posts_overlay_bottom') ); ?>">文字覆盖图片</label>
+		</p>
+
 		<p>
 			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("posts_num") ); ?>">显示几篇</label>
 			<input style="width:20%;" id="<?php echo esc_attr( $this->get_field_id("posts_num") ); ?>" name="<?php echo esc_attr( $this->get_field_name("posts_num") ); ?>" type="text" value="<?php echo absint($instance["posts_num"]); ?>" size='3' />

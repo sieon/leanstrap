@@ -187,13 +187,25 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
   width: 100%;
-  padding: 0 $card-img-overlay-padding;
-  word-break: break-all; }
+  opacity: 0.7;
+  padding: 5px $card-img-overlay-padding;
+  word-break: break-all;
+  overflow: hidden; }
 
-.card-img-overlay-bottom a {
-  color: white;
+.card-img-overlay-bottom .card-text {
+  max-height: 3rem;
+  overflow: hidden;
+  line-height: 1.5;
+  text-overflow: ellipsis;
 }
 
+.card-img-overlay-bottom .card-title a {
+  color: #fff;
+}
+
+.card-img-overlay-bottom .card-title {
+  margin-bottom: 0; //修正 card 自带的margin
+}
 
 
 // Card deck
@@ -293,7 +305,6 @@
 /**  card  ****/
 
 .card .card-title a {
-  color: #333;
   text-decoration: $link-decoration;
 
   @include hover-focus {

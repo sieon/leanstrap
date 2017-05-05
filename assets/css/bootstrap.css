@@ -3220,11 +3220,22 @@ tbody.collapse.show {
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
   width: 100%;
-  padding: 0 1.25rem;
-  word-break: break-all; }
+  opacity: 0.7;
+  padding: 5px 1.25rem;
+  word-break: break-all;
+  overflow: hidden; }
 
-.card-img-overlay-bottom a {
-  color: white; }
+.card-img-overlay-bottom .card-text {
+  max-height: 3rem;
+  overflow: hidden;
+  line-height: 1.5;
+  text-overflow: ellipsis; }
+
+.card-img-overlay-bottom .card-title a {
+  color: #fff; }
+
+.card-img-overlay-bottom .card-title {
+  margin-bottom: 0; }
 
 @media (min-width: 576px) {
   .card-deck {
@@ -3276,7 +3287,6 @@ tbody.collapse.show {
       margin-bottom: 0.75rem; } }
 /**  card  ****/
 .card .card-title a {
-  color: #333;
   text-decoration: none; }
   .card .card-title a:focus, .card .card-title a:hover {
     color: #0275d8;
