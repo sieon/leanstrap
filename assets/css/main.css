@@ -68,22 +68,8 @@
   float: left; }
 
 /*** carousel **/
-.carousel {
-  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.87);
-  border-radius: 3px; }
-
 .carousel-inner {
   height: 240px; }
-
-.carousel-item a {
-  display: block;
-  width: 1920px;
-  /*图片宽度*/
-  left: 50%;
-  position: absolute;
-  margin-left: -960px;
-  /*图片宽度的一半*/ }
 
 /***widget**/
 .widget-header {
@@ -150,7 +136,7 @@ table#wp-calendar caption {
 .widget_recent_entries ul li,
 .widget_categories ul li,
 .widget_meta ul li {
-  font-size: .9rem;
+  font-size: .85rem;
   line-height: 2; }
 
 .widget_archive a,
@@ -473,44 +459,6 @@ img {
 
 .avatar {
   border-radius: 50%; }
-
-/*** card **/
-.card {
-  margin-bottom: 1.25rem; }
-
-#stick-posts.card {
-  margin-bottom: 0; }
-
-#stick-posts.card {
-  margin-bottom: 0; }
-
-.card ul li a {
-  color: #333;
-  text-decoration: none;
-  transition: all .2s ease; }
-
-.card ul li a:focus, .card ul li a:hover {
-  color: #0275d8;
-  text-decoration: none; }
-
-#sticky-posts.card {
-  margin-bottom: 0; }
-
-.card .card-block ul li.feature-posts h2 {
-  font-size: 1.6rem;
-  text-align: center; }
-
-.card .card-block ul li.feature-posts a {
-  color: #9c27b0; }
-
-.card-title {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  max-height: 3rem;
-  line-height: 1.5rem;
-  word-break: break-all; }
 
 .comment {
   -ms-word-wrap: break-word;
