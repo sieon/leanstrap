@@ -74,7 +74,7 @@
   margin-bottom: 0; // Removes the default margin-bottom of <hN>
   background-color: inherit;
   //border-bottom: $card-border-width solid $card-border-color;
-  border-left: 5px solid #9c27b0;
+  border-left: 5px solid $brand-primary;
   font-size: $font-size-base;
   font-weight: $headings-font-weight;
 }
@@ -312,6 +312,7 @@
 /**  card  ****/
 
 .card .card-title a {
+  color: #333;
   text-decoration: $link-decoration;
 
   @include hover-focus {

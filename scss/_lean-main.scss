@@ -6,16 +6,17 @@
  */
 
 // Core variables and mixins
-@import "variables";
-@import "entry";
-@import "carousel";
-@import "widget";
-@import "align";
-@import "media";
-@import "captions";
-@import "sr";
-@import "galleries";
-@import "post-format";
+@import "main/variables";
+@import "main/entry";
+@import "main/carousel";
+@import "main/widget";
+@import "main/align";
+@import "main/media";
+@import "main/captions";
+@import "main/sr";
+@import "main/galleries";
+@import "main/post-format";
+@import "main/posts-list";
 
 body {
   /**font-family: 微软雅黑, "Microsoft yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", "Microsoft Yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;**/
@@ -30,6 +31,16 @@ body {
 
 .text-weakest {
   color: #999; }
+
+#primary-navbar .navbar-nav .nav-link {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#primary-navbar .dropdown-menu .nav-link {
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
 
 img {
   display: block;
@@ -148,23 +159,6 @@ div#post-metadata {
 }
 
 /**tag**/
-.jumbotron {
-  background-color: #fafafa;
-  padding: 2rem 2rem;
-}
-
 .tag-tip {
   font-size: 1.1rem;
   color: #68727d; }
-
-.page-header h1 {
-  font-size: 1.6rem;
-  color: #4285f4; }
-
-.page-header span {
-  font-size: 1.6rem;
-  color: #3d464d; }
-
-.header-subtitle {
-  color: #aaa;
-  font-size: 1rem; }

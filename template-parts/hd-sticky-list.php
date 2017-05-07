@@ -5,8 +5,7 @@
       $args = array(
         'posts_per_page' => '1',
         'post_type' => 'post',
-        'orderby' => 'post_date',
-        'cat' => 'toutiao-column',
+        'tag' => 'toutiao',
         'caller_get_posts' => 1
       );
       query_posts( $args );
@@ -25,13 +24,12 @@
         'posts_per_page' => '7' ,
         'post_type' => 'post',
         'post__in' => get_option( 'sticky_posts' ),
-        'cat' => -55,
-        'caller_get_posts' => 1
+        'caller_get_posts' => 1,
+        //'ignore_sticky_posts' => 1
       );
       query_posts($args );
       while ( have_posts() ) : the_post();
       ?>
-      <?php if ( !get_post_meta( get_the_ID(), 'toutiao', true ) ) : ?>
         <li>
           <span>
             <?php $categories = get_the_category();
@@ -41,7 +39,6 @@
           </span>
           <?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?>
         </li>
-      <?php endif; ?>
       <?php endwhile; wp_reset_query(); ?>
     </ul>
   </div>

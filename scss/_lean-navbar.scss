@@ -21,15 +21,14 @@
   flex-direction: column;
   padding: $navbar-padding-y $navbar-padding-x;
 }
-
+/**
 #primary-navbar {
-  /**
+
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(242, 242, 242);
-  box-shadow: rgba(0, 0, 0, 0.0980392) 0px 1px 1px;**/
+  box-shadow: rgba(0, 0, 0, 0.0980392) 0px 1px 1px;
   background-color: #9c27b0;
   color: #ffffff;
-  box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 #primary-navbar a {
@@ -38,7 +37,7 @@
 #primary-navbar a:focus,
 #primary-navbar a:hover {
   color: #eee;
-  text-decoration: none; }
+  text-decoration: none; }**/
 // Navbar brand
 //
 // Used for brand, project, or site names.
@@ -281,4 +280,28 @@
   .navbar-text {
     color: $navbar-inverse-color;
   }
+
+  .dropdown-menu {
+    .nav-link {
+      color: $navbar-light-color;
+
+      @include hover-focus {
+        color: $navbar-light-hover-color;
+      }
+
+      &.disabled {
+        color: $navbar-light-disabled-color;
+      }
+    }
+
+    .open > .nav-link,
+    .active > .nav-link,
+    .nav-link.open,
+    .nav-link.active {
+      color: $navbar-light-active-color;
+    }
+
+  }
+
+
 }

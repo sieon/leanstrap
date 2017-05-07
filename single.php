@@ -11,11 +11,13 @@
         <header class="entry-header">
           <?php the_title('<h1 class="mb-4">', '</h1>'); ?>
           <p class="post-meta text-weakest mb-3">
-            <span><?php the_author(); ?></span>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <time><?php the_time(); ?></time>
-            <span>&nbsp;&bull;&nbsp;</span>
-            <?php the_category(' / '); ?>
+            <small>
+              <span><?php the_author(); ?></span>
+              <span>&nbsp;&bull;&nbsp;</span>
+              <time><?php the_time(); ?></time>
+              <span>&nbsp;&bull;&nbsp;</span>
+              <?php the_category(' / '); ?>
+            </small>
           </p>
         </header>
         <?php

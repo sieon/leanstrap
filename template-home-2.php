@@ -82,9 +82,18 @@ get_header(); ?>
   <div class="row">
 
     <div class="col-lg-8">
-      <?php if ( !dynamic_sidebar('home-block-4') ) { _e('','lean'); } ?>
+      <?php get_template_part( 'template-parts/hd', 'graphic' ); ?>
       <?php
-      query_posts( 'posts_per_page=10&post_type=post&caller_get_posts=1&ignore_sticky_posts=1');
+      $sticky = get_option( 'sticky_posts' );
+      $args = array(
+        'posts_per_page' => '10',
+        'post_type' => 'post',
+        'caller_get_posts' => 1,
+        'ignore_sticky_posts' =>1,
+        'tag__not_in' => array(12),
+        'post__not_in' => $sticky
+      );
+      query_posts( $args );
       while ( have_posts() ) : the_post();
       /* 显示内容 */
         get_template_part( 'template-parts/posts', 'list' );

@@ -9,7 +9,7 @@ function lean_scripts() {
 	wp_enqueue_style( 'lean-flexslider', get_template_directory_uri() . '/assets/css/flexslider.css');
   wp_enqueue_style( 'lean-animate', get_template_directory_uri() . '/assets/css/animate.css');
   //wp_enqueue_style( 'lean-superfish', get_template_directory_uri() . '/assets/css/superfish.css');
-  wp_enqueue_style( 'lean-main', get_template_directory_uri() . '/assets/css/main.css');
+  //wp_enqueue_style( 'lean-main', get_template_directory_uri() . '/assets/css/main.css');
 
   //jQuery first, then Tether, then Bootstrap JS.
 	wp_enqueue_script( 'lean-jquery', get_template_directory_uri() . '/assets/js/jquery.js', array(), '20170416', true );

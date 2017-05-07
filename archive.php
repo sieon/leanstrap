@@ -6,18 +6,15 @@
     <?php if ( !dynamic_sidebar('home-ad-1') ) { _e('','lean'); } //广告 ?>
 </div>
 
-<div class="jumbotron jumbotron-fluid mt-3">
-    <div class="container">
-      <?php
-      lean_the_archive_title( '<h1 class="header-title">', '</h1>' );
-      lean_the_archive_description( '<p class="header-subtitle">', '</p>' );
-      ?>
-    </div>
-</div>
-
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <div class="col-lg-8">
+      <div class="jumbotron page-header">
+        <?php
+        lean_the_archive_title( '<h1 class="page-title">', '</h1>' );
+        lean_the_archive_description( '<p class="page-subtitle">', '</p>' );
+        ?>
+      </div>
 
       <?php  while ( have_posts() ) : the_post(); ?>
 

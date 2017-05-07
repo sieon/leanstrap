@@ -6,7 +6,7 @@
  */
 
 // Core variables and mixins
-@import "variables-style-1";
+@import "lean-variables";
 @import "mixins";
 @import "custom";
 
@@ -31,8 +31,8 @@
 @import "input-group";
 @import "custom-forms";
 @import "nav";
-@import "navbar-1";
-@import "card-lean";
+@import "lean-navbar";
+@import "lean-card";
 @import "posts-list";
 @import "breadcrumb";
 @import "pagination";
@@ -55,3 +55,6 @@
 @import "utilities";
 
 @import "comments";
+
+// mystyle
+@import "lean-main";
