@@ -24,6 +24,7 @@
         'posts_per_page' => '7' ,
         'post_type' => 'post',
         'post__in' => get_option( 'sticky_posts' ),
+        'tag__not_in' => array(178),
         'caller_get_posts' => 1,
         //'ignore_sticky_posts' => 1
       );

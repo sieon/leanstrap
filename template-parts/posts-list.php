@@ -12,7 +12,7 @@
 			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
 		    <?php
 		      // Post thumbnail.
-		      the_post_thumbnail('medium', ['class' => 'd-block img-fluid rounded']);
+		      the_post_thumbnail('medium', ['class' => 'd-block rounded']);
 		    ?>
 		  </a>
 		</div>

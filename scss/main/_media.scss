@@ -16,3 +16,10 @@ iframe,
 object {
 	max-width: 100%;
 }
+
+.post-thumbnail {
+  max-height: 131px;
+  max-width: 233px;
+  display: block;
+  overflow-y: hidden;
+}

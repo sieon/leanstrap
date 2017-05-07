@@ -11,7 +11,7 @@
 function unregister_widgets() {
   unregister_widget( 'WP_Widget_RSS' );
   unregister_widget( 'WP_Widget_Pages' );
-  unregister_widget( 'WP_Widget_Search' );
+  //unregister_widget( 'WP_Widget_Search' );
   unregister_widget( 'WP_Widget_Recent_Comments' );
   unregister_widget( 'WP_Nav_Menu_Widget' );
 }
@@ -27,15 +27,6 @@ function lean_widgets_init() {
   	'after_widget'  => '</div></aside>',
   	'before_title'  => '<h3 class="card-header-2">',
   	'after_title'   => '</h3><div class="card-block">',
-  ) );
-  register_sidebar( array(
-  	'name'          => esc_html__( '首页主轮播图', 'lean' ),
-  	'id'            => 'home-main-slider',
-  	'description'   => '首页轮播图。',
-  	'before_widget' => '',
-  	'after_widget'  => '',
-  	'before_title'  => '',
-  	'after_title'   => '',
   ) );
   register_sidebar( array(
     'name'          => esc_html__( '首页区块1', 'lean' ),
@@ -54,23 +45,6 @@ function lean_widgets_init() {
     'after_widget'  => '</div></div>',
     'before_title'  => '<h3 class="card-header">',
   	'after_title'   => '</h3><div class="card-block">',
-  ) );
-  register_sidebar( array(
-    'name'          => esc_html__( '首页区块 3', 'lean' ),
-    'id'            => 'home-block-3',
-    'before_widget' => '<div id="%1$s" class="card widget %2$s">',
-    'after_widget'  => '</div></div>',
-    'before_title'  => '<h3 class="card-header widget-header">',
-  	'after_title'   => '</h3><div class="card-block">',
-  ) );
-  register_sidebar( array(
-    'name'          => esc_html__( '首页区块 4', 'lean' ),
-    'id'            => 'home-block-4',
-    'description'   => '首页区块4。',
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h3 class="widget-header">',
-  	'after_title'   => '</h3>',
   ) );
   register_sidebar( array(
   	'name'          => esc_html__( '底部 1', 'lean' ),

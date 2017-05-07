@@ -90,7 +90,7 @@ get_header(); ?>
         'post_type' => 'post',
         'caller_get_posts' => 1,
         'ignore_sticky_posts' =>1,
-        'tag__not_in' => array(12),
+        'tag__not_in' => array(179,178),
         'post__not_in' => $sticky
       );
       query_posts( $args );

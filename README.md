@@ -1,12 +1,9 @@
 # leanstrap
-wordpress bootstrap主题框架
+WordPress Bootstrap4 主题
+
 ## 主要功能
-- font-awesome 图标库
-- bootstrap4
-- 小工具 Widget
+- Font-Awesome 图标库
+- Bootstrap4
+- 小工具
 - 两栏
-- Tether
-- Setup
-    - add theme support
-    - loop
-    - scripts
+- 首页模板

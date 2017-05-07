@@ -2,19 +2,17 @@
 
 <?php if ( have_posts() ) : ?>
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <p class="tag-tip"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;标签</p>
-      <?php
-      lean_the_archive_title( '<div class="page-header"><h1 class="d-inline">', '</h1>&nbsp;<span>相关的文章</span></div>' );
-      lean_the_archive_description( '<div class="header-subtitle mt-2">', '</div>' );
-      ?>
-    </div>
-</div>
-
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <div class="col-lg-8">
+
+      <div class="jumbotron page-header">
+        <p class="tag-tip"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;标签</p>
+          <?php
+        lean_the_archive_title( '<div class="page-title"><h1 class="d-inline">', '</h1>&nbsp;<span>相关的文章</span></div>' );
+        lean_the_archive_description( '<div class="header-subtitle mt-2">', '</div>' );
+        ?>
+      </div>
 
       <?php  while ( have_posts() ) : the_post(); ?>
 

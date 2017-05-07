@@ -4,7 +4,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package start
+ * @package lean
  */
 ?>
 
@@ -28,5 +28,4 @@
 			<small class="text-muted"><?php echo get_the_author(); ?>&nbsp;<?php lean_entry_footer(); ?></small>
 		</footer><!-- .entry-footer -->
 	</div>
-	<hr>
 </article><!-- #post-## -->
