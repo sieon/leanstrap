@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col-lg-8">
 
-      <div class="jumbotron page-header">
+      <div class="jumbotron page-header" style="border-left: 0px;">
         <p class="tag-tip"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;标签</p>
           <?php
         lean_the_archive_title( '<div class="page-title"><h1 class="d-inline">', '</h1>&nbsp;<span>相关的文章</span></div>' );

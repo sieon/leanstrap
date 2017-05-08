@@ -18,7 +18,7 @@ class LeanSidebarPosts extends WP_Widget {
 	function __construct() {
 		parent::__construct(
       'leansidebarposts',
-      __('在边栏显示某分类文章', 'lean'),
+      __('lean-边栏文章', 'lean'),
       array(
         'description' => __('显示一个分类的文章,在边栏。', 'lean'),
         'classname' => 'widget_lean_sidebar_posts'
@@ -77,11 +77,11 @@ class LeanSidebarPosts extends WP_Widget {
 
 	<div class="lean-sidebar-posts row <?php if($instance['posts_thumb']) { echo 'thumbs-enabled'; } ?>">
 		<?php while ($posts->have_posts()): $posts->the_post(); ?>
-		<div class="col-lg-6">
+		<div class="col-lg-6 col-md-4 col-6">
 			<div class="card card-posts" style="border: 0px;">
 
 				<?php if($instance['posts_thumb']) { // Thumbnails enabled? ?>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="post-thumbnail">
 						<?php
 							// Post thumbnail.
 							the_post_thumbnail('medium', ['class' => 'card-img-top rounded-0']);

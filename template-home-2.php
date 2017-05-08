@@ -5,11 +5,6 @@
 get_header(); ?>
 
 <div class="container">
-  <!--./横幅广告 start--->
-  <div class="mb-3">
-      <?php if ( !dynamic_sidebar('home-ad-1') ) { _e('','lean'); } //广告 ?>
-    </div>
-<!--./横幅广告 end--->
 
   <div class="row">
     <div class="col-lg-9">

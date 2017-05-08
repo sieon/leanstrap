@@ -45,3 +45,7 @@
 
   <main class="site-content">
   <!-- 上面是复用的头部 -->
+
+  <div class="container mt-3">
+      <?php if ( !dynamic_sidebar('home-ad-1') ) { _e('','lean'); } //广告 ?>
+  </div>

@@ -3,10 +3,6 @@
 <?php if ( have_posts() ) : ?>
 
 <div class="container mt-3">
-    <?php if ( !dynamic_sidebar('home-ad-1') ) { _e('','lean'); } //广告 ?>
-</div>
-
-<div class="container mt-3">
   <div class="row">
     <div class="col-lg-8">
       <div class="jumbotron page-header">
