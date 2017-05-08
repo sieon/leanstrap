@@ -4286,6 +4286,25 @@ button.close {
   color: #fff;
   text-align: center; }
 
+.carousel-caption-overlay {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: left;
+  font-size: 1rem;
+  color: #fff; }
+
+.carousel-caption-overlay h3 {
+  font-size: 1rem;
+  margin-bottom: 0; }
+
+.carousel-caption-overlay a {
+  color: #fff; }
+
 .align-baseline {
   vertical-align: baseline !important; }
 
@@ -6898,9 +6917,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   border-bottom: 1px solid #f2f2f2; }
 
 .entry-header h1 {
-  margin-bottom: 28px;
-  -ms-word-wrap: break-word;
-  word-wrap: break-word; }
+  margin-bottom: 28px; }
 
 .entry-header::after {
   display: block;
@@ -6937,12 +6954,13 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 .entry-content p {
   margin: 1em 0;
   -ms-word-wrap: break-word;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+  color: #3d464d; }
 
 .entry-content ul li,
 .entry-content ol li {
-  font-size: 1em;
-  line-height: 1.8em; }
+  font-size: 1rem;
+  line-height: 1.8; }
 
 .entry-footer,
 .entry-footer a {
@@ -7340,10 +7358,9 @@ blockquote p {
 body {
   /**font-family: 微软雅黑, "Microsoft yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", "Microsoft Yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;**/
   font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
-  padding-top: 3.84rem; }
-
-.home {
-  padding-top: 4.7rem; }
+  padding-top: 4.5rem;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word; }
 
 .border-bottom-1 {
   border-bottom: 1px solid #eee; }
@@ -7364,6 +7381,9 @@ img {
   height: auto;
   max-width: 100%; }
 
+@media (max-width: 768px) {
+  #sticky-posts {
+    margin-top: 1rem; } }
 .avatar {
   border-radius: 50%; }
 
@@ -7457,5 +7477,8 @@ div#post-metadata {
 .tag-tip {
   font-size: 1.1rem;
   color: #68727d; }
+
+.related-posts .card .card-block {
+  padding-top: 5px; }
 
 /*# sourceMappingURL=bootstrap.css.map */

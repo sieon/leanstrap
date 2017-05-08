@@ -21,10 +21,9 @@
 body {
   /**font-family: 微软雅黑, "Microsoft yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", "Microsoft Yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;**/
   font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
-  padding-top: 3.84rem; }
-
-.home {
-  padding-top: 4.7rem; }
+  padding-top: 4.5rem;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word; }
 
 .border-bottom-1 {
   border-bottom: 1px solid #eee; }
@@ -46,6 +45,10 @@ img {
   display: block;
   height: auto;
   max-width: 100%; }
+
+@media (max-width: 768px) {
+  #sticky-posts {
+    margin-top: 1rem; } }
 
 .avatar {
   border-radius: 50%;
@@ -162,3 +165,7 @@ div#post-metadata {
 .tag-tip {
   font-size: 1.1rem;
   color: #68727d; }
+
+.related-posts .card .card-block{
+  padding-top: 5px;
+}

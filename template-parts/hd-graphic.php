@@ -1,7 +1,5 @@
-<div class="card">
-  <div class="widget-header">
-    产品推荐
-  </div>
+<div class="widget">
+  <h3 class="widget-header">产品推荐</h3>
   <div class="row">
     <?php wp_reset_query();
     $args = array(

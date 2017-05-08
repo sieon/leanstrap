@@ -14,7 +14,7 @@
       ?>
       <?php //if ( get_post_meta( get_the_ID(), 'toutiao', true ) ) : ?>
         <li class="toutiao">
-          <?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+          <?php the_title( sprintf( '<h2><a href="%s" rel="bookmark" class="text-danger">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
         </li>
       <?php //endif; ?>
     <?php endwhile; wp_reset_query(); ?>

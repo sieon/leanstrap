@@ -4,8 +4,7 @@
  */
 get_header(); ?>
 
-<div class="container">
-
+<div class="container mt-3">
   <div class="row">
     <div class="col-lg-9">
       <div class="row mb-3">
@@ -18,13 +17,10 @@ get_header(); ?>
               <?php foreach($slider as $slide): ?>
               <div class="carousel-item <?php echo ($count == 0) ? 'active' : ''; ?>">
                 <a href="<?php echo get_post_meta($slide->ID, "lean_slide_url", $single = true); ?>">
-                <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($slide->ID)) ?>" class="d-block" />
-                <div class="container">
-                  <div class="carousel-caption d-none d-md-block">
+                <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($slide->ID)) ?>" class="d-block img-fluid" />
+                  <div class="carousel-caption-overlay d-none d-md-block">
                     <h3><?php echo $slide->post_title; ?><h3>
-                    <p><?php echo $slide->post_content; ?></p>
                   </div>
-                </div>
                 </a>
               </div>
               <?php $count++; ?>
@@ -47,9 +43,11 @@ get_header(); ?>
       </div><!---./row-->
 
       <!---滚动-->
-      <div class="row mb-3">
+      <div class="row">
         <div class="col-lg-12">
-          <p class="text-roll"><small>这是一个滚动条</small></p>
+          <div class="alert alert-warning" role="alert">
+            这是一个滚动条
+          </div>
         </div>
       </div>
       <!---两个栏目-->
@@ -78,22 +76,26 @@ get_header(); ?>
 
     <div class="col-lg-8">
       <?php get_template_part( 'template-parts/hd', 'graphic' ); ?>
-      <?php
-      $sticky = get_option( 'sticky_posts' );
-      $args = array(
-        'posts_per_page' => '10',
-        'post_type' => 'post',
-        'caller_get_posts' => 1,
-        'ignore_sticky_posts' =>1,
-        'tag__not_in' => array(179,178),
-        'post__not_in' => $sticky
-      );
-      query_posts( $args );
-      while ( have_posts() ) : the_post();
-      /* 显示内容 */
-        get_template_part( 'template-parts/posts', 'list' );
-      endwhile;wp_reset_postdata();
-      ?>
+
+      <div class="widget">
+        <h3 class="widget-header">最新发表</h3>
+        <?php
+        $sticky = get_option( 'sticky_posts' );
+        $args = array(
+          'posts_per_page' => '10',
+          'post_type' => 'post',
+          'caller_get_posts' => 1,
+          'ignore_sticky_posts' =>1,
+          'tag__not_in' => array(179,178),
+          'post__not_in' => $sticky
+        );
+        query_posts( $args );
+        while ( have_posts() ) : the_post();
+        /* 显示内容 */
+          get_template_part( 'template-parts/posts', 'list' );
+        endwhile;wp_reset_postdata();
+        ?>
+      </div>
     </div>
     <div class="col-lg-4 hidden-sm-down">
       <?php get_sidebar();?>
