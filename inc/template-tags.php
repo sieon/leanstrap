@@ -94,16 +94,16 @@
 
 		?>
 		<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
-			<h4 class="screen-reader-text"><?php _e( 'Post navigation', 'upbootwp' ); ?></h4>
+			<h4 class="sr-only sr-only-focusable"><?php _e( 'Post navigation', 'lean' ); ?></h4>
 
 		<?php if ( is_single() ) : // navigation links for single posts ?>
 
 			<div class="row">
 				<div class="col-md-4">
-					<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'upbootwp' ) . '</span> %title' ); ?>
+					<?php previous_post_link( '<div class="nav-previous">%link</div>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'lean' ) . '</span> %title' ); ?>
 				</div><!-- .col-md-4 -->
 				<div class="col-md-4 col-nav-next">
-					<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'upbootwp' ) . '</span>' ); ?>
+					<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'lean' ) . '</span>' ); ?>
 				</div><!-- .col-md-4 -->
 			</div><!-- .row -->
 
@@ -112,14 +112,14 @@
 				<div class="col-md-4">
 
 					<?php if (get_next_posts_link()) : ?>
-					<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'upbootwp' ) ); ?></div>
+					<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'lean' ) ); ?></div>
 					<?php endif; ?>
 
 				</div><!-- .col-md-4 -->
 				<div class="col-md-4 col-nav-next">
 
 					<?php if (get_previous_posts_link()) : ?>
-					<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'upbootwp' ) ); ?></div>
+					<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'lean' ) ); ?></div>
 					<?php endif; ?>
 
 				</div><!-- .col-md-4 -->
@@ -176,7 +176,7 @@ function lean_the_post_navigation() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'lean' ); ?></h2>
+		<h2 class="sr-only sr-only-focusable"><?php esc_html_e( 'Post navigation', 'lean' ); ?></h2>
 		<div class="nav-links">
 			<?php
 				previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
@@ -251,13 +251,13 @@ function lean_entry_meta() {
 
   echo '<time class="time">' . the_time() . '</time>&nbsp;&bull;&nbsp;';
 
-  echo lean_get_post_views(get_the_ID());
+  //echo '<span class="post-views"> <i class="fa fa-eye" aria-hidden="true"></i> '.lean_get_post_views(get_the_ID()).'</span>';
 
   echo '<div class="categories d-inline">'.the_category(' ').'</div>';
 
   if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
     echo '<span class="comments-link float-right">';
-    comments_popup_link( sprintf( __( '去抢首评<span class="screen-reader-text"> on %s</span>', 'lean' ), get_the_title() ) );
+    comments_popup_link( sprintf( __( '去抢首评<span class="sr-only sr-only-focusable"> on %s</span>', 'lean' ), get_the_title() ) );
     echo '</span>';
   }
 
@@ -279,7 +279,7 @@ function twentyfifteen_entry_meta() {
 	$format = get_post_format();
 	if ( current_theme_supports( 'post-formats', $format ) ) {
 		printf( '<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span>',
-			sprintf( '<span class="screen-reader-text">%s </span>', _x( 'Format', 'Used before post format.', 'twentyfifteen' ) ),
+			sprintf( '<span class="sr-only sr-only-focusable">%s </span>', _x( 'Format', 'Used before post format.', 'twentyfifteen' ) ),
 			esc_url( get_post_format_link( $format ) ),
 			get_post_format_string( $format )
 		);
@@ -299,7 +299,7 @@ function twentyfifteen_entry_meta() {
 			get_the_modified_date()
 		);
 
-		printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark">%3$s</a></span>',
+		printf( '<span class="posted-on"><span class="sr-only sr-only-focusable">%1$s </span><a href="%2$s" rel="bookmark">%3$s</a></span>',
 			_x( 'Posted on', 'Used before publish date.', 'twentyfifteen' ),
 			esc_url( get_permalink() ),
 			$time_string
@@ -308,7 +308,7 @@ function twentyfifteen_entry_meta() {
 
 	if ( 'post' == get_post_type() ) {
 		if ( is_singular() || is_multi_author() ) {
-			printf( '<span class="byline"><span class="author vcard"><span class="screen-reader-text">%1$s </span><a class="url fn n" href="%2$s">%3$s</a></span></span>',
+			printf( '<span class="byline"><span class="author vcard"><span class="sr-only sr-only-focusable">%1$s </span><a class="url fn n" href="%2$s">%3$s</a></span></span>',
 				_x( 'Author', 'Used before post author name.', 'twentyfifteen' ),
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 				get_the_author()
@@ -317,7 +317,7 @@ function twentyfifteen_entry_meta() {
 
 		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'twentyfifteen' ) );
 		if ( $categories_list && twentyfifteen_categorized_blog() ) {
-			printf( '<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+			printf( '<span class="cat-links"><span class="sr-only sr-only-focusable">%1$s </span>%2$s</span>',
 				_x( 'Categories', 'Used before category names.', 'twentyfifteen' ),
 				$categories_list
 			);
@@ -325,7 +325,7 @@ function twentyfifteen_entry_meta() {
 
 		$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'twentyfifteen' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+			printf( '<span class="tags-links"><span class="sr-only sr-only-focusable">%1$s </span>%2$s</span>',
 				_x( 'Tags', 'Used before tag names.', 'twentyfifteen' ),
 				$tags_list
 			);
@@ -336,7 +336,7 @@ function twentyfifteen_entry_meta() {
 		// Retrieve attachment metadata.
 		$metadata = wp_get_attachment_metadata();
 
-		printf( '<span class="full-size-link"><span class="screen-reader-text">%1$s </span><a href="%2$s">%3$s &times; %4$s</a></span>',
+		printf( '<span class="full-size-link"><span class="sr-only sr-only-focusable">%1$s </span><a href="%2$s">%3$s &times; %4$s</a></span>',
 			_x( 'Full size', 'Used before full size attachment link.', 'twentyfifteen' ),
 			esc_url( wp_get_attachment_url() ),
 			$metadata['width'],
@@ -347,7 +347,7 @@ function twentyfifteen_entry_meta() {
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
 		/* translators: %s: post title */
-		comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'twentyfifteen' ), get_the_title() ) );
+		comments_popup_link( sprintf( __( 'Leave a comment<span class="sr-only sr-only-focusable"> on %s</span>', 'twentyfifteen' ), get_the_title() ) );
 		echo '</span>';
 	}
 }
@@ -586,10 +586,10 @@ if ( ! function_exists( 'lean_excerpt_more' ) && ! is_admin() ) :
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
 function lean_excerpt_more() {
-	$link = sprintf( '<a href="%1$s" class="more-link">%2$s</a>',
+	$link = sprintf( '<br/><br/><a href="%1$s" class="more-link btn btn-warning">%2$s</a>',
 		esc_url( get_permalink( get_the_ID() ) ),
 		/* translators: %s: Name of current post */
-		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'lean' ), get_the_title( get_the_ID() ) )
+		sprintf( __( '阅读全文<span class="sr-only sr-only-focusable"> "%s"</span>', 'lean' ), get_the_title( get_the_ID() ) )
 	);
 	return ' &hellip; ' . $link;
 }

@@ -2,40 +2,53 @@
 /**
  * Template Name: Front Page Template
  */
-get_header(); ?>
+ add_action('wp_enqueue_scripts', 'flexslider_js_css');
+ function flexslider_js_css(){
+     wp_enqueue_script('flexslider', get_template_directory_uri() . '/assets/js/flexslider-min.js', array('jquery'), '20130129', true );
+     wp_enqueue_style('flexslider', get_template_directory_uri() . '/assets/css/flexslider.css');
+ }
+ add_action('wp_footer', 'init_flexslider');
+ function init_flexslider(){
+     ?>
+     <script type="text/javascript">
+         jQuery(document).ready(function(){
+             jQuery('.flexslider').flexslider({
+               controlNav: false,
+             });
+         });
+     </script>
+     <?php
+ }
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" role="listbox">
-    <?php $slider = get_posts(array('post_type' => 'carousel', 'posts_per_page' => 3)); ?>
-    <?php $count = 0; ?>
-    <?php foreach($slider as $slide): ?>
-    <div class="carousel-item <?php echo ($count == 0) ? 'active' : ''; ?>">
-      <a href="<?php echo get_post_meta($slide->ID, "lean_slide_url", $single = true); ?>">
-      <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($slide->ID)) ?>" class="d-block" />
-      <div class="container">
-        <div class="carousel-caption d-none d-md-block">
-          <h3><?php echo $slide->post_title; ?><h3>
-          <p><?php echo $slide->post_content; ?></p>
-        </div>
-      </div>
-      </a>
-    </div>
-    <?php $count++; ?>
-    <?php endforeach; ?>
-  </div>
-  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-<?php get_template_part( 'template-parts/content', 'flexslider' ); ?>
-
+get_header('noad'); ?>
 <div class="container">
+
+  <div class="flexslider">
+    <ul class="slides">
+      <?php
+      $args = array(
+        'posts_per_page' => '10',
+        'post_type' => 'slides',
+        'caller_get_posts' => 1,
+        'ignore_sticky_posts' =>1,
+        'tax_query' => array(
+          array(
+            'taxonomy'=> 'slides-category',
+            'field' => 'slug',
+            'terms'=>'home-main-slides-1'
+          )
+        )
+      );
+      query_posts( $args );
+      while ( have_posts() ) : the_post(); ?>
+      <li>
+        <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_the_ID())); ?>" />
+        <p class="flex-caption"><?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?></p>
+      </li>
+      <?php endwhile; wp_reset_postdata(); ?>
+    </ul>
+  </div>
+
   <div class="row">
     <div class="col-lg-9">
       <div class="row">

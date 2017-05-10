@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * 内容宽度
+ */
+if ( ! isset( $content_width ) ) {
+	$content_width = 640; /* pixels */
+}
+
 if ( ! function_exists( 'lean_setup' ) ) :
 /**
  *

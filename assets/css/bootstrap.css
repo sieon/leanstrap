@@ -6973,7 +6973,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   float: left; }
 
 /*** carousel **/
-.carousel-inner {
+#homeMainCarousel2 .carousel-inner {
   height: 240px; }
 
 /***widget**/
@@ -7362,6 +7362,12 @@ body {
   -ms-word-wrap: break-word;
   word-wrap: break-word; }
 
+body.home {
+  padding-top: 4.5rem; }
+
+body {
+  padding-top: 3.76rem; }
+
 .border-bottom-1 {
   border-bottom: 1px solid #eee; }
 
@@ -7375,6 +7381,13 @@ body {
 #primary-navbar .dropdown-menu .nav-link {
   padding-top: .5em;
   padding-bottom: .5em; }
+
+.header-bg {
+  background-image: url("../img/bg.jpg");
+  background-position: center bottom;
+  background-size: cover;
+  margin-top: 0;
+  height: 180px; }
 
 img {
   display: block;
