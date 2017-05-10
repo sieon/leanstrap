@@ -477,3 +477,38 @@ function lean_list_post_thumbnail() {
  <?php endif; // End is_singular()
 }
 endif;
+
+
+if ( ! function_exists( 'lean_list_post_thumbnail' ) ) :
+/**
+ *  Taxonomies terms links.
+ *  获取所有分类方式分类链接.
+ *
+ * @since lean 1.0
+ */
+function custom_taxonomies_terms_links( ) {
+  // get post by post id
+  $post = get_post( $post->ID );
+  // get post type by post
+  $post_type = $post->post_type;
+  // get post type taxonomies
+  $taxonomies = get_object_taxonomies( $post_type, 'objects' );
+  $out = array();
+  foreach ( $taxonomies as $taxonomy_slug => $taxonomy ){
+    // get the terms related to post
+    $terms = get_the_terms( $post->ID, $taxonomy_slug );
+    if ( !empty( $terms ) ) {
+      //$out[] = "<h2>" . $taxonomy->label . "</h2>\n<ul>";
+      foreach ( $terms as $term ) {
+        $out[] =
+          '  <a href="'
+        .    get_term_link( $term->slug, $taxonomy_slug ) .'">'
+        .    $term->name
+        . "</a>\n";
+      }
+      //$out[] = "</ul>\n";
+    }
+  }
+  return implode('', $out );
+}
+endif;

@@ -22,38 +22,29 @@ function lean_widgets_init() {
   register_sidebar( array(
   	'name'          => esc_html__( '边栏', 'lean' ),
   	'id'            => 'sidebar-1',
-  	'description'   => '这是默认的边栏。',
+  	'description'   => '这是默认全局的边栏。',
   	'before_widget' => '<aside id="%1$s" class="card %2$s">',
   	'after_widget'  => '</div></aside>',
   	'before_title'  => '<h3 class="card-header-2">',
   	'after_title'   => '</h3><div class="card-block">',
   ) );
   register_sidebar( array(
-    'name'          => esc_html__( '首页区块1', 'lean' ),
+    'name'          => esc_html__( '首页-文章列表 1', 'lean' ),
     'id'            => 'home-block-1',
-    'description'   => '没有子card。',
+    'description'   => '只有标题的列表。',
     'before_widget' => '<div id="%1$s" class="card %2$s">',
     'after_widget'  => '</div></div>',
     'before_title'  => '<h3 class="card-header">',
   	'after_title'   => '</h3><div class="card-block">',
   ) );
   register_sidebar( array(
-    'name'          => esc_html__( '首页区块2', 'lean' ),
+    'name'          => esc_html__( '首页-文章列表 2', 'lean' ),
     'id'            => 'home-block-2',
-    'description'   => '没有子card',
+    'description'   => '只有标题的列表。',
     'before_widget' => '<div id="%1$s" class="card %2$s">',
     'after_widget'  => '</div></div>',
     'before_title'  => '<h3 class="card-header">',
   	'after_title'   => '</h3><div class="card-block">',
-  ) );
-  register_sidebar( array(
-  	'name'          => esc_html__( '底部 1', 'lean' ),
-  	'id'            => 'footer-1',
-  	'description'   => '这个地方是一定要放菜单。',
-  	'before_widget' => '',
-  	'after_widget'  => '',
-  	'before_title'  => '',
-  	'after_title'   => '',
   ) );
   register_sidebar( array(
     'name'          => esc_html__( '顶部广告', 'lean' ),
@@ -76,7 +67,7 @@ function lean_widgets_init() {
   register_sidebar( array(
     'name'          => esc_html__( '三个广告', 'lean' ),
     'id'            => 'home-ad-3',
-    'description'   => '',
+    'description'   => '使用<a href="地址"><img src="图片地址" /></a>添加广告。如果是三个：<div class="row"><div class="col-md-3"><a href="地址"><img src="图片地址" /></a></div><div class="col-md-4"><a href="地址"><img src="图片地址" /></a></div><div class="col-md-5"><a href="地址"><img src="图片地址" /></a></div></div>',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget'  => '</aside>',
     'before_title'  => '<h3 class="widget-header">',

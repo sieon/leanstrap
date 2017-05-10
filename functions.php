@@ -21,7 +21,10 @@ require get_template_directory() . '/inc/extras.php';//Custom functions that act
 require get_template_directory() . '/inc/jetpack.php';//Load Jetpack compatibility file.
 require get_template_directory() . '/inc/custom-comments.php';
 require get_template_directory() . '/inc/pagination.php';// 支持 Bs4 翻页
-require get_template_directory() . '/inc/post-type.php';// 注册内容类型 以支持 CAROUSEL AND 首页栏目
+require get_template_directory() . '/inc/post-type-slides.php';// 注册内容类型 以支持 CAROUSEL AND 首页栏目
+require get_template_directory() . '/inc/post-type-product.php';// 相关文章
+//require get_template_directory() . '/inc/taxonomy.php';// 相关文章
+
 require get_template_directory() . '/inc/post-views.php';// 文章阅读量
 require get_template_directory() . '/inc/related-posts.php';// 相关文章
 
