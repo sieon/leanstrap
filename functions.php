@@ -3,22 +3,24 @@
  * @package lean
  */
 require 'inc/setup.php';
+require 'inc/enqueue.php';// 加载 js 和 css
+
+require 'inc/widget.php'; // 注册小工具
+
 load_template( get_template_directory() . '/inc/widgets/alx-tabs.php' );
 //load_template( get_template_directory() . '/functions/widgets/alx-video.php' );
 //load_template( get_template_directory() . '/inc/widgets/alx-posts.php' );
 load_template( get_template_directory() . '/inc/widgets/lean-posts.php' );
 load_template( get_template_directory() . '/inc/widgets/lean-sidebar-posts.php' );
-//支持bs4 navbar
-require 'inc/bootstrap-wp-navwalker.php';
-// Widgets
-//require get_template_directory() . '/inc/widgets/posts.php';
-//require get_template_directory() . '/inc/widgets/mywidget.php';
-require 'inc/widget.php'; // 注册小工具
-require 'inc/enqueue.php';// 加载 js 和 css
-require get_template_directory() . '/inc/nav-header.php';// 不知道其作用
-require get_template_directory() . '/inc/template-tags.php';//模板标签
-require get_template_directory() . '/inc/extras.php';//Custom functions that act independently of the theme templates.
-require get_template_directory() . '/inc/jetpack.php';//Load Jetpack compatibility file.
+load_template( get_template_directory() . '/inc/widgets/posts-list.php' );
+
+
+require 'inc/bootstrap-wp-navwalker.php';//支持bs4 navbar
+
+require get_template_directory() . '/inc/nav-header.php'; // 不知道其作用
+require get_template_directory() . '/inc/template-tags.php'; //模板常用标签
+require get_template_directory() . '/inc/extras.php'; //Custom functions that act independently of the theme templates.
+require get_template_directory() . '/inc/jetpack.php'; //Load Jetpack compatibility file.
 require get_template_directory() . '/inc/custom-comments.php';
 require get_template_directory() . '/inc/pagination.php';// 支持 Bs4 翻页
 require get_template_directory() . '/inc/post-type-slides.php';// 注册内容类型 以支持 CAROUSEL AND 首页栏目

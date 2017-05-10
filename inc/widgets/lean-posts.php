@@ -18,9 +18,9 @@ class LeanPostsList extends WP_Widget {
 	function __construct() {
 		parent::__construct(
       'leanpostslist',
-      __('首页左侧文章列表', 'lean'),
+      __('lean-文章列表', 'lean'),
       array(
-        'description' => __('显示一个分类的文章。', 'lean'),
+        'description' => __('显示一个分类的文章。一般放在首页，不要放在全局边栏。', 'lean'),
         'classname' => 'widget_lean_posts'
       )
     );

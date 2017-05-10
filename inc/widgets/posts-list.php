@@ -1,15 +1,15 @@
 <?php
 
-class ClassPlus_Posts_List extends WP_Widget {
+class Lean_Most_Comments_Posts_List extends WP_Widget {
 
 	/**
 	 * Register widget with WordPress.
 	 */
 	function __construct() {
 		parent::__construct(
-			'classPlus_posts_list', // Base ID
-			__('Class+ Latest Posts', 'twenty-theme'), // Name
-			array( 'description' => __( 'show a list of recent posts with thumbnail.', 'twenty-theme' ), ) // Args
+			'lean_most_comments_posts_list', // Base ID
+			__('lean-热评文章', 'lean'), // Name
+			array( 'description' => __( '显示评论数从高到低的文章列表，小工具“标题”是必填项。', 'lean' ), ) // Args
 		);
 	}
 
@@ -33,8 +33,13 @@ class ClassPlus_Posts_List extends WP_Widget {
 		}
 
 		$the_args = array(
-			'posts_per_page' => $num
+			'post_type'           => 'post',
+			'posts_per_page'      => $num,
+			'ignore_sticky_posts'	=> true,
+			'orderby'				      => 'comment_count',
+			'order'					      => 'dsc'
 		);
+		$orderNum= 1;
 		$the_query = new WP_Query($the_args);
 		?>
 		<div class="widget-content">
@@ -42,16 +47,25 @@ class ClassPlus_Posts_List extends WP_Widget {
 		<?php
 		if($the_query->have_posts()):while($the_query->have_posts()): $the_query->the_post();
 		?>
-				<li class="clearfix">
-					<div class="widget-post-thumb">
-						<?php the_post_thumbnail( '90x90' ); ?>
+				<li>
+					<?php
+					switch($orderNum){
+						case '1': ?>
+						<h4 class="widget-post-title"><span class="badge badge-danger"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+						<?php	break;
+						case '2': ?>
+						<h4 class="widget-post-title"><span class="badge badge-warning"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+						<?php	break;
+						case '3': ?>
+						<h4 class="widget-post-title"><span class="badge badge-success"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+						<?php	break;
+						default: ?>
+						<h4 class="widget-post-title"><span class="badge badge-info"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+					<?php } ?>
+
+					<div class="widget-post-excerpt">
+						<?php echo wp_trim_words( get_the_excerpt(), 50, '...' ); ?>
 					</div>
-					<header class="widget-post-header">
-						<h4 class="widget-post-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
-						<div class="widget-post-excerpt">
-							<?php echo wp_trim_words( get_the_excerpt(), 50, '...' ); ?>
-						</div>
-					</header>
 				</li>
 		<?php
 			endwhile;endif;wp_reset_query();
@@ -75,9 +89,9 @@ class ClassPlus_Posts_List extends WP_Widget {
 		$title    = esc_attr( $instance['title'] );
 		$num      = isset($instance['num'])     ? $instance['num']                 : '6'    ;
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'twenty-theme' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( '标题：', 'lean' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
-		<p><label for="<?php echo $this->get_field_id( 'num' ); ?>"><?php _e( 'Posts Num:', 'twenty-theme' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'num' ); ?>"><?php _e( '文章数量：', 'lean' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'num' ); ?>" name="<?php echo $this->get_field_name( 'num' ); ?>" type="text" value="<?php echo $num; ?>" /></p>
 
 	<?php
@@ -101,4 +115,15 @@ class ClassPlus_Posts_List extends WP_Widget {
 	}
 
 }
+
+/*  Register widget
+/* ------------------------------------ */
+if ( ! function_exists( 'lean_register_widget_posts_list' ) ) {
+
+	function lean_register_widget_posts_list() {
+		register_widget( 'Lean_Most_Comments_Posts_List' );
+	}
+
+}
+add_action( 'widgets_init', 'lean_register_widget_posts_list' );
 ?>

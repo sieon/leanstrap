@@ -9,16 +9,13 @@
           <?php the_title('<h1 class="mb-4">', '</h1>'); ?>
           <p class="post-meta text-weakest mb-3">
             <small>
-              <span><?php the_author(); ?></span>
-              <span>&nbsp;&bull;&nbsp;</span>
-              <time><?php the_time(); ?></time>
-              <span>&nbsp;&bull;&nbsp;</span>
-              <?php the_category(' / '); ?>
+              <?php lean_entry_meta(); ?>
             </small>
           </p>
         </header>
         <?php
         // 显示页面内容
+        lean_set_post_views(get_the_ID());
         get_template_part( 'formats/format', get_post_format() ); ?>
 
         <?php // 显示标签

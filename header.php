@@ -47,32 +47,5 @@
   <!-- 上面是复用的头部 -->
 
   <div class="container">
-    <?php //if ( !dynamic_sidebar('home-ad-1') ) { _e('','lean'); } //广告 ?>
-    <div id="adSlider" class="carousel slide" data-ride="carousel" style="height: 180px;overflow: hidden;">
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-          <a href="#">
-          <img src="http://qzt.dev/wp-content/uploads/2017/05/hdr-2188107_1920-e1494125408268.jpg" class="d-block img-fluid" />
-          </a>
-        </div>
-        <div class="carousel-item">
-          <a href="#">
-          <img src="http://qzt.dev/wp-content/uploads/2017/05/hdr-2188107_1920-e1494125408268.jpg" class="d-block img-fluid" />
-          </a>
-        </div>
-        <div class="carousel-item">
-          <a href="#">
-          <img src="http://qzt.dev/wp-content/uploads/2017/05/hdr-2188107_1920-e1494125408268.jpg" class="d-block img-fluid" />
-          </a>
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#adSlider" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">上一个</span>
-      </a>
-      <a class="carousel-control-next" href="#adSlider" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">下一个</span>
-      </a>
-    </div>
+    <?php if ( !dynamic_sidebar('home-ad-1') ) { _e('','lean'); } //广告 ?>
   </div>
