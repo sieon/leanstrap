@@ -62,10 +62,7 @@ class Lean_Most_Comments_Posts_List extends WP_Widget {
 						default: ?>
 						<h4 class="widget-post-title"><span class="badge badge-info"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
 					<?php } ?>
-
-					<div class="widget-post-excerpt">
-						<?php echo wp_trim_words( get_the_excerpt(), 50, '...' ); ?>
-					</div>
+						<?php the_excerpt(); //echo wp_trim_words( get_the_excerpt(), 50, '...' ); ?>
 				</li>
 		<?php
 			endwhile;endif;wp_reset_query();

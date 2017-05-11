@@ -638,7 +638,7 @@ pre {
       max-width: 100%; } }
   @media (min-width: 768px) {
     .container {
-      width: 720px;
+      width: 740px;
       max-width: 100%; } }
   @media (min-width: 992px) {
     .container {
@@ -646,7 +646,7 @@ pre {
       max-width: 100%; } }
   @media (min-width: 1200px) {
     .container {
-      width: 1140px;
+      width: 1160px;
       max-width: 100%; } }
 
 .container-fluid {
@@ -7356,8 +7356,6 @@ blockquote p {
   left: 0; }
 
 body {
-  /**font-family: 微软雅黑, "Microsoft yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", "Microsoft Yahei", "Hiragino Sans GB", "冬青黑体简体中文 w3", STXihei, 华文细黑, SimSun, 宋体, Heiti, 黑体, sans-serif;**/
-  font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
   padding-top: 4.5rem;
   -ms-word-wrap: break-word;
   word-wrap: break-word; }
