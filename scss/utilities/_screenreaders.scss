@@ -1,11 +1,13 @@
 //
-// Screenreaders
+// Screenreaders,有定制
 //
 
-.sr-only {
+.sr-only,
+.screen-reader-text {
   @include sr-only();
 }
 
-.sr-only-focusable {
+.sr-only-focusable,
+.screen-reader-text {
   @include sr-only-focusable();
 }

@@ -6,7 +6,7 @@
  */
 
 // Core variables and mixins
-@import "lean-variables";
+@import "variables";
 @import "mixins";
 @import "custom";
 
@@ -31,9 +31,8 @@
 @import "input-group";
 @import "custom-forms";
 @import "nav";
-@import "lean-navbar";
-@import "lean-card";
-@import "posts-list";
+@import "navbar";
+@import "card";
 @import "breadcrumb";
 @import "pagination";
 @import "badge";
@@ -49,12 +48,18 @@
 @import "modal";
 @import "tooltip";
 @import "popover";
-@import "lean-carousel";
+@import "carousel";
 
 // Utility classes
 @import "utilities";
 
-@import "comments";
-
-// mystyle
-@import "lean-main";
+// WP
+@import "wp-main";
+@import "wp-entry";
+@import "wp-widget";
+@import "wp-align";
+@import "wp-media";
+@import "wp-captions";
+@import "wp-galleries";
+@import "wp-post-format";
+@import "wp-posts-list";

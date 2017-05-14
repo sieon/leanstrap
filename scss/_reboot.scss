@@ -165,7 +165,7 @@ a {
   text-decoration: $link-decoration;
 
   @include hover-focus {
-    color: $link-hover-color-1;
+    color: $link-hover-color;
     text-decoration: $link-hover-decoration;
   }
 }

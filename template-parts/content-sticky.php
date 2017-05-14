@@ -1,5 +1,5 @@
-<div class="card" style="border: 0px;">
-  <h2 class="card-header mb-4">主编推荐</h2>
+<div class="widget">
+  <h2 class="widget-header mb-4">主编推荐</h2>
   <div class="card-deck">
     <?php
     $sticky = get_option( 'sticky_posts' );
@@ -13,7 +13,7 @@
     query_posts( $args);
     while ( have_posts() ) : the_post();
     ?>
-        <div class="card card-posts" style="border: 0px;">
+        <div class="card">
           <?php
             // Post thumbnail.
             the_post_thumbnail('full', ['class' => 'card-img-top rounded-0']);

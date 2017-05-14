@@ -257,7 +257,8 @@ function lean_entry_meta() {
 
   if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
     echo '<span class="comments-link float-right">';
-    comments_popup_link( sprintf( __( '去抢首评<span class="sr-only sr-only-focusable"> on %s</span>', 'lean' ), get_the_title() ) );
+    comments_popup_link( sprintf( __( '去抢首评', 'lean' ), get_the_title() ) );
+    // comments_popup_link( sprintf( __( '去抢首评<span class="sr-only sr-only-focusable"> on %s</span>', 'lean' ), get_the_title() ) );
     echo '</span>';
   }
 
@@ -586,7 +587,7 @@ if ( ! function_exists( 'lean_excerpt_more' ) && ! is_admin() ) :
  * @return string 'Continue reading' link prepended with an ellipsis.
  */
 function lean_excerpt_more() {
-	$link = sprintf( '<br/><br/><a href="%1$s" class="more-link btn btn-warning">%2$s</a>',
+	$link = sprintf( '<br/><br/><a href="%1$s" class="more-link btn btn-warning btn-sm">%2$s</a>',
 		esc_url( get_permalink( get_the_ID() ) ),
 		/* translators: %s: Name of current post */
 		sprintf( __( '阅读全文<span class="sr-only sr-only-focusable"> "%s"</span>', 'lean' ), get_the_title( get_the_ID() ) )

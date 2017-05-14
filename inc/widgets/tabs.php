@@ -18,10 +18,10 @@ class AlxTabs extends WP_Widget {
 	function __construct() {
 		parent::__construct(
       'alxtabs',
-      __('Hueman Dynamic Tabs', 'hueman'),
+      __('lean-Tab标签切换', 'lean'),
       array(
-        'description' => __('List posts, comments, and/or tags with or without tabs.', 'hueman'),
-        'classname' => 'widget_hu_tabs'
+        'description' => __('使用tabs显示文章列表, 评论内容, 标签。', 'lean'),
+        'classname' => 'widget_lean_tabs'
       )
     );
 	}
@@ -63,10 +63,10 @@ class AlxTabs extends WP_Widget {
 	private function _create_tabs($tabs,$count) {
 		// Borrowed from Jermaine Maree, thanks mate!
 		$titles = array(
-			'recent'	=> __('Recent Posts','hueman'),
-			'popular'	=> __('Popular Posts','hueman'),
-			'comments'	=> __('Recent Comments','hueman'),
-			'tags'		=> __('Tags','hueman')
+			'recent'	=> __('最新文章','lean'),
+			'popular'	=> __('最多浏览','lean'),
+			'comments'	=> __('最近评论','lean'),
+			'tags'		=> __('标签','lean')
 		);
 		$icons = array(
 			'recent'   => 'fa fa-clock-o',
@@ -74,9 +74,9 @@ class AlxTabs extends WP_Widget {
 			'comments' => 'fa fa-comments-o',
 			'tags'     => 'fa fa-tags'
 		);
-		$output = sprintf('<ul class="alx-tabs-nav group tab-count-%s">', $count);
+		$output = sprintf('<ul class="nav nav-tabs tab-count-%s" role="tablist">', $count);
 		foreach ( $tabs as $tab ) {
-			$output .= sprintf('<li class="alx-tab tab-%1$s"><a href="#tab-%2$s" title="%4$s"><i class="%3$s"></i><span>%4$s</span></a></li>',
+			$output .= sprintf('<li class="nav-item tab-%1$s"><a href="#tab-%2$s" title="%4$s" class="nav-link" data-toggle="tab" role="tab"><i class="%3$s"></i><span>%4$s</span></a></li>',
         $tab,
         $tab . '-' . $this -> number,
         $icons[$tab],
@@ -123,20 +123,20 @@ class AlxTabs extends WP_Widget {
 ?>
 
 
-	<div class="alx-tabs-container">
 
+	<div class="tab-content">
 
 		<?php if($instance['recent_enable']) { // Recent posts enabled? ?>
 
 			<?php $recent=new WP_Query(); ?>
 			<?php $recent->query('showposts='.$instance["recent_num"].'&cat='.$instance["recent_cat_id"].'&ignore_sticky_posts=1');?>
-
-			<ul id="tab-recent-<?php echo $this -> number ?>" class="alx-tab group <?php if($instance['recent_thumbs']) { echo 'thumbs-enabled'; } ?>">
+			<div id="tab-recent-<?php echo $this -> number ?>" class="tab-pane<?php //if($instance['recent_thumbs']) {echo 'thumbs-enabled';}if($instance['recent_enable']) { echo ' active';}?>" role="tabpanel">
+			<ul class="list-unstyled">
 				<?php while ($recent->have_posts()): $recent->the_post(); ?>
-				<li>
+				<li class="media">
 
 					<?php if($instance['recent_thumbs']) { // Thumbnails enabled? ?>
-					<div class="tab-item-thumbnail">
+					<div class="img-box d-flex mr-3" style="width:100px;">
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 							<?php the_post_thumbnail('medium'); ?>
 							<?php if ( has_post_format('video') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-play"></i></span>'; ?>
@@ -146,7 +146,7 @@ class AlxTabs extends WP_Widget {
 					</div>
 					<?php } ?>
 
-					<div class="tab-item-inner group">
+					<div class="media-body">
 						<?php if($instance['tabs_category']) { ?><p class="tab-item-category"><?php the_category(' / '); ?></p><?php } ?>
 						<p class="tab-item-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></p>
 						<?php if($instance['tabs_date']) { ?><p class="tab-item-date"><?php the_time('j M, Y'); ?></p><?php } ?>
@@ -155,7 +155,8 @@ class AlxTabs extends WP_Widget {
 				</li>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
-			</ul><!--/.alx-tab-->
+			</ul>
+		</div><!--/.alx-tab-->
 
 		<?php } ?>
 
@@ -177,13 +178,13 @@ class AlxTabs extends WP_Widget {
 					),
 				) );
 			?>
-			<ul id="tab-popular-<?php echo $this -> number ?>" class="alx-tab group <?php if($instance['popular_thumbs']) { echo 'thumbs-enabled'; } ?>">
-
+			<div id="tab-popular-<?php echo $this -> number ?>" class="tab-pane<?php //if($instance['popular_thumbs']) { echo 'thumbs-enabled'; } ?>" role="tabpanel">
+			<ul class="list-unstyled">
 				<?php while ( $popular->have_posts() ): $popular->the_post(); ?>
-				<li>
+				<li class="media">
 
 					<?php if($instance['popular_thumbs']) { // Thumbnails enabled? ?>
-					<div class="tab-item-thumbnail">
+					<div class="img-box" style="width:100px;>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 							<?php the_post_thumbnail('medium'); ?>
 							<?php if ( has_post_format('video') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-play"></i></span>'; ?>
@@ -193,7 +194,7 @@ class AlxTabs extends WP_Widget {
 					</div>
 					<?php } ?>
 
-					<div class="tab-item-inner group">
+					<div class="meida-body">
 						<?php if($instance['tabs_category']) { ?><p class="tab-item-category"><?php the_category(' / '); ?></p><?php } ?>
 						<p class="tab-item-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></p>
 						<?php if($instance['tabs_date']) { ?><p class="tab-item-date"><?php the_time('j M, Y'); ?></p><?php } ?>
@@ -202,7 +203,8 @@ class AlxTabs extends WP_Widget {
 				</li>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
-			</ul><!--/.alx-tab-->
+			</ul>
+		</div><!--/.alx-tab-->
 
 		<?php } ?>
 
@@ -211,38 +213,38 @@ class AlxTabs extends WP_Widget {
 
 			<?php $comments = get_comments(array('number'=>$instance["comments_num"],'status'=>'approve','post_status'=>'publish')); ?>
 
-			<ul id="tab-comments-<?php echo $this -> number ?>" class="alx-tab group <?php if($instance['comments_avatars']) { echo 'avatars-enabled'; } ?>">
+			<div id="tab-comments-<?php echo $this -> number ?>" class="tab-pane <?php if($instance['comments_avatars']) { echo 'avatars-enabled'; } if(!$instance['recent_enable']) {echo ' active';}?>" role="tabpanel">
+			<ul class="list-unstyled>
 				<?php foreach ($comments as $comment): ?>
-				<li>
+				<li class="media">
 
 						<?php if($instance['comments_avatars']) { // Avatars enabled? ?>
-						<div class="tab-item-avatar">
+						<div class="img-box mr-2" style="width:48px;>
 							<a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>">
 								<?php echo get_avatar($comment->comment_author_email,$size='96'); ?>
 							</a>
 						</div>
 						<?php } ?>
 
-						<div class="tab-item-inner group">
+						<div class="meida-body">
 							<?php $str=explode(' ',get_comment_excerpt($comment->comment_ID)); $comment_excerpt=implode(' ',array_slice($str,0,11)); if(count($str) > 11 && substr($comment_excerpt,-1)!='.') $comment_excerpt.='...' ?>
-							<div class="tab-item-name"><?php echo esc_attr( $comment->comment_author ); ?> <?php _e('says:','hueman'); ?></div>
-							<div class="tab-item-comment"><a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>"><?php echo esc_attr( $comment_excerpt ); ?></a></div>
+							<div class="tab-item-name"><?php echo esc_attr( $comment->comment_author ); ?> <?php _e('says:','lean'); ?></div>
+							<p class="tab-item-comment"><a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>"><?php echo esc_attr( $comment_excerpt ); ?></a></p>
 
 						</div>
 
 				</li>
 				<?php endforeach; ?>
-			</ul><!--/.alx-tab-->
+			</ul>
+		</div><!--/.alx-tab-->
 
 		<?php } ?>
 
 		<?php if($instance['tags_enable']) { // Tags enabled? ?>
 
-			<ul id="tab-tags-<?php echo $this -> number ?>" class="alx-tab group">
-				<li>
-					<?php wp_tag_cloud(); ?>
-				</li>
-			</ul><!--/.alx-tab-->
+			<div id="tab-tags-<?php echo $this -> number ?>" class="tab-pane" role="tabpanel">
+				<?php wp_tag_cloud(); ?>
+			</div><!--/.alx-tab-->
 
 		<?php } ?>
 	</div>
