@@ -32,9 +32,9 @@ function lean_widgets_init() {
   	'name'          => esc_html__( '边栏', 'lean' ),
   	'id'            => 'sidebar-1',
   	'description'   => '这是默认全局的边栏。',
-  	'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+  	'before_widget' => '<aside id="%1$s" class="card %2$s">',
   	'after_widget'  => '</aside>',
-  	'before_title'  => '<h3 class="widget-header">',
+  	'before_title'  => '<h3 class="card-header">',
   	'after_title'   => '</h3>',
   ) );
   register_sidebar( array(

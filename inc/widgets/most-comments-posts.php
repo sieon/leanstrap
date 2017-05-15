@@ -9,7 +9,10 @@ class Lean_Most_Comments_Posts_List extends WP_Widget {
 		parent::__construct(
 			'lean_most_comments_posts_list', // Base ID
 			__('lean-热评文章', 'lean'), // Name
-			array( 'description' => __( '显示评论数从高到低的文章列表，小工具“标题”是必填项。', 'lean' ), ) // Args
+			array(
+				'description' => __( '显示评论数从高到低的文章列表，小工具“标题”是必填项。', 'lean' ),
+				'classname' => 'widget_most_comments_posts_list'
+			) // Args
 		);
 	}
 
@@ -42,27 +45,35 @@ class Lean_Most_Comments_Posts_List extends WP_Widget {
 		$orderNum= 1;
 		$the_query = new WP_Query($the_args);
 		?>
-		<div class="widget-content">
-			<ul class="widget-posts-list">
+		<div class="card-block">
+			<ul class="list-unstyled">
 		<?php
 		if($the_query->have_posts()):while($the_query->have_posts()): $the_query->the_post();
 		?>
-				<li>
-					<?php
-					switch($orderNum){
-						case '1': ?>
-						<h4 class="widget-post-title"><span class="badge badge-danger"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
-						<?php	break;
-						case '2': ?>
-						<h4 class="widget-post-title"><span class="badge badge-warning"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
-						<?php	break;
-						case '3': ?>
-						<h4 class="widget-post-title"><span class="badge badge-success"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
-						<?php	break;
-						default: ?>
-						<h4 class="widget-post-title"><span class="badge badge-info"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
-					<?php } ?>
-						<?php the_excerpt(); //echo wp_trim_words( get_the_excerpt(), 50, '...' ); ?>
+				<li class="media">
+					<?php if (has_post_thumbnail()):?>
+						<div class="img-box d-flex mr-3">
+							<?php the_post_thumbnail('thumbnail'); ?>
+						</div>
+					<?php endif; ?>
+
+					<div class="media-body">
+						<?php
+						switch($orderNum){
+							case '1': ?>
+							<h4 class="mt-0 mb-1"><span class="badge badge-danger"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+							<?php	break;
+							case '2': ?>
+							<h4 class="mt-0 mb-1"><span class="badge badge-warning"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+							<?php	break;
+							case '3': ?>
+							<h4 class="mt-0 mb-1"><span class="badge badge-success"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+							<?php	break;
+							default: ?>
+							<h4 class="mt-0 mb-1"><span class="badge badge-info"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+						<?php } ?>
+						<?php the_time();//echo wp_trim_words( get_the_excerpt(), 50, '...' ); ?>
+					</div>
 				</li>
 		<?php
 			endwhile;endif;wp_reset_query();

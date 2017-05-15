@@ -87,29 +87,31 @@ class LeanPostsList extends WP_Widget {
 
 								<?php
 								if($instance['posts_overlay_bottom']){
-									the_post_thumbnail('medium', ['class' => 'card-img rounded-0']);
+									the_post_thumbnail('full', ['class' => 'card-img rounded-0']);
 								}else{
-									the_post_thumbnail('medium', ['class' => 'card-img-top rounded-0']);
+									the_post_thumbnail('full', ['class' => 'card-img-top rounded-0']);
 								}
 								?>
 
 								<?php if ( has_post_format('video') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-play"></i></span>'; ?>
 								<?php if ( has_post_format('audio') && !is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-volume-up"></i></span>'; ?>
 								<?php //if ( is_sticky() ) echo'<span class="thumb-icon small"><i class="fa fa-star"></i></span>'; ?>
-								<?php if($instance['posts_category']) {
-									echo '<div class="posts-categories">';
-									foreach((get_the_category()) as $category) {
-										echo  '<span class="posts-category">'.$category->cat_name.'</span>&nbsp;';
-									}
-									echo "</div>";
-								} ?>
 							</a>
 
 							<div class="<?php if($instance['posts_overlay_bottom']){echo 'card-img-overlay-bottom'; }else{ echo 'card-block';} ?>">
 
-								<h3 class="card-title">
+								<?php if($instance['posts_category']) {
+									echo '<div class="posts-categories mb-2">';
+									foreach((get_the_category()) as $category) {
+										echo  '<span class="badge badge-warning">'.$category->cat_name.'</span>&nbsp;';
+									}
+									echo "</div>";
+								} ?>
+
+								<h3 class="card-titlemdi
 									<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 								</h3>
+								<p class="card-text"><?php echo wp_trim_words( get_the_excerpt(), 50, '...' );?></p>
 								<?php if($instance['posts_date']) { ?><p class="card-text"><small class="text-weakest"><?php the_time('j M, Y'); ?></small></p><?php } ?>
 							</div>
 						</div>

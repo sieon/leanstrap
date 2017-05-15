@@ -231,7 +231,7 @@ $container-max-widths: (
 // Set the number of columns and specify the width of the gutters.
 
 $grid-columns:               12 !default;
-$grid-gutter-width-base:     30px !default;
+$grid-gutter-width-base:     10px !default;
 $grid-gutter-widths: (
   xs: $grid-gutter-width-base,
   sm: $grid-gutter-width-base,
@@ -258,13 +258,13 @@ $font-weight-normal: normal !default;
 $font-weight-bold: bold !default;
 
 $font-weight-base: $font-weight-normal !default;
-$line-height-base: 1.5 !default;
+$line-height-base: 1.8 !default;
 
-$font-size-h1: 2.5rem !default;
-$font-size-h2: 2rem !default;
-$font-size-h3: 1.75rem !default;
-$font-size-h4: 1.5rem !default;
-$font-size-h5: 1.25rem !default;
+$font-size-h1: 1.8rem !default;
+$font-size-h2: 1.5rem !default;
+$font-size-h3: 1.3rem !default;
+$font-size-h4: 1rem !default;
+$font-size-h5: 1rem !default;
 $font-size-h6: 1rem !default;
 
 $headings-margin-bottom: ($spacer / 2) !default;
@@ -603,7 +603,7 @@ $zindex-tooltip:            1070 !default;
 
 $navbar-border-radius:              $border-radius !default;
 $navbar-padding-x:                  $spacer !default;
-$navbar-padding-y:                  ($spacer / 2) !default;
+$navbar-padding-y:                  0 !default;//($spacer / 2) !default;
 
 $navbar-brand-padding-y:            .25rem !default;
 

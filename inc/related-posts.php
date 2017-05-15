@@ -2,7 +2,7 @@
 
 function related_posts( $post_num = 6 ) {
 	global $post;
-    echo '<div class="widget related-posts"><h3 class="card-header-2">你可能喜欢：</h3><div class="row">';
+    echo '<div class="widget related-posts"><h3 class="widget-header">你可能喜欢：</h3><div class="row">';
     $exclude_id = $post->ID;
     $posttags = get_the_tags(); $i = 0;
     if ( $posttags ) {
@@ -20,7 +20,7 @@ function related_posts( $post_num = 6 ) {
           <div class="col-md-4 col-6">
             <div class="card">
               <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
-                <?php the_post_thumbnail('medium', ['class' => 'card-img-top']); ?>
+                <?php the_post_thumbnail('large', ['class' => 'card-img-top']); ?>
               </a>
               <div class="card-block">
                 <div class="card-title">

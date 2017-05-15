@@ -20,7 +20,7 @@
 	<div class="media-body">
 		<?php the_title( sprintf( '<h3 class="entry-title mt-0 mb-1"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 
-		<div class="entry-meta mt-2 mb-2">
+		<div class="entry-meta mb-2">
 			<small class="text-weakest">
 				<?php lean_entry_meta(); ?>
 			</small>

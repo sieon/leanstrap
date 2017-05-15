@@ -7,6 +7,10 @@ body.home {
   padding-top: 4.5rem;
 }
 
+.admin-bar .navbar {
+  margin-top: 32px;
+}
+
 body{
   padding-top: 3.76rem;
 }
@@ -161,6 +165,19 @@ div#post-metadata {
   font-size: 1.1rem;
   color: #68727d; }
 
+.sticky-posts .card {
+  margin-bottom: 10px;
+}
+
+.widget_lean_posts .card,
+.related-posts .card {
+  margin-bottom: 10px;
+}
+
+.related-posts .card-title {
+  margin-bottom: 0; //因为只有card-title，覆盖bottom
+}
 .related-posts .card .card-block{
-  padding-top: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
