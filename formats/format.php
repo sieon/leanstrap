@@ -19,7 +19,7 @@
 **/
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/BlogPosting">
+<article id="post-<?php the_ID(); ?>" <?php post_class('mb-5'); ?> itemscope itemtype="http://schema.org/BlogPosting">
   <div class="entry-content" itemprop="articleBody">
     <div class="text-center">
       <?php
@@ -31,4 +31,4 @@
   </div>
 </article>
 
-<?php edit_post_link( '编辑此文章', '<p class="edit-link mb-3 mt-3">', '</p>' ); ?>
+<?php edit_post_link( '编辑此文章', '<p class="edit-link mb-5">', '</p>' ); ?>

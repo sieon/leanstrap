@@ -181,3 +181,14 @@ div#post-metadata {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+.card .card-block ul {
+  margin-bottom: 0; //覆盖默认的margin-bottom
+}
+
+.card {
+  margin-bottom: 1rem;
+}
+.widget_calendar .table {
+  margin-bottom: 0;
+}

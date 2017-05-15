@@ -3,7 +3,7 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-lg-8">
-      <div class="jumbotron page-header">
+      <div class="jumbotron page-header mb-3">
         <h1 class="page-title">博客</h1>
       </div>
       <?php if ( have_posts() ) :?>

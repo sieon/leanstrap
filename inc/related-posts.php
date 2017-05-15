@@ -2,7 +2,7 @@
 
 function related_posts( $post_num = 6 ) {
 	global $post;
-    echo '<div class="widget related-posts"><h3 class="widget-header">你可能喜欢：</h3><div class="row">';
+    echo '<div class="related-posts mb-5"><h3 class="mb-3">你可能喜欢：</h3><div class="row">';
     $exclude_id = $post->ID;
     $posttags = get_the_tags(); $i = 0;
     if ( $posttags ) {
@@ -18,12 +18,12 @@ function related_posts( $post_num = 6 ) {
         query_posts($args);
         while( have_posts() ) { the_post(); ?>
           <div class="col-md-4 col-6">
-            <div class="card">
+            <div class="card entry">
               <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
                 <?php the_post_thumbnail('large', ['class' => 'card-img-top']); ?>
               </a>
               <div class="card-block">
-                <div class="card-title">
+                <div class="card-title entry-title">
                   <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank"><?php the_title(); ?></a>
                 </div>
               </div>
@@ -46,12 +46,12 @@ function related_posts( $post_num = 6 ) {
         query_posts($args);
         while( have_posts() ) { the_post(); ?>
           <div class="col-md-4 col-6">
-            <div class="card">
+            <div class="card entry">
               <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
                 <?php the_post_thumbnail('medium', ['class' => 'card-img-top rounded-0']); ?>
               </a>
               <div class="card-block">
-                <div class="card-title">
+                <div class="card-title entry-title">
                   <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank"><?php the_title(); ?></a>
                 </div>
               </div>

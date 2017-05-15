@@ -33,9 +33,9 @@ function lean_widgets_init() {
   	'id'            => 'sidebar-1',
   	'description'   => '这是默认全局的边栏。',
   	'before_widget' => '<aside id="%1$s" class="card %2$s">',
-  	'after_widget'  => '</aside>',
+  	'after_widget'  => '</div></aside>',
   	'before_title'  => '<h3 class="card-header">',
-  	'after_title'   => '</h3>',
+  	'after_title'   => '</h3><div class="card-block">',
   ) );
   register_sidebar( array(
     'name'          => esc_html__( '首页-文章列表 1', 'lean' ),

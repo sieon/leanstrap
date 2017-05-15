@@ -108,11 +108,11 @@ class LeanPostsList extends WP_Widget {
 									echo "</div>";
 								} ?>
 
-								<h3 class="card-titlemdi
+								<h3 class="card-title entry-title">
 									<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
 								</h3>
-								<p class="card-text"><?php echo wp_trim_words( get_the_excerpt(), 50, '...' );?></p>
-								<?php if($instance['posts_date']) { ?><p class="card-text"><small class="text-weakest"><?php the_time('j M, Y'); ?></small></p><?php } ?>
+								<p class="card-text entry-excerpt"><?php echo wp_trim_words( get_the_excerpt(), 50, '...' );?></p>
+								<?php if($instance['posts_date']) { ?><p class="card-text entry-footer"><small><?php the_time('j M, Y'); ?></small></p><?php } ?>
 							</div>
 						</div>
 					</div><!---col -->

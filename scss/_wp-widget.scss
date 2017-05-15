@@ -82,24 +82,37 @@ table#wp-calendar caption {
 .widget_recent_entries ul li,
 .widget_categories ul li,
 .widget_meta ul li {
-  font-size: .85rem;
-  line-height: 2; }
+  // font-size: .85rem;
+  // line-height: 2;
+}
 
 .widget_archive a,
-.widget_categories a {
-  color: #666; }
+.widget_categories a,
+.widget_meta a {
+  color: #333;
+  text-decoration: none; }
+  .widget_archive a:focus,
+  .widget_archive a:hover,
+  .widget_categories a:focus,
+  .widget_categories a:hover,
+  .widget_meta a:focus,
+  .widget_meta a:hover {
+    color: #0275d8;
+    text-decoration: none; }
 
 .widget_recent_entries a {
-  color: #666; }
+  // color: #666;
+}
 
 .widget_recent_entries ul li {
-  border-bottom: 1px solid #eee;
+  // border-bottom: 1px solid #eee;
 }
 
 .widget_recent_entries .post-date {
-  display: block;
-  color: #999;
-  font-size: .75em; }
+  // display: block;
+  // color: #999;
+  // font-size: .75em;
+}
 
 
 .widget_most_comments_posts_list .img-box {

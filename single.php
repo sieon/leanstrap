@@ -22,7 +22,7 @@
         $posttags = get_the_tags();
         // var_dump( $posttags );
         if ( $posttags ) {
-          echo '<div class="post-tags mb-3 text-center">';
+          echo '<div class="post-tags mb-5 text-center">';
           foreach( $posttags as $tag ) {
             echo '<a href="' . get_tag_link( $tag->term_id ) . '" class="btn btn-info mr-3 mb-2">' . $tag->name . '</a>';
           }

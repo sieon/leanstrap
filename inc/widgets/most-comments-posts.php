@@ -45,14 +45,13 @@ class Lean_Most_Comments_Posts_List extends WP_Widget {
 		$orderNum= 1;
 		$the_query = new WP_Query($the_args);
 		?>
-		<div class="card-block">
 			<ul class="list-unstyled">
 		<?php
 		if($the_query->have_posts()):while($the_query->have_posts()): $the_query->the_post();
 		?>
-				<li class="media">
+				<li class="entry media">
 					<?php if (has_post_thumbnail()):?>
-						<div class="img-box d-flex mr-3">
+						<div class="img-box d-flex mr-2">
 							<?php the_post_thumbnail('thumbnail'); ?>
 						</div>
 					<?php endif; ?>
@@ -61,25 +60,24 @@ class Lean_Most_Comments_Posts_List extends WP_Widget {
 						<?php
 						switch($orderNum){
 							case '1': ?>
-							<h4 class="mt-0 mb-1"><span class="badge badge-danger"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+							<h4 class="entry-title mt-0 mb-1"><span class="badge badge-danger"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
 							<?php	break;
 							case '2': ?>
-							<h4 class="mt-0 mb-1"><span class="badge badge-warning"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+							<h4 class="entry-title mt-0 mb-1"><span class="badge badge-warning"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
 							<?php	break;
 							case '3': ?>
-							<h4 class="mt-0 mb-1"><span class="badge badge-success"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+							<h4 class="entry-title mt-0 mb-1"><span class="badge badge-success"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
 							<?php	break;
 							default: ?>
-							<h4 class="mt-0 mb-1"><span class="badge badge-info"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+							<h4 class="entry-title mt-0 mb-1"><span class="badge badge-info"><?php echo($orderNum++); ?></span> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
 						<?php } ?>
-						<?php the_time();//echo wp_trim_words( get_the_excerpt(), 50, '...' ); ?>
+						<small class="text-weakest"><?php the_time();//echo wp_trim_words( get_the_excerpt(), 50, '...' ); ?></small>
 					</div>
 				</li>
 		<?php
 			endwhile;endif;wp_reset_query();
 		?>
 			</ul>
-		</div>
 		<!-- END .rightnow-content -->
 		<?php
 		echo $after_widget;

@@ -3,6 +3,9 @@
   padding: 1rem 0;
   border-bottom: 1px solid rgb(242,242,242);
 }
+.entry.media:first-child {
+  margin-top: -1rem;
+}
 
 .entry-header h1 {
   margin-bottom: 28px;
@@ -17,12 +20,12 @@
   content: "";
   margin-top: 1rem; }
 
-  .entry-title a {
-    color: #333;
+.entry-title a {
+  color: #333;
+  text-decoration: none; }
+  .entry-title a:focus, .entry-title a:hover {
+    color: #0275d8;
     text-decoration: none; }
-    .entry-title a:focus, .entry-title a:hover {
-      color: #0275d8;
-      text-decoration: none; }
 
 .entry-excerpt {
   color: #828a92;
@@ -56,11 +59,13 @@
 }
 
 .entry-footer,
-.entry-footer a {
-  color: #999;
-}
-
+.entry-footer a,
 .entry-meta,
 .entry-meta a {
   color: #999;
+}
+
+.widget_most_comments_posts_list .entry-title {
+  font-weight: 400;
+  font-size: .85rem;
 }
