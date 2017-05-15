@@ -25,31 +25,6 @@ if ( post_password_required() ) {
 	<?php // You can start editing here -- including this comment! ?>
 
 	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
-			<?php
-				$comments_number = get_comments_number();
-				if ( 1 === $comments_number ) {
-					printf(
-						/* translators: %s: post title */
-						esc_html_x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'lean' ),
-						'<h>' . get_the_title() . '</span>'
-					);
-				} else {
-					printf( // WPCS: XSS OK.
-						/* translators: 1: number of comments, 2: post title */
-						esc_html( _nx(
-							'&ldquo;%2$s&rdquo;上有%1$s条评论',
-							'&ldquo;%2$s&rdquo;上有%1$s条评论',
-							$comments_number,
-							'comments title',
-							'lean'
-						) ),
-						number_format_i18n( $comments_number ),
-						'<span>' . get_the_title() . '</span>'
-					);
-				}
-			?>
-		</h2><!-- .comments-title -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
 			<nav class="comment-navigation" id="comment-nav-above">

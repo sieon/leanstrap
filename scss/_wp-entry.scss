@@ -69,3 +69,12 @@
   font-weight: 400;
   font-size: .85rem;
 }
+
+.posts-list .img-box {
+  width: 227px;
+}
+
+@media (max-width: 576px) {
+  .posts-list .img-box {
+    width: 120px;
+  } }

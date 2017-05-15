@@ -15,21 +15,18 @@ body{
   padding-top: 3.76rem;
 }
 
-.border-bottom-1 {
-  border-bottom: 1px solid #eee; }
-
-.text-weakest {
-  color: #999; }
-
-#primary-navbar .navbar-nav .nav-link {
+.navbar-nav .nav-link,
+.navbar-nav .text-center {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-#primary-navbar .dropdown-menu .nav-link {
-  padding-top: .5em;
-  padding-bottom: .5em;
+.border-bottom-1 {
+  border-bottom: 1px solid #eee;
 }
+
+.text-weakest {
+  color: #999; }
 
 .header-bg {
   background-image: url('../img/bg.jpg');
@@ -38,7 +35,6 @@ body{
   margin-top: 0;
   height: 180px;
 }
-
 
 img {
   display: block;
