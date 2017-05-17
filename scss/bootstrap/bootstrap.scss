@@ -6,9 +6,10 @@
  */
 
 // Core variables and mixins
-@import "variables";
-@import "mixins";
+//@import "variables";
 @import "custom";
+@import "mixins";
+
 
 // Reset and dependencies
 @import "normalize";
@@ -52,15 +53,3 @@
 
 // Utility classes
 @import "utilities";
-
-// WP
-@import "wp-main";
-@import "wp-entry";
-@import "wp-widget";
-@import "wp-align";
-@import "wp-media";
-@import "wp-captions";
-@import "wp-galleries";
-@import "wp-post-format";
-@import "wp-posts-list";
-@import "wp-comments";

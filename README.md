@@ -1,5 +1,5 @@
 # leanstrap
-WordPress Bootstrap4 主题
+WordPress+Bootstrap4 主题
 
 ## 主要功能
 - Font-Awesome 图标库
