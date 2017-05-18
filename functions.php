@@ -14,6 +14,10 @@ load_template( get_template_directory() . '/inc/widgets/posts-plus.php' );//高�
 load_template( get_template_directory() . '/inc/widgets/posts-sidebar.php' );
 load_template( get_template_directory() . '/inc/widgets/most-comments-posts.php' );//热评文章
 load_template( get_template_directory() . '/inc/widgets/tabs.php' ); // posts、comments、标签云的tab面板
+load_template( get_template_directory() . '/inc/widgets/recent-comments.php' );
+load_template( get_template_directory() . '/inc/widgets/tagcloud.php' );
+
+
 
 /**
  *   支持 Bootstrap
