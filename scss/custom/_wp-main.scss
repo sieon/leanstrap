@@ -15,6 +15,11 @@ body{
   padding-top: 3.76rem;
 }
 
+.screen-reader-text {
+  @include sr-only();
+  @include sr-only-focusable();
+}
+
 .navbar-nav .nav-link,
 .navbar-nav .text-center {
   padding-top: 1rem;

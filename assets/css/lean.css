@@ -6659,6 +6659,23 @@ body.home {
 body {
   padding-top: 3.76rem; }
 
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+  .screen-reader-text:active, .screen-reader-text:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto; }
+
 .navbar-nav .nav-link,
 .navbar-nav .text-center {
   padding-top: 1rem;
