@@ -45,7 +45,7 @@
 					</div>
 					<div class="float-right">
 						<?php if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-							comments_popup_link( sprintf( __( '去抢首评<span class="screen-reader-text"> on %s</span>', 'lean' ), get_the_title() ) );
+							comments_popup_link( sprintf( __( '去抢首评<span class="sr-only sr-only-focusable"> on %s</span>', 'lean' ), get_the_title() ) );
 						}
 						?>
 				 </div>

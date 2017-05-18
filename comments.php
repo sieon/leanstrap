@@ -28,7 +28,7 @@ if ( post_password_required() ) {
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
 			<nav class="comment-navigation" id="comment-nav-above">
-				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'lean' ); ?></h1>
+				<h1 class="sr-only sr-only-focusable"><?php esc_html_e( 'Comment navigation', 'lean' ); ?></h1>
 				<?php if ( get_previous_comments_link() ) { ?>
 					<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments',
 					'lean' ) ); ?></div>
@@ -51,7 +51,7 @@ if ( get_next_comments_link() ) { ?>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through. ?>
 			<nav class="comment-navigation" id="comment-nav-below">
-				<h1 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'lean' ); ?></h1>
+				<h1 class="sr-only sr-only-focusable"><?php esc_html_e( 'Comment navigation', 'lean' ); ?></h1>
 				<?php if ( get_previous_comments_link() ) { ?>
 					<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments',
 					'lean' ) ); ?></div>

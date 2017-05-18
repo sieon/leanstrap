@@ -645,11 +645,11 @@ pre {
       max-width: 100%; } }
   @media (min-width: 992px) {
     .container {
-      width: 960px;
+      width: 980px;
       max-width: 100%; } }
   @media (min-width: 1200px) {
     .container {
-      width: 1140px;
+      width: 1160px;
       max-width: 100%; } }
 
 .container-fluid {
@@ -7371,5 +7371,8 @@ blockquote p {
 .comment-reply-title small a:hover,
 .comment-reply-title small a:focus {
   color: #1a1a1a; }
+
+.nav-borderprimary .nav-item.active {
+  border-bottom: 2px solid #0275d8; }
 
 /*# sourceMappingURL=lean.css.map */

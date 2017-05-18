@@ -22,7 +22,7 @@
   						'theme_location'  => 'primary',
   						'container_class' => 'collapse navbar-collapse',
   						'container_id'    => 'navbarNavDropdown',
-  						'menu_class'      => 'navbar-nav',
+  						'menu_class'      => 'navbar-nav nav-border',
   						'fallback_cb'     => '',
   						'menu_id'         => 'main-menu',
   						'walker'          => new WP_Bootstrap_Navwalker(),

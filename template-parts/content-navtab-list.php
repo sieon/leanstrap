@@ -42,7 +42,7 @@
 						<?php if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 								echo ' <span class="comments-link">';
 								/* translators: %s: post title */
-								comments_popup_link( sprintf( __( '去评论<span class="screen-reader-text"> on %s</span>', 'lean' ), get_the_title() ) );
+								comments_popup_link( sprintf( __( '去评论<span class="sr-only sr-only-focusable"> on %s</span>', 'lean' ), get_the_title() ) );
 								echo '</span>';
 							}
 						 ?>
