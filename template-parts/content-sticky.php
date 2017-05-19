@@ -12,24 +12,24 @@
   while ( have_posts() ) : the_post();
   ?>
   <!-- <div class="col-md-6"> -->
-    <div class="card card-inverse">
-      <a href="<?php the_permalink(); ?>">
-      <?php
-        // Post thumbnail.
-        the_post_thumbnail('medium', ['class' => 'card-img']);
-      ?>
-      <div class="card-img-overlay-right">
+    <div class="card">
+      <!-- <a href="<?php //the_permalink(); ?>"> -->
         <?php
-        echo '<div class="posts-categories mb-2">';
-				foreach((get_the_category()) as $category) {
-					echo  '<span class="badge badge-warning">'.$category->cat_name.'</span>&nbsp;';
-				}
-				echo "</div>"; ?>
-		    <?php the_title( sprintf( '<h4 class="entry-title mt-0 mb-1">', esc_url( get_permalink() ) ), '</h4>' ); ?>
-        <?php //echo '<p class="card-text entry-excerpt">'.wp_trim_words( get_the_excerpt(), 50, '...' ).'</p>';?>
-        <p class="card-text entry-footer"><small><?php the_time('j M, Y'); ?></small></p>
-      </div>
-    </a>
+          // Post thumbnail.
+          the_post_thumbnail('medium', ['class' => 'card-img']);
+        ?>
+        <div class="card-block">
+          <?php
+          echo '<div class="posts-categories mb-2">';
+  				foreach((get_the_category()) as $category) {
+  					echo  '<span class="badge badge-warning">'.$category->cat_name.'</span>&nbsp;';
+  				}
+  				echo "</div>"; ?>
+  		    <?php the_title( sprintf( '<p class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></p>' ); ?>
+          <?php //echo '<p class="card-text entry-excerpt">'.wp_trim_words( get_the_excerpt(), 50, '...' ).'</p>';?>
+          <p class="card-text entry-footer"><small><?php the_time('j M, Y'); ?></small></p>
+        </div>
+      <!-- </a> -->
     </div>
   <!-- </div> -->
   <?php endwhile; wp_reset_postdata(); ?>

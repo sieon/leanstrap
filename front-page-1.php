@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: 首页 3
+ * Template Name: Front Page Template
  */
  add_action('wp_enqueue_scripts', 'flexslider_js_css');
  function flexslider_js_css(){
@@ -21,37 +21,36 @@
  }
 
 get_header('noad'); ?>
-
-<div class="flexslider mb-3">
-  <ul class="slides">
-    <?php
-    $args = array(
-      'posts_per_page' => '3',
-      'post_type' => 'slides',
-      'caller_get_posts' => 1,
-      'ignore_sticky_posts' =>1,
-      'tax_query' => array(
-        array(
-          'taxonomy'=> 'slides-category',
-          'field' => 'slug',
-          'terms'=>'home-main-slides-1'
-        )
-      )
-    );
-    query_posts( $args );
-    while ( have_posts() ) : the_post(); ?>
-    <li>
-      <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_the_ID())); ?>" />
-
-        <?php the_title('<p class="flex-caption-center">','</p>'); ?>
-
-    </li>
-    <?php endwhile; wp_reset_postdata(); ?>
-  </ul>
-</div>
 <div class="container">
+
   <div class="row">
     <div class="col-md-8">
+      <div class="flexslider mb-3">
+        <ul class="slides">
+          <?php
+          $args = array(
+            'posts_per_page' => '10',
+            'post_type' => 'slides',
+            'caller_get_posts' => 1,
+            'ignore_sticky_posts' =>1,
+            'tax_query' => array(
+              array(
+                'taxonomy'=> 'slides-category',
+                'field' => 'slug',
+                'terms'=>'home-main-slides-2'
+              )
+            )
+          );
+          query_posts( $args );
+          while ( have_posts() ) : the_post(); ?>
+          <li>
+            <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_the_ID())); ?>" />
+            <p class="flex-caption"><?php the_title( sprintf( '<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a>' ); ?></p>
+          </li>
+          <?php endwhile; wp_reset_postdata(); ?>
+        </ul>
+      </div>
+
       <div class="card-deck sticky-posts mb-3">
         <?php get_template_part( 'template-parts/content', 'sticky' ); ?>
       </div>

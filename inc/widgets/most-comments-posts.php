@@ -52,7 +52,9 @@ class Lean_Most_Comments_Posts_List extends WP_Widget {
 				<li class="entry media">
 					<?php if (has_post_thumbnail()):?>
 						<div class="img-box d-flex mr-2">
-							<?php the_post_thumbnail('thumbnail'); ?>
+							<a class="post-thumbnail" href="<?php the_permalink(); ?>">
+								<?php the_post_thumbnail('thumbnail'); ?>
+							</a>
 						</div>
 					<?php endif; ?>
 

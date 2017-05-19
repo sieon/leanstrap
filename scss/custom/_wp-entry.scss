@@ -22,7 +22,8 @@
 
 .entry-title a {
   color: #333;
-  text-decoration: none; }
+  text-decoration: none;
+  transition: all 0.3s ease; }
   .entry-title a:focus, .entry-title a:hover {
     color: #0275d8;
     text-decoration: none; }
@@ -71,5 +72,5 @@
 }
 
 .entry .img-box {
-  width: 30%;
+  width: 33.3333%;
 }

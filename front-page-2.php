@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: 首页模板 2
+ * Template Name: 首页 2
  */
 get_header(); ?>
 

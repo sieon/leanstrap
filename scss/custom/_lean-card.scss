@@ -1,3 +1,7 @@
+.card-title a {
+  color: #333;
+}
+
 .card-inverse {
   color: rgba(255,255,255,.65);
 
@@ -64,4 +68,13 @@
   width: 50%;
   background: rgba(0, 0, 0, .5);
   padding: $card-spacer-y $card-spacer-x;
+}
+
+.card {
+  transition: all 0.3s ease;
+  box-shadow:0 2px 6px 0 rgba(0,0,0,0.1);
+}
+.card:hover {
+  border:1px solid #eee;
+  box-shadow:0 2px 6px 0 rgba(0,0,0,0.2);
 }
