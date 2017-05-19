@@ -53,5 +53,17 @@
   </footer>
 
   <?php wp_footer(); ?>
+  <script type="text/javascript">
+  //initiating jQuery
+  jQuery(function($) {
+    $(document).ready( function() {
+      //目标元素ID -- '#navbar'
+      $('#sidebar').stickUp({
+        marginTop: 'auto'
+      });
+    });
+  });
+
+</script>
 </body>
 </html>

@@ -6,8 +6,8 @@
   <div class="row">
     <div class="col-lg-8">
       <div class="jumbotron page-header">
-      <h1 class="page-title"><?php the_title(); ?></h1>
-    </div>
+        <h1 class="page-title"><?php the_title(); ?></h1>
+      </div>
       <div class="entry-content">
 
         <?php the_content(); ?>
@@ -26,9 +26,7 @@
         <p>No content is appearing for this page!</p>
         <?php endif; ?>
     </div>
-    <div class="col-lg-4 hidden-sm-down">
-      <?php get_sidebar();?>
-    </div>
+    <?php get_sidebar();?>
   </div>
 </div><!--./container -->
 

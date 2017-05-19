@@ -23,9 +23,7 @@
       ?>
     </div><!--/.col-8-->
 
-    <div class="col-lg-4">
-      <?php get_sidebar();?>
-    </div>
+    <?php get_sidebar();?>
   </div><!--/.row-->
 
 </div>

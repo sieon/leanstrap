@@ -42,9 +42,7 @@
 
       </div>
 
-      <div class="col-lg-4 hidden-sm-down">
-        <?php get_sidebar();?>
-      </div>
+      <?php get_sidebar();?>
     </div><!-- /.row -->
   </div><!-- /.container -->
 <?php get_footer();?>

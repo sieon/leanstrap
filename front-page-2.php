@@ -97,9 +97,7 @@ get_header(); ?>
         ?>
       </div>
     </div>
-    <div class="col-lg-4 hidden-sm-down">
       <?php get_sidebar();?>
-    </div>
   </div>
 </div><!--./container-->
 <?php get_footer(); ?>

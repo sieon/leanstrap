@@ -30,9 +30,7 @@
        wp_reset_postdata();?>
     </div>
 
-    <div class="col-xl-4 col-lg-4 hidden-sm-down">
-      <?php get_sidebar();?>
-    </div>
+    <?php get_sidebar();?>
   </div>
 </div>
 
