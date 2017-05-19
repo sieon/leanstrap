@@ -11,7 +11,7 @@
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
 	    <?php
 	      // Post thumbnail.
-	      the_post_thumbnail('medium', ['class' => 'rounded']);
+	      the_post_thumbnail('full', ['class' => 'img-fluid']);
 	    ?>
 	  </a>
 	</div>
@@ -26,7 +26,7 @@
 			</small>
 		</div><!-- .entry-footer -->
 
-		<div class="entry-excerpt">
+		<div class="entry-excerpt hidden-sm-down">
 			<?php the_excerpt(); ?>
 		</div>
 	</div>

@@ -70,11 +70,6 @@
   font-size: .85rem;
 }
 
-.posts-list .img-box {
-  width: 227px;
+.entry .img-box {
+  width: 30%;
 }
-
-@media (max-width: 576px) {
-  .posts-list .img-box {
-    width: 120px;
-  } }

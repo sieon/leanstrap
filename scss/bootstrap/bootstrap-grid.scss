@@ -27,7 +27,7 @@ html {
 // Variables
 //
 
-@import "variables";
+@import "../variables";
 
 //
 // Grid mixins
@@ -38,6 +38,6 @@ html {
 @import "mixins/grid-framework";
 @import "mixins/grid";
 
-@import "custom";
+@import "../custom";
 
 @import "grid";
