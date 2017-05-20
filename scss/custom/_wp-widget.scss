@@ -1,3 +1,22 @@
+@media (min-width: 992px) {
+  #sidebar,
+  .widget_most_comments_posts_list,
+  .d_tag,
+  .widget_meta {
+    width: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #sidebar,
+  .widget_most_comments_posts_list,
+  .d_tag,
+  .widget_meta {
+    width: 360px;
+  }
+}
+
+
 /***widget**/
 
 .widget-header {

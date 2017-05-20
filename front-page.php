@@ -24,7 +24,7 @@ get_header(); ?>
 
 
 <div class="container">
-  <div class="flexslider mt-3 mb-3">
+  <div class="flexslider mt-4 mb-3">
     <ul class="slides">
       <?php
       $args = array(
@@ -51,8 +51,8 @@ get_header(); ?>
       <?php endwhile; wp_reset_postdata(); ?>
     </ul>
   </div>
-  <div class="row">
-    <div class="col-md-8">
+  <div id="main-content" class="row main-content">
+    <div class="col-lg-8">
       <div class="card-deck sticky-posts mb-3">
         <?php get_template_part( 'template-parts/content', 'sticky' ); ?>
       </div>
@@ -75,7 +75,7 @@ get_header(); ?>
         endwhile;wp_reset_postdata();
         ?>
         <div class="read-more pt-3 text-center">
-          <a href="<?php echo esc_url( home_url( '/' ) ); ?>/blog" class="btn btn-info btn-lg btn-block">查看更多</a>
+          <a href="<?php echo esc_url( home_url( '/' ) ); ?>/blog" class="btn btn-info btn-block">查看更多</a>
         </div>
       </div>
     </div>

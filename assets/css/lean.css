@@ -6809,12 +6809,8 @@ a.text-gray-dark:hover {
     display: none !important; } }
 
 body {
-  padding-top: 3.76rem;
   -ms-word-wrap: break-word;
   word-wrap: break-word; }
-
-.admin-bar .navbar {
-  margin-top: 32px; }
 
 .screen-reader-text {
   position: absolute;
@@ -7044,6 +7040,18 @@ div#post-metadata {
 .entry .img-box {
   width: 33.3333%; }
 
+@media (min-width: 992px) {
+  #sidebar,
+  .widget_most_comments_posts_list,
+  .d_tag,
+  .widget_meta {
+    width: 300px; } }
+@media (min-width: 1200px) {
+  #sidebar,
+  .widget_most_comments_posts_list,
+  .d_tag,
+  .widget_meta {
+    width: 360px; } }
 /***widget**/
 .widget-header {
   padding: 0 .65rem;

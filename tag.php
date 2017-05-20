@@ -2,7 +2,7 @@
 
 <?php if ( have_posts() ) : ?>
 
-<div class="container mt-3">
+<div class="container mt-5">
   <div class="row">
     <div class="col-lg-8">
 

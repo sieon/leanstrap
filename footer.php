@@ -53,5 +53,11 @@
   </footer>
 
   <?php wp_footer(); ?>
+  <script type="text/javascript">
+    $(".sidebar").pin({
+      containerSelector: ".container",
+      minWidth: 980
+    })
+  </script>
 </body>
 </html>
