@@ -20,36 +20,37 @@
      <?php
  }
 
-get_header('noad'); ?>
+get_header(); ?>
 
-<div class="flexslider mb-3">
-  <ul class="slides">
-    <?php
-    $args = array(
-      'posts_per_page' => '3',
-      'post_type' => 'slides',
-      'caller_get_posts' => 1,
-      'ignore_sticky_posts' =>1,
-      'tax_query' => array(
-        array(
-          'taxonomy'=> 'slides-category',
-          'field' => 'slug',
-          'terms'=>'home-main-slides-1'
-        )
-      )
-    );
-    query_posts( $args );
-    while ( have_posts() ) : the_post(); ?>
-    <li>
-      <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_the_ID())); ?>" />
 
-        <?php the_title('<p class="flex-caption-center">','</p>'); ?>
-
-    </li>
-    <?php endwhile; wp_reset_postdata(); ?>
-  </ul>
-</div>
 <div class="container">
+  <div class="flexslider mt-3 mb-3">
+    <ul class="slides">
+      <?php
+      $args = array(
+        'posts_per_page' => '3',
+        'post_type' => 'slides',
+        'caller_get_posts' => 1,
+        'ignore_sticky_posts' =>1,
+        'tax_query' => array(
+          array(
+            'taxonomy'=> 'slides-category',
+            'field' => 'slug',
+            'terms'=>'home-main-slides-1'
+          )
+        )
+      );
+      query_posts( $args );
+      while ( have_posts() ) : the_post(); ?>
+      <li>
+        <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_the_ID())); ?>" />
+
+          <?php the_title('<p class="flex-caption-center">','</p>'); ?>
+
+      </li>
+      <?php endwhile; wp_reset_postdata(); ?>
+    </ul>
+  </div>
   <div class="row">
     <div class="col-md-8">
       <div class="card-deck sticky-posts mb-3">
