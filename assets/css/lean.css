@@ -7640,4 +7640,33 @@ blockquote p {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.1); }
 
+.dropdown .dropdown-menu .nav-item .nav-link {
+  display: block;
+  width: 100%;
+  padding: 3px 1.5rem;
+  clear: both;
+  font-weight: normal;
+  color: #292b2c;
+  text-align: inherit;
+  white-space: nowrap;
+  background: none;
+  border: 0; }
+  .dropdown .dropdown-menu .nav-item .nav-link:focus {
+    color: #1d1e1f;
+    text-decoration: none;
+    background-color: #f7f7f9; }
+  .dropdown .dropdown-menu .nav-item .nav-link:hover {
+    color: #1d1e1f;
+    text-decoration: none;
+    background-color: #f7f7f9; }
+  .dropdown .dropdown-menu .nav-item .nav-link.active, .dropdown .dropdown-menu .nav-item .nav-link:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #0275d8; }
+  .dropdown .dropdown-menu .nav-item .nav-link.disabled, .dropdown .dropdown-menu .nav-item .nav-link:disabled {
+    color: #636c72;
+    cursor: not-allowed;
+    background-color: transparent;
+    background-image: none; }
+
 /*# sourceMappingURL=lean.css.map */

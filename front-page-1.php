@@ -20,7 +20,7 @@
      <?php
  }
 
-get_header('noad'); ?>
+get_header(); ?>
 <div class="container">
 
   <div class="row">
