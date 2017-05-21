@@ -60,13 +60,13 @@ get_header(); ?>
       <div class="latest-articles">
         <h3 class="mb-2">最新发表</h3>
         <?php
-        $sticky = get_option( 'sticky_posts' );
+        //$sticky = get_option( 'sticky_posts' );
         $args = array(
           'posts_per_page' => '10',
           'post_type' => 'post',
-          'caller_get_posts' => 1,
-          'ignore_sticky_posts' =>1,
-          'post__not_in' => $sticky
+          //'caller_get_posts' => 1,
+          //'ignore_sticky_posts' =>1,
+          'post__not_in' => get_option( 'sticky_posts' )
         );
         query_posts( $args );
         while ( have_posts() ) : the_post();

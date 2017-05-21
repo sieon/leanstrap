@@ -5,23 +5,31 @@
  */
 ?>
 
-<li id="post-<?php the_ID(); ?>" <?php post_class('entry media'); ?>>
+<li class="entry media">
 	<?php if(has_post_thumbnail()) : ?>
 	<div class="img-box d-flex mr-3">
-		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>">
 	    <?php
 	      // Post thumbnail.
-	      the_post_thumbnail('full', ['class' => 'img-fluid']);
+	      the_post_thumbnail('medium', ['class' => 'img-fluid']);
 	    ?>
 	  </a>
 	</div>
-	<?php endif; ?>
+
+<?php else: ?>
+	<div class="img-box d-flex mr-3">
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>">
+	    <img src="<?php echo THEME_URI;?>/assets/img/placeholder.png" class="img-fluid"/>
+	  </a>
+	</div>
+
+<?php endif; ?>
 
 	<div class="media-body">
 		<?php the_title( sprintf( '<h3 class="entry-title mt-0 mb-1"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 
 		<div class="entry-meta mb-2">
-			<small class="text-weakest">
+			<small>
 				<?php lean_entry_meta(); ?>
 			</small>
 		</div><!-- .entry-footer -->

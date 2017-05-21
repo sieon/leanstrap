@@ -34,8 +34,8 @@ function lean_widgets_init() {
   	'description'   => '这是默认全局的边栏。',
   	'before_widget' => '<aside id="%1$s" class="card %2$s">',
   	'after_widget'  => '</div></aside>',
-  	'before_title'  => '<h3 class="card-header">',
-  	'after_title'   => '</h3><div class="card-block">',
+  	'before_title'  => '<h4 class="card-header">',
+  	'after_title'   => '</h4><div class="card-block">',
   ) );
   register_sidebar( array(
     'name'          => esc_html__( '首页-文章列表 1', 'lean' ),
@@ -43,8 +43,8 @@ function lean_widgets_init() {
     'description'   => '只有标题的列表。',
     'before_widget' => '<div id="%1$s" class="widget %2$s">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h3 class="widget-header">',
-  	'after_title'   => '</h3>',
+    'before_title'  => '<h4 class="widget-header">',
+  	'after_title'   => '</h4>',
   ) );
   register_sidebar( array(
     'name'          => esc_html__( '首页-文章列表 2', 'lean' ),
@@ -52,8 +52,8 @@ function lean_widgets_init() {
     'description'   => '只有标题的列表。',
     'before_widget' => '<div id="%1$s" class="widget %2$s">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h3 class="widget-header">',
-  	'after_title'   => '</h3>',
+    'before_title'  => '<h4 class="widget-header">',
+  	'after_title'   => '</h4>',
   ) );
   register_sidebar( array(
     'name'          => esc_html__( '顶部广告', 'lean' ),
@@ -61,8 +61,8 @@ function lean_widgets_init() {
     'description'   => '这是顶部的长条广告。',
     'before_widget' => '<div id="%1$s" class="widget %2$s">',
     'after_widget'  => '</div>',
-    'before_title'  => '<h3 class="card-header widget-header">',
-    'after_title'   => '</h3>',
+    'before_title'  => '<h4 class="card-header widget-header">',
+    'after_title'   => '</h4>',
   ) );
   register_sidebar( array(
     'name'          => esc_html__( '右侧产品', 'lean' ),
@@ -70,8 +70,8 @@ function lean_widgets_init() {
     'description'   => '',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget'  => '</aside>',
-    'before_title'  => '<h3 class="card-header widget-header">',
-    'after_title'   => '</h3>',
+    'before_title'  => '<h4 class="card-header widget-header">',
+    'after_title'   => '</h4>',
   ) );
   register_sidebar( array(
     'name'          => esc_html__( '三个广告', 'lean' ),
@@ -79,8 +79,8 @@ function lean_widgets_init() {
     'description'   => '使用<a href="地址"><img src="图片地址" /></a>添加广告。如果是三个：<div class="row"><div class="col-md-3"><a href="地址"><img src="图片地址" /></a></div><div class="col-md-4"><a href="地址"><img src="图片地址" /></a></div><div class="col-md-5"><a href="地址"><img src="图片地址" /></a></div></div>',
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget'  => '</aside>',
-    'before_title'  => '<h3 class="widget-header">',
-    'after_title'   => '</h3>',
+    'before_title'  => '<h4 class="widget-header">',
+    'after_title'   => '</h4>',
   ) );
 }
 add_action( 'widgets_init', 'lean_widgets_init' );

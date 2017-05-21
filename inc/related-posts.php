@@ -19,9 +19,18 @@ function related_posts( $post_num = 6 ) {
         while( have_posts() ) { the_post(); ?>
           <div class="col-md-4 col-6">
             <div class="card entry">
-              <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
-                <?php the_post_thumbnail('large', ['class' => 'card-img-top']); ?>
-              </a>
+							<?php if(has_post_thumbnail()) : ?>
+	              <a class="post-thumbnail" href="<?php the_permalink(); ?>">
+	                <?php the_post_thumbnail('medium', ['class' => 'card-img-top']); ?>
+	              </a>
+
+							<?php else: ?>
+								<a class="post-thumbnail" href="<?php the_permalink(); ?>">
+							    <img src="<?php echo THEME_URI;?>/assets/img/placeholder.png" class="card-img-top"/>
+							  </a>
+							<?php endif; ?>
+
+
               <div class="card-block">
                 <div class="card-title entry-title">
                   <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank"><?php the_title(); ?></a>
@@ -47,9 +56,16 @@ function related_posts( $post_num = 6 ) {
         while( have_posts() ) { the_post(); ?>
           <div class="col-md-4 col-6">
             <div class="card entry">
-              <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
-                <?php the_post_thumbnail('medium', ['class' => 'card-img-top rounded-0']); ?>
-              </a>
+							<?php if(has_post_thumbnail()) : ?>
+	              <a class="post-thumbnail" href="<?php the_permalink(); ?>">
+	                <?php the_post_thumbnail('medium', ['class' => 'card-img-top']); ?>
+	              </a>
+
+							<?php else: ?>
+								<a class="post-thumbnail" href="<?php the_permalink(); ?>">
+							    <img src="<?php echo THEME_URI;?>/assets/img/placeholder.png" class="card-img-top"/>
+							  </a>
+							<?php endif; ?>
               <div class="card-block">
                 <div class="card-title entry-title">
                   <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank"><?php the_title(); ?></a>

@@ -3,6 +3,10 @@
  * @package lean
  */
 
+define("THEME_URI", get_template_directory_uri() );
+define("THEME_DIR", get_template_directory() );
+
+
 require 'inc/setup.php';
 require 'inc/enqueue.php';// 加载 js 和 css
 
@@ -10,7 +14,7 @@ require 'inc/enqueue.php';// 加载 js 和 css
  *   边栏与小工具
  */
 require 'inc/widget.php'; // 注册小工具
-load_template( get_template_directory() . '/inc/widgets/posts-plus.php' );//高级文章列表
+load_template( THEME_DIR . '/inc/widgets/posts-plus.php' );//高级文章列表
 load_template( get_template_directory() . '/inc/widgets/posts-sidebar.php' );
 load_template( get_template_directory() . '/inc/widgets/most-comments-posts.php' );//热评文章
 load_template( get_template_directory() . '/inc/widgets/tabs.php' ); // posts、comments、标签云的tab面板
