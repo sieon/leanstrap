@@ -33,7 +33,7 @@ function related_posts( $post_num = 6 ) {
 
               <div class="card-block">
                 <div class="card-title entry-title">
-                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank"><?php the_title(); ?></a>
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
                 </div>
               </div>
             </div>
@@ -68,7 +68,7 @@ function related_posts( $post_num = 6 ) {
 							<?php endif; ?>
               <div class="card-block">
                 <div class="card-title entry-title">
-                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank"><?php the_title(); ?></a>
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
                 </div>
               </div>
             </div>
