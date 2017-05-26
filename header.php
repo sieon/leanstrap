@@ -17,17 +17,24 @@
           </button>
         </div>
 
-  				<?php wp_nav_menu(
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <?php wp_nav_menu(
   					array(
   						'theme_location'  => 'primary',
-  						'container_class' => 'collapse navbar-collapse',
-  						'container_id'    => 'navbarNavDropdown',
-  						'menu_class'      => 'navbar-nav nav-border',
+  						'container_class' => 'mr-auto',
+  						'container_id'    => '',
+  						'menu_class'      => 'navbar-nav nav-border mr-auto',
   						'fallback_cb'     => '',
-  						'menu_id'         => 'main-menu',
+  						'menu_id'         => 'main-nav',
   						'walker'          => new WP_Bootstrap_Navwalker(),
   					)
   				); ?>
+
+          <form class="form-inline my-2 my-lg-0 float-right" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+            <input class="form-control mr-sm-2" type="text" placeholder="输入关键字" name="s">
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">搜索</button>
+          </form>
+        </div>
       </div>
       <script>
       	jQuery(document).ready(function(){

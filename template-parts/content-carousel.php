@@ -5,12 +5,26 @@
     <li data-target="#myCarousel" data-slide-to="2" class=""></li>
   </ol>
   <div class="carousel-inner" role="listbox">
-    <?php $slider = get_posts(array('post_type' => 'carousel', 'posts_per_page' => 3)); ?>
+    <?php
+    $args = array(
+      'posts_per_page' => '3',
+      'post_type' => 'slides',
+      'caller_get_posts' => 1,
+      'ignore_sticky_posts' =>1,
+      'tax_query' => array(
+        array(
+          'taxonomy'=> 'slides-category',
+          'field' => 'slug',
+          'terms'=>'home-main-slides-1'
+        )
+      )
+    );
+    $slider = get_posts( $args ); ?>
     <?php $count = 0; ?>
     <?php foreach($slider as $slide): ?>
     <div class="carousel-item <?php echo ($count == 0) ? 'active' : ''; ?>">
       <a href="<?php echo get_post_meta($slide->ID, "lean_slide_url", $single = true); ?>">
-      <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($slide->ID)) ?>" class="d-block img-fluid rounded silde-img" />
+      <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($slide->ID)) ?>" class="img-fluid" />
       <div class="container">
         <div class="carousel-caption d-none d-md-block">
           <h3><?php echo $slide->post_title; ?><h3>
