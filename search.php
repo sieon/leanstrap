@@ -4,16 +4,17 @@
  */
 get_header(); ?>
 
-<div id="primary" class="container mt-3">
+<?php if ( have_posts() ) : ?>
+
+<header class="jumbotron">
+	<div class="container">
+		<h1><?php printf( esc_html__( '“%s”的搜索结果：', 'lean' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+	</div>
+</header>
+
+<div id="primary" class="container mt-4">
 	<div class="row">
-		<div class="col-lg-8">
-
-			<?php if ( have_posts() ) : ?>
-
-			<header class="jumbotron page-header">
-				<h1 class="page-title"><?php printf( esc_html__( '“%s”的搜索结果：', 'lean' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-			</header>
-
+		<div class="col-lg-8 offset-md-2">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'template-parts/posts', 'list' ); ?>
 			<?php endwhile; ?>
@@ -22,9 +23,6 @@ get_header(); ?>
 			<?php endif; ?>
 		</div>
 
-		<div class="col-lg-4">
-			<?php get_sidebar(); ?>
-		</div>
-	</div>
-</div><!-- #primary -->
+	</div><!-- #row-->
+</div><!-- #container -->
 <?php get_footer(); ?>

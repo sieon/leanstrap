@@ -24,7 +24,7 @@
         if ( $posttags ) {
           echo '<div class="post-tags mb-5 text-center">';
           foreach( $posttags as $tag ) {
-            echo '<a href="' . get_tag_link( $tag->term_id ) . '" class="btn btn-info mr-3 mb-2">' . $tag->name . '</a>';
+            echo '<a href="' . get_tag_link( $tag->term_id ) . '" class="btn btn-secondary mr-3 mb-2">' . $tag->name . '</a>';
           }
           echo '</div>';
         } ?>

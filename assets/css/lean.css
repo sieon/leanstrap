@@ -6649,6 +6649,45 @@ body {
   -ms-word-wrap: break-word;
   word-wrap: break-word; }
 
+.admin-bar .navbar {
+  margin-top: 32px; }
+
+/**
+ * Front Page
+ */
+.sticky-posts .card {
+  border-bottom: 1px solid #eee; }
+
+.sticky-posts .card,
+.related-posts .card {
+  border: 0; }
+  .sticky-posts .card .card-block,
+  .related-posts .card .card-block {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 10px;
+    padding-bottom: 10px; }
+
+/**
+ * related-posts
+ */
+.related-posts .card-title {
+  margin-bottom: 0; }
+
+/** post-tags **/
+.post-tags .btn,
+.hot-tags .btn {
+  border-radius: 80px; }
+
+.hot-tags a {
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+.jumbotron {
+  background-color: #f7f7f9;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
+
 .screen-reader-text {
   position: absolute;
   width: 1px;
@@ -6791,9 +6830,6 @@ div#post-metadata {
   font-size: 1.1rem;
   color: #68727d; }
 
-.sticky-posts .card {
-  margin-bottom: 10px; }
-
 .widget_lean_posts .card,
 .related-posts .card {
   margin-bottom: 20px; }
@@ -6807,28 +6843,14 @@ div#post-metadata {
 .widget_calendar .table {
   margin-bottom: 0; }
 
-/**
- * related-posts
- */
-.related-posts .card-title {
-  margin-bottom: 0; }
-
-.related-posts .card .card-block {
-  padding-top: 10px;
-  padding-bottom: 10px; }
-
-.related-posts .card .card-title {
-  height: 3.6rem;
-  overflow: hidden;
-  word-wrap: break-word; }
-
 /***entry-content ***/
 .entry.media {
   padding: 1rem 0;
-  border-bottom: 1px solid #f2f2f2; }
+  border-bottom: 1px solid #e6dfdf;
+  transition: all 0.3s ease; }
 
-.entry.media:first-child {
-  margin-top: -1rem; }
+.entry.media:hover {
+  background: #eee; }
 
 .entry-header h1 {
   margin-bottom: 28px; }
@@ -6918,16 +6940,6 @@ div#post-metadata {
   border-left: 5px solid #ddd;
   font-size: 1rem;
   font-weight: 500; }
-
-.page-header {
-  border-left: 5px solid #ddd; }
-
-.jumbotron.page-header {
-  margin-bottom: 0;
-  background-color: #f7f7f9;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
 
 /*****************************
  ~~ widgets
@@ -7459,14 +7471,6 @@ blockquote p {
   width: 50%;
   background: rgba(0, 0, 0, 0.5);
   padding: 0.75rem 1.25rem; }
-
-.card {
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
-
-.card:hover {
-  border: 1px solid #eee;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2); }
 
 .card-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);

@@ -1,11 +1,17 @@
 /***entry-content ***/
 .entry.media {
   padding: 1rem 0;
-  border-bottom: 1px solid rgb(242,242,242);
+  border-bottom: 1px solid rgb(230, 223, 223);
+  transition: all 0.3s ease;
 }
-.entry.media:first-child {
-  margin-top: -1rem;
+
+.entry.media:hover {
+  background: #eee;
 }
+
+// .entry.media:first-child {
+//   margin-top: -1rem;
+// }
 
 .entry-header h1 {
   margin-bottom: 28px;

@@ -4,7 +4,56 @@ body {
   word-wrap: break-word; }
 
 .admin-bar .navbar {
-  //margin-top: 32px;
+  margin-top: 32px;
+}
+
+/**
+ * Front Page
+ */
+
+.sticky-posts .card {
+  border-bottom: 1px solid #eee;
+}
+
+.sticky-posts .card,
+.related-posts .card {
+  border: 0;
+  .card-block {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+
+/**
+ * related-posts
+ */
+ .related-posts .card-title {
+   margin-bottom: 0; //因为只有card-title，覆盖bottom
+ }
+
+/** post-tags **/
+
+.post-tags,
+.hot-tags {
+  .btn {
+    border-radius: 80px;
+  }
+}
+
+.hot-tags {
+  a {
+    margin-top: 5px ;
+    margin-bottom: 5px;
+  }
+}
+
+.jumbotron {
+  background-color: #f7f7f9;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
 }
 
 .screen-reader-text {
@@ -164,9 +213,6 @@ div#post-metadata {
   font-size: 1.1rem;
   color: #68727d; }
 
-.sticky-posts .card {
-  margin-bottom: 10px;
-}
 
 .widget_lean_posts .card,
 .related-posts .card {
@@ -180,24 +226,7 @@ div#post-metadata {
 .card {
   margin-bottom: 1rem;
 }
+
 .widget_calendar .table {
   margin-bottom: 0;
-}
-
-/**
- * related-posts
- */
- .related-posts .card-title {
-   margin-bottom: 0; //因为只有card-title，覆盖bottom
- }
- .related-posts .card .card-block{
-   padding-top: 10px;
-   padding-bottom: 10px;
- }
-
- //解决相关文章标题过长
-.related-posts .card .card-title {
-  height: 3.6rem;
-  overflow: hidden;
-  word-wrap: break-word;
 }

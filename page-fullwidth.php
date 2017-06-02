@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Full Width Page Template
+ * Template Name: 全宽页面模板
  */
 get_header(); ?>
 

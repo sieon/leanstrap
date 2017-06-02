@@ -21,7 +21,7 @@ function related_posts( $post_num = 6 ) {
             <div class="card entry">
 							<?php if(has_post_thumbnail()) : ?>
 	              <a class="post-thumbnail" href="<?php the_permalink(); ?>">
-	                <?php the_post_thumbnail('medium', ['class' => 'card-img-top']); ?>
+	                <?php the_post_thumbnail('medium', ['class' => 'card-img']); ?>
 	              </a>
 
 							<?php else: ?>
@@ -32,7 +32,7 @@ function related_posts( $post_num = 6 ) {
 
 
               <div class="card-block">
-                <div class="card-title entry-title">
+                <div class="card-title">
                   <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
                 </div>
               </div>
@@ -58,7 +58,7 @@ function related_posts( $post_num = 6 ) {
             <div class="card entry">
 							<?php if(has_post_thumbnail()) : ?>
 	              <a class="post-thumbnail" href="<?php the_permalink(); ?>">
-	                <?php the_post_thumbnail('medium', ['class' => 'card-img-top']); ?>
+	                <?php the_post_thumbnail('medium', ['class' => 'card-img']); ?>
 	              </a>
 
 							<?php else: ?>
@@ -67,7 +67,7 @@ function related_posts( $post_num = 6 ) {
 							  </a>
 							<?php endif; ?>
               <div class="card-block">
-                <div class="card-title entry-title">
+                <div class="card-title">
                   <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
                 </div>
               </div>
