@@ -262,20 +262,14 @@ blockquote {
 a {
   color: #0275d8;
   text-decoration: none; }
-  a:focus {
-    color: #014c8c;
-    text-decoration: underline; }
-  a:hover {
+  a:focus, a:hover {
     color: #014c8c;
     text-decoration: underline; }
 
 a:not([href]):not([tabindex]) {
   color: inherit;
   text-decoration: none; }
-  a:not([href]):not([tabindex]):focus {
-    color: inherit;
-    text-decoration: none; }
-  a:not([href]):not([tabindex]):hover {
+  a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
     color: inherit;
     text-decoration: none; }
   a:not([href]):not([tabindex]):focus {
