@@ -4,11 +4,17 @@
  *
  * Eventually, some of the functionality here could be replaced by core features
  *
- * @package start
+ * @package lean
  */
 
+
+//显示设置多媒体上传目录
+ if(get_option('upload_path')=='wp-content/uploads' || get_option('upload_path')==null) {
+ 	update_option('upload_path',WP_CONTENT_DIR.'/uploads');
+ }
+
 /**
- * Adds custom classes to the array of body classes.
+ * 在body中添加一些自定义class
  *
  * @param array $classes Classes for the body element.
  * @return array
