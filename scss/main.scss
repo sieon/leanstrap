@@ -2,6 +2,11 @@
 /**
  *  WP
  */
+
+@import "bootstrap/custom";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
 @import "custom/wp-main";
 @import "custom/wp-entry";
 @import "custom/wp-widget";

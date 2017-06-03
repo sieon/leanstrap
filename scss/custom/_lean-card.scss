@@ -1,3 +1,8 @@
+
+@import "../bootstrap/custom";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
 .card-title a {
   color: #333;
 }
@@ -24,7 +29,7 @@
   }
   .card-link {
     @include hover-focus {
-      color: $card-link-hover-color;
+      color: $card-inverse-link-hover-color;
     }
   }
 
