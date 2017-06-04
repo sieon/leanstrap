@@ -641,30 +641,24 @@ blockquote p {
   list-style: none;
   margin: 0;
   padding-left: 0; }
-
-.comment-list article,
-.comment-list .pingback,
-.comment-list .trackback {
-  border-bottom: 1px solid #d1d1d1;
-  padding: 1rem 0; }
-
-.comment-list .children {
-  list-style: none;
-  margin: 0; }
-
-.comment-list .children > li {
-  padding-left: 0.875em; }
+  .comment-list article,
+  .comment-list .pingback,
+  .comment-list .trackback {
+    border-bottom: 1px solid #d1d1d1;
+    padding: 1rem 0; }
+  .comment-list .children {
+    list-style: none;
+    margin: 0; }
 
 .comment-author {
   color: #1a1a1a;
   margin-bottom: 0.4375em; }
-
-.comment-author .avatar {
-  float: left;
-  height: 28px;
-  margin-right: 0.875em;
-  position: relative;
-  width: 28px; }
+  .comment-author .avatar {
+    float: left;
+    height: 28px;
+    margin-right: 0.875em;
+    position: relative;
+    width: 28px; }
 
 .comment-meta {
   font-size: .85rem; }
@@ -693,43 +687,24 @@ blockquote p {
 .comment-content {
   color: #666;
   font-size: .85rem; }
-
-.comment-content ul,
-.comment-content ol {
-  margin: 0 0 1.5em 1.25em; }
-
-.comment-content li > ul,
-.comment-content li > ol {
-  margin-bottom: 0; }
-
-.comment-reply-link {
-  border: 1px solid #d1d1d1;
-  border-radius: 2px;
-  color: #007acc;
-  display: inline-block;
-  font-size: 13px;
-  font-size: 0.8125rem;
-  line-height: 1;
-  padding: 0.5384615385em 0.5384615385em 0.4615384615em; }
-
-.comment-reply-link:hover,
-.comment-reply-link:focus {
-  border-color: currentColor;
-  color: #007acc;
-  outline: 0; }
+  .comment-content ul,
+  .comment-content ol {
+    margin: 0 0 1.5em 1.25em; }
+  .comment-content li > ul,
+  .comment-content li > ol {
+    margin-bottom: 0; }
 
 .comment-form {
   padding-top: .5rem; }
-
-.comment-form label {
-  color: #686868;
-  display: block;
-  font-size: 13px;
-  font-size: 0.8125rem;
-  letter-spacing: 0.076923077em;
-  line-height: 1.6153846154;
-  margin-bottom: 0.5384615385em;
-  text-transform: uppercase; }
+  .comment-form label {
+    color: #686868;
+    display: block;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    letter-spacing: 0.076923077em;
+    line-height: 1.6153846154;
+    margin-bottom: 0.5384615385em;
+    text-transform: uppercase; }
 
 .comment-list .comment-form {
   padding-bottom: .5rem; }
@@ -762,18 +737,15 @@ blockquote p {
 
 .comment-reply-title {
   margin-top: 1rem; }
-
-.comment-reply-title small {
-  font-size: 100%; }
-
-.comment-reply-title small a {
-  border: 0;
-  float: right;
-  overflow: hidden; }
-
-.comment-reply-title small a:hover,
-.comment-reply-title small a:focus {
-  color: #1a1a1a; }
+  .comment-reply-title small {
+    font-size: 100%; }
+  .comment-reply-title small a {
+    border: 0;
+    float: right;
+    overflow: hidden; }
+  .comment-reply-title small a:hover,
+  .comment-reply-title small a:focus {
+    color: #1a1a1a; }
 
 .nav-borderprimary .nav-item.active {
   border-bottom: 2px solid #0275d8; }
