@@ -8,7 +8,7 @@
 </head>
 <body <?php body_class( $class ); ?> >
   <header class="header">
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary" id="primary-navbar" role="navigation">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top" id="primary-navbar" role="navigation">
       <div class="container">
         <div class="text-center pb-2 pt-2">
           <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
@@ -17,30 +17,20 @@
           </button>
         </div>
 
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <?php wp_nav_menu(
   					array(
   						'theme_location'  => 'primary',
-  						'container_class' => 'mr-auto',
-  						'container_id'    => '',
-  						'menu_class'      => 'navbar-nav nav-border mr-auto',
+  						'container_class' => 'collapse navbar-collapse',
+  						'container_id'    => 'navbarNavDropdown',
+  						'menu_class'      => 'navbar-nav',
   						'fallback_cb'     => '',
   						'menu_id'         => 'main-nav',
   						'walker'          => new WP_Bootstrap_Navwalker(),
   					)
-  				); ?>
+  				);
+          ?>
 
-          <form class="form-inline my-2 my-lg-0 float-right" role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-            <input class="form-control mr-sm-2" type="text" placeholder="输入关键字" name="s">
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">搜索</button>
-          </form>
-        </div>
       </div>
-      <script>
-      	jQuery(document).ready(function(){
-      		jQuery('ul.navbar-nav').superfish();
-      	});
-      </script>
     </nav>
   </header><!-- ./header -->
 

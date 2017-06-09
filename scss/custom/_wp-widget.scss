@@ -1,3 +1,9 @@
+.widget-search {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 @media (min-width: 992px) {
   #sidebar,
   .widget_most_comments_posts_list,

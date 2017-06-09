@@ -1,11 +1,5 @@
 <?php get_header(); ?>
 
-<div class="jumbotron page-header mb-3">
-  <div class="container">
-    <h1 class="page-title">博客</h1>
-  </div>
-</div>
-
 <div class="container mt-4">
   <div class="row">
     <div class="col-lg-8">

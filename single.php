@@ -8,9 +8,7 @@
         <header class="entry-header">
           <?php the_title('<h1 class="mb-4">', '</h1>'); ?>
           <p class="entry-meta mb-3">
-            <small>
-              <?php lean_entry_meta(); ?>
-            </small>
+            <?php lean_entry_meta(); ?>
           </p>
         </header>
         <?php

@@ -12,4 +12,11 @@ $font-size-h4: 1.25rem !default;
 $font-size-h5: 1rem !default;
 $font-size-h6: 1rem !default;
 
-$grid-gutter-width-base:     30px !default;
+$grid-gutter-width-base:     20px !default;
+
+
+$spacer: 1rem !default;
+// Navbar
+
+$navbar-padding-y:                  0;
+$navbar-padding-x:                  $spacer !default;

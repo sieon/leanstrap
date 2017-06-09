@@ -1,22 +1,21 @@
-<div class="card-group">
-<?php
-query_posts( 'posts_per_page=3&ignore_sticky_posts=1');
-while ( have_posts() ) : the_post(); ?>
 
-  <article id="post-<?php the_ID(); ?>" class="card card-list">
-    <a href="<?php the_permalink(); ?>"><img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id()) ?>" class="card-img-top img-fluid"/></a>
-  	<div class="card-block">
-  		<div class="entry-header">
-  			<?php the_title( sprintf( '<h3 class="card-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
-  		</div>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted"><?php echo the_time(); ?></small>
-    </div>
-  </article>
+<article class="card">
+  <?php if(has_post_thumbnail()) : ?>
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>">
+	    <?php
+	      // Post thumbnail.
+	      the_post_thumbnail('medium', ['class' => 'img-fluid']);
+	    ?>
+	  </a>
+  <?php else: ?>
+    <a class="post-thumbnail" href="<?php the_permalink(); ?>">
+	    <img src="<?php echo THEME_URI;?>/assets/img/placeholder.png" class="img-fluid"/>
+	  </a>
+  <?php endif; ?>
 
-<?php endwhile;
-// Reset Post Data
-wp_reset_postdata();
-?>
-</div>
+	<?php the_title( sprintf( '<p class="card-text mt-2"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></p>' ); ?>
+
+  <p class="card-text entry-footer">
+    <?php echo the_time(); ?>
+  </p>
+</article>

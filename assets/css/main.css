@@ -3,11 +3,15 @@
  *  WP
  */
 body {
+  padding-top: 3.76rem;
   -ms-word-wrap: break-word;
   word-wrap: break-word; }
 
 .admin-bar .navbar {
   margin-top: 32px; }
+
+.navbar {
+  background: #fff; }
 
 /**
  * Front Page
@@ -41,9 +45,7 @@ body {
   margin-bottom: 5px; }
 
 .jumbotron {
-  background-color: #f7f7f9;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
+  background-color: #f7f7f9; }
 
 .screen-reader-text {
   position: absolute;
@@ -104,16 +106,6 @@ img {
   height: 100%;
   z-index: 1;
   background: rgba(0, 0, 0, 0.5); }
-
-.text-roll {
-  background-color: #f0f0f0;
-  padding: 0 15px;
-  margin-bottom: 0; }
-
-.flexslider img {
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 5px;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
 
 /*****************************
  ~~ html specific
@@ -202,6 +194,9 @@ div#post-metadata {
 .widget_calendar .table {
   margin-bottom: 0; }
 
+.navbar {
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1); }
+
 /***entry-content ***/
 .entry.media {
   padding: 1rem 0;
@@ -259,10 +254,19 @@ div#post-metadata {
   line-height: 1.8; }
 
 .entry-footer,
-.entry-footer a,
-.entry-meta,
-.entry-meta a {
-  color: #999; }
+.entry-meta {
+  color: #999;
+  font-size: 85%; }
+  .entry-footer a,
+  .entry-meta a {
+    color: #999;
+    text-decoration: none;
+    transition: all 0.3s ease; }
+    .entry-footer a:focus, .entry-footer a:hover,
+    .entry-meta a:focus,
+    .entry-meta a:hover {
+      color: #0275d8;
+      text-decoration: none; }
 
 .widget_most_comments_posts_list .entry-title {
   font-weight: 400;
@@ -270,6 +274,11 @@ div#post-metadata {
 
 .entry .img-box {
   width: 33.3333%; }
+
+.widget-search {
+  position: relative;
+  display: flex;
+  flex-direction: column; }
 
 @media (min-width: 992px) {
   #sidebar,
@@ -620,6 +629,12 @@ blockquote p {
   position: absolute;
   top: 0;
   left: 0; }
+
+.posts-card .card {
+  width: 50%;
+  float: left;
+  padding: 10px;
+  border: 0; }
 
 /**
  * 11.4 - Comments
