@@ -2,7 +2,7 @@
   <!-- 复用的底部 -->
   <footer class="footer mt-5">
     <div class="container">
-      <p class="text-muted">&copy; 2012-2017 轻主题. <a href="http://www.miitbeian.gov.cn/" rel="external nofollow" target="_blank"><?php echo get_option( 'zh_cn_l10n_icp_num' );?></a></p>
+      <p class="copyright">&copy; 2012-2017 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>. <a href="http://www.miitbeian.gov.cn/" rel="external nofollow" target="_blank"><?php echo get_option( 'zh_cn_l10n_icp_num' );?></a></p>
     </div>
   </footer>
 

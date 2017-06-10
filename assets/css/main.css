@@ -108,21 +108,6 @@ img {
   background: rgba(0, 0, 0, 0.5); }
 
 /*****************************
- ~~ html specific
-*****************************/
-.footer p {
-  color: #99979c;
-  margin-bottom: 0; }
-
-.footer a {
-  color: white;
-  opacity: 0.75; }
-
-.footer {
-  background: #2a2730;
-  padding: 20px 0; }
-
-/*****************************
  ~~ WordPress Config Specific
 
  .sticky {
@@ -280,47 +265,27 @@ div#post-metadata {
   display: flex;
   flex-direction: column; }
 
-@media (min-width: 992px) {
-  #sidebar,
-  .widget_most_comments_posts_list,
-  .d_tag,
-  .widget_meta,
-  .widget_categories,
-  .widget_calendar,
-  .widget_recent_entries,
-  .widget_archive {
-    width: 300px; } }
-@media (min-width: 1200px) {
-  #sidebar,
-  .widget_most_comments_posts_list,
-  .d_tag,
-  .widget_meta,
-  .widget_categories,
-  .widget_calendar,
-  .widget_recent_entries,
-  .widget_archive {
-    width: 360px; } }
-/***widget**/
-.widget-header {
-  padding: 0 .65rem;
-  margin-bottom: .75rem;
-  background-color: inherit;
-  border-left: 5px solid #ddd;
-  font-size: 1rem;
-  font-weight: 500; }
+.widget {
+  padding: 1.25rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  margin-bottom: 1rem; }
 
-/*****************************
- ~~ widgets
-*****************************/
+.widget-header {
+  padding: 0.75rem 1.25rem;
+  margin: -1.25rem -1.25rem 1.25rem -1.25rem;
+  background-color: #f7f7f9;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+
 .widgets {
   background: #efefef;
   margin: 15px 0 0 0;
   padding: 30px 0;
   text-align: justify; }
-
-.widgets h4 {
-  border-bottom: solid 1px #959393;
-  line-height: 50px; }
 
 @media (max-width: 767px) {
   .widget {
@@ -356,10 +321,6 @@ table#wp-calendar caption {
 .widget_categories select,
 .widget_archive select {
   max-width: 100%; }
-
-.widget_recent_entries ul.children,
-.widget_categories ul.children {
-  margin-left: 1rem; }
 
 .widget_archive a,
 .widget_categories a,
@@ -840,5 +801,19 @@ blockquote p {
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem; }
+
+/*****************************
+ ~~ html specific
+*****************************/
+.footer {
+  background: #2a2730;
+  padding: 10px 0;
+  font-size: 85%; }
+  .footer p {
+    color: #99979c;
+    margin-bottom: 0; }
+  .footer a {
+    color: #fff;
+    opacity: 0.75; }
 
 /*# sourceMappingURL=main.css.map */
