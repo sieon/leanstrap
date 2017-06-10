@@ -19,14 +19,8 @@
 **/
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('mb-5'); ?> itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="entry-content" itemprop="articleBody">
-    <div class="text-center">
-      <?php
-        // Post thumbnail.
-        the_post_thumbnail('full', ['class' => 'd-block rounded ']);
-      ?>
-    </div>
+<article <?php post_class('mb-5'); ?>>
+  <div class="entry-content">
     <?php the_content(); ?>
   </div>
 </article>
