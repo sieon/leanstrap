@@ -16,31 +16,47 @@ body {
 }
 
 /**
+ * 设置背景
+ */
+
+.main-content,
+.jumbotron {
+  background: #fff;
+  box-shadow: 0 2px 16px rgb(229, 236, 237), 0 0 1px rgb(229, 236, 237), 0 0 1px rgb(229, 236, 237);
+  opacity: 0.9;
+}
+
+.main-content {
+  padding: 1.25rem 1rem;
+  //border-radius: 0.3rem;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/**
  * Front Page
  */
 
-.sticky-posts .card {
-  border-bottom: 1px solid #eee;
-}
-
-.sticky-posts .card,
 .related-posts .card {
   border: 0;
-  .card-block {
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  background-color: inherit;
+  .card-text {
+    margin-top: .5rem;
+    a {
+      color: #333;
+      text-decoration: $link-decoration;
+      transition: all 0.3s ease;
+
+      @include hover-focus {
+        color: $link-color;
+        text-decoration: $link-decoration;
+      }
+    }
   }
 }
-
-
-/**
- * related-posts
- */
- .related-posts .card-title {
-   margin-bottom: 0; //因为只有card-title，覆盖bottom
- }
 
 /** post-tags **/
 

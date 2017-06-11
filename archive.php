@@ -2,18 +2,18 @@
 
 <?php if ( have_posts() ) : ?>
 
-  <div class="jumbotron">
-    <div class="container">
-      <?php
-      lean_the_archive_title( '<h1 class="page-title">', '</h1>' );
-      lean_the_archive_description( '<p class="page-subtitle">', '</p>' );
-      ?>
-    </div>
-  </div>
 
-<div class="container mt-4">
-  <div class="row">
+
+<div class="container mt-5">
+  <div class="main-content row">
     <div class="col-lg-8">
+
+
+          <?php
+          lean_the_archive_title( '<h1 class="page-title">', '</h1>' );
+          lean_the_archive_description( '<p class="page-subtitle mb-3">', '</p>' );
+          ?>
+
       <ul class="posts-list list-unstyled">
       <?php  while ( have_posts() ) : the_post(); ?>
 

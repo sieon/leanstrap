@@ -30,12 +30,9 @@ function related_posts( $post_num = 6 ) {
 							  </a>
 							<?php endif; ?>
 
-
-              <div class="card-block">
-                <div class="card-title">
-                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-                </div>
-              </div>
+              <p class="card-text">
+                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+              </p>
             </div>
           </div>
             <?php
@@ -55,7 +52,7 @@ function related_posts( $post_num = 6 ) {
         query_posts($args);
         while( have_posts() ) { the_post(); ?>
           <div class="col-md-4 col-6">
-            <div class="card entry">
+            <div class="card">
 							<?php if(has_post_thumbnail()) : ?>
 	              <a class="post-thumbnail" href="<?php the_permalink(); ?>">
 	                <?php the_post_thumbnail('medium', ['class' => 'card-img']); ?>
@@ -66,11 +63,9 @@ function related_posts( $post_num = 6 ) {
 							    <img src="<?php echo THEME_URI;?>/assets/img/placeholder.png" class="card-img-top"/>
 							  </a>
 							<?php endif; ?>
-              <div class="card-block">
-                <div class="card-title">
-                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-                </div>
-              </div>
+              <p class="card-text">
+                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+							</p>
             </div>
           </div>
             <?php $i++;

@@ -1,19 +1,17 @@
 <?php get_header(); ?>
 
 <?php if ( have_posts() ) : ?>
-  <div class="jumbotron">
-    <div class="container">
-      <p class="tag-tip"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;标签</p>
-        <?php
-      lean_the_archive_title( '<div class="page-title"><h1 class="d-inline">', '</h1>&nbsp;<span>相关的文章</span></div>' );
-      lean_the_archive_description( '<div class="header-subtitle mt-2">', '</div>' );
-      ?>
-    </div>
-  </div>
 
-<div class="container mt-4">
-  <div class="row">
+
+<div class="container mt-5">
+  <div class="main-content row">
     <div class="col-lg-8">
+
+          <p class="tag-tip"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;标签</p>
+            <?php
+          lean_the_archive_title( '<div class="page-title"><h1 class="d-inline">', '</h1>&nbsp;<span>相关的文章</span></div>' );
+          lean_the_archive_description( '<div class="header-subtitle mt-2 mb-3">', '</div>' );
+          ?>
 
       <?php  while ( have_posts() ) : the_post(); ?>
          <?php get_template_part( 'template-parts/posts', 'list' ); ?>

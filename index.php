@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
-<div class="container mt-4">
-  <div class="row">
+<div class="container mt-5">
+  <div class="main-content row">
     <div class="col-lg-8">
       <?php if ( have_posts() ) :?>
         <ul class="list-unstyled posts-list">

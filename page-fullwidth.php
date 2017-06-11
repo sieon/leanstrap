@@ -6,13 +6,10 @@ get_header(); ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1><?php the_title(); ?></h1>
-    </div>
-</div>
+<div class="main-content container p-a mt-5" id="site-content">
 
-<div class="container p-a" id="site-content">
+  <h1 class="mb-3"><?php the_title(); ?></h1>
+
   <div class="entry-content">
     <?php
       // 显示页面内容

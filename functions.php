@@ -21,8 +21,6 @@ require 'inc/widget.php'; // 注册小工具
 //load_template( get_template_directory() . '/inc/widgets/recent-comments.php' );
 load_template( get_template_directory() . '/inc/widgets/tagcloud.php' );
 
-
-
 /**
  *   支持 Bootstrap
  */
@@ -34,7 +32,6 @@ require 'inc/bootstrap.php'; //给日历添加样式
  */
 require get_template_directory() . '/inc/nav-header.php'; // 不知道其作用
 require get_template_directory() . '/inc/extras.php'; //Custom functions that act independently of the theme templates.
-require get_template_directory() . '/inc/jetpack.php'; //Load Jetpack compatibility file.
 require get_template_directory() . '/inc/custom-comments.php'; //评论
 //require get_template_directory() . '/inc/lazyload.php'; //图片懒加载
 

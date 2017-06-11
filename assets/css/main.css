@@ -14,26 +14,36 @@ body {
   background: #fff; }
 
 /**
- * Front Page
+ * 设置背景
  */
-.sticky-posts .card {
-  border-bottom: 1px solid #eee; }
+.main-content,
+.jumbotron {
+  background: #fff;
+  box-shadow: 0 2px 16px #e5eced, 0 0 1px #e5eced, 0 0 1px #e5eced;
+  opacity: 0.9; }
 
-.sticky-posts .card,
-.related-posts .card {
-  border: 0; }
-  .sticky-posts .card .card-block,
-  .related-posts .card .card-block {
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 10px;
-    padding-bottom: 10px; }
+.main-content {
+  padding: 1.25rem 1rem; }
+
+.jumbotron {
+  margin-bottom: 0;
+  border-radius: 0; }
 
 /**
- * related-posts
+ * Front Page
  */
-.related-posts .card-title {
-  margin-bottom: 0; }
+.related-posts .card {
+  border: 0;
+  background-color: inherit; }
+  .related-posts .card .card-text {
+    margin-top: .5rem; }
+    .related-posts .card .card-text a {
+      color: #333;
+      text-decoration: none;
+      transition: all 0.3s ease; }
+      .related-posts .card .card-text a:focus, .related-posts .card .card-text a:hover {
+        color: #0275d8;
+        text-decoration: none; }
 
 /** post-tags **/
 .post-tags .btn,
