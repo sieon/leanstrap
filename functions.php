@@ -50,6 +50,6 @@ require get_template_directory() . '/inc/get-avatar.php'; //头像
 /**
  *   内容类型与分类
  */
-require get_template_directory() . '/inc/post-type-slides.php';// 注册内容类型 以支持 CAROUSEL AND 首页栏目
-require get_template_directory() . '/inc/post-type-product.php';// 相关文章
+//require get_template_directory() . '/inc/post-type-slides.php';// 注册内容类型 以支持 CAROUSEL AND 首页栏目
+//require get_template_directory() . '/inc/post-type-product.php';// 相关文章
 //require get_template_directory() . '/inc/taxonomy.php';// 相关文章

@@ -28,9 +28,9 @@
 	<div class="media-body">
 		<?php the_title( sprintf( '<h3 class="entry-title mt-0 mb-1"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 
-		<div class="entry-meta mb-2">
+		<p class="entry-meta">
 			<?php lean_entry_meta(); ?>
-		</div><!-- .entry-footer -->
+		</p><!-- .entry-footer -->
 
 		<div class="entry-excerpt hidden-sm-down">
 			<?php the_excerpt(); ?>
